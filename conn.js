@@ -2925,6 +2925,7 @@ _Broadcast › Chat All User_`);
             "./database/menfess.json",
             JSON.stringify(db_menfes, 2, null)
           );
+
           var tulis_pesan = `𝗖𝗵𝗮𝘁 𝗔𝗻𝗼𝗻𝘆𝗺𝗼𝘂𝘀 𝗧𝗲𝗿𝗵𝘂𝗯𝘂𝗻𝗴✓
 𝗦𝗶𝗹𝗮𝗵𝗸𝗮𝗻 𝗞𝗶𝗿𝗶𝗺 𝗣𝗲𝘀𝗮𝗻✍
 
@@ -7047,23 +7048,21 @@ Video sedang dikirim...`);
 💬 : ${chat_anonymous}`;
             let btn_menfes = [
               {
-                buttonId: `${prefix}bales_room ${cekPesan(
+                buttonId: `${prefix}stopchat ${cekPesan(
                   "id",
                   sender
                 )}|${cekPesan("teman", sender)}`,
-                buttonText: { displayText: "⋮☰ Balas Pesan" },
+                buttonText: { displayText: "⋮☰ STOP" },
                 type: 1,
               },
             ];
             var button_menfess = {
               text: text_menfess,
-              footer: "Klik button untuk membalas chat.",
+              footer: "Klik button untuk stop.",
               buttons: btn_menfes,
               headerType: 1,
             };
             conn.sendMessage(cekPesan("teman", sender), button_menfess);
-            reply("Pesan diteruskan..");
-            db_menfes.splice("[]");
             fs.writeFileSync(
               "./database/menfess.json",
               JSON.stringify(db_menfes, null, 1)
