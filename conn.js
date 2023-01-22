@@ -111,6 +111,7 @@ const {
   textpromenu,
   ephotomenu,
   randomimagemenu,
+  groupmenu,
 } = require("./help");
 const { jadibot, listJadibot } = require("./function/jadibot");
 
