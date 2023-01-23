@@ -514,7 +514,7 @@ exports.usermenu = (prefix, ad) => {
 │
 └───────⭓`;
 };
-exports.ownermenu = (prefix, ad) => {
+exports.ownermenu = (prefix) => {
   return `┌──⭓ *OWNER MENU*
 │
 │⭔ ${prefix}error
