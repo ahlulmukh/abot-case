@@ -139,7 +139,6 @@ const Exif = require("./function/set_WM_Sticker");
 const exif = new Exif();
 
 const msgFilter = require("./function/func_Spam");
-const { stalkff, stalkml } = require("./function/func_Stalker");
 const mekih = fs.readFileSync("./function/mod.jpg");
 
 let orang_spam = [];
@@ -758,666 +757,6 @@ _*Waktu:* ${jam} WIB_`);
           fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
         }
       }
-    } else if (command === "bitly_short") {
-      if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-        var path_objec_auto = {
-          ID: require("crypto").randomBytes(5).toString("hex").toUpperCase(),
-          session: "bitly_shortlink",
-          data: {
-            trannss: "",
-          },
-        };
-        fs.writeFileSync(
-          PathAuto + sender.split("@")[0] + ".json",
-          JSON.stringify(path_objec_auto, null, 2)
-        );
-        reply(
-          "*Silahkan kirim url yang ingin di shortilink ke bitly.*\n\n*Contoh:* https://google.com"
-        );
-      } else {
-        reply("Link url nya mana kak?");
-      }
-    }
-
-    if (fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-      if (!chats.startsWith(prefix) && !msg.key.fromMe) {
-        let data_pathauto = JSON.parse(
-          fs.readFileSync(PathAuto + sender.split("@")[0] + ".json")
-        );
-        if (data_pathauto.session === "bitly_shortlink") {
-          if (chats.length === 0) return;
-          data_pathauto.data.trannss = chats;
-          let ii = await fetchJson(
-            `https://danzzapi.xyz/api/shortlink/bitly?url=${data_pathauto.data.trannss}&apikey=danzz`
-          );
-          if (ii.status == false)
-            return reply("url tidak valid\nsilahkan kirim yg benar.");
-          data_pathauto.session = "input_texttttranss";
-          fs.writeFileSync(
-            PathAuto + sender.split("@")[0] + ".json",
-            JSON.stringify(data_pathauto, null, 3)
-          );
-          reply(`*SHORTLINK*
-
-*TYPE*
-https://bitly.com/
-
-*TIME*
-${time} WIB
-
-*HASIL*
-${ii.result}
-
-*ORIGINAL* 
-${data_pathauto.data.trannss}`);
-          fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
-        }
-      }
-    } else if (command === "tinyurl_short") {
-      if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-        var path_objec_auto = {
-          ID: require("crypto").randomBytes(5).toString("hex").toUpperCase(),
-          session: "tinyurl_shortlink",
-          data: {
-            trannss: "",
-          },
-        };
-        fs.writeFileSync(
-          PathAuto + sender.split("@")[0] + ".json",
-          JSON.stringify(path_objec_auto, null, 2)
-        );
-        reply(
-          "*Silahkan kirim url yang ingin di shortilink ke tinyurl.*\n\n*Contoh:* https://google.com"
-        );
-      } else {
-        reply("Link url nya mana kak?");
-      }
-    }
-
-    if (fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-      if (!chats.startsWith(prefix) && !msg.key.fromMe) {
-        let data_pathauto = JSON.parse(
-          fs.readFileSync(PathAuto + sender.split("@")[0] + ".json")
-        );
-        if (data_pathauto.session === "tinyurl_shortlink") {
-          if (chats.length === 0) return;
-          data_pathauto.data.trannss = chats;
-          let ii = await fetchJson(
-            `https://danzzapi.xyz/api/shortlink/tinyurl?url=${data_pathauto.data.trannss}&apikey=danzz`
-          );
-          if (ii.status == false)
-            return reply("url tidak valid\nsilahkan kirim yg benar.");
-          data_pathauto.session = "input_texttttranss";
-          fs.writeFileSync(
-            PathAuto + sender.split("@")[0] + ".json",
-            JSON.stringify(data_pathauto, null, 3)
-          );
-          reply(`*SHORTLINK*
-
-*TYPE*
-https://tinyurl.com/
-
-*TIME*
-${time} WIB
-
-*HASIL*
-${ii.result}
-
-*ORIGINAL* 
-${data_pathauto.data.trannss}`);
-          fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
-        }
-      }
-    } else if (command === "cuttly_short") {
-      if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-        var path_objec_auto = {
-          ID: require("crypto").randomBytes(5).toString("hex").toUpperCase(),
-          session: "cuttly_shortlink",
-          data: {
-            trannss: "",
-          },
-        };
-        fs.writeFileSync(
-          PathAuto + sender.split("@")[0] + ".json",
-          JSON.stringify(path_objec_auto, null, 2)
-        );
-        reply(
-          "*Silahkan kirim url yang ingin di shortilink ke cuttly.*\n\n*Contoh:* https://google.com"
-        );
-      } else {
-        reply("Link url nya mana kak?");
-      }
-    }
-
-    if (fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-      if (!chats.startsWith(prefix) && !msg.key.fromMe) {
-        let data_pathauto = JSON.parse(
-          fs.readFileSync(PathAuto + sender.split("@")[0] + ".json")
-        );
-        if (data_pathauto.session === "cuttly_shortlink") {
-          if (chats.length === 0) return;
-          data_pathauto.data.trannss = chats;
-          let ii = await fetchJson(
-            `https://danzzapi.xyz/api/shortlink/cuttly?url=${data_pathauto.data.trannss}&apikey=danzz`
-          );
-          if (ii.status == false)
-            return reply("url tidak valid\nsilahkan kirim yg benar.");
-          data_pathauto.session = "input_texttttranss";
-          fs.writeFileSync(
-            PathAuto + sender.split("@")[0] + ".json",
-            JSON.stringify(data_pathauto, null, 3)
-          );
-          reply(`*SHORTLINK*
-
-*TYPE*
-https://cutt.ly/
-
-*TIME*
-${time} WIB
-
-*HASIL*
-${ii.result}
-
-*ORIGINAL* 
-${data_pathauto.data.trannss}`);
-          fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
-        }
-      }
-    } else if (command === "translate") {
-      if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-        var path_objec_auto = {
-          ID: require("crypto").randomBytes(5).toString("hex").toUpperCase(),
-          session: "translate",
-          data: {
-            trannss: "",
-          },
-        };
-        fs.writeFileSync(
-          PathAuto + sender.split("@")[0] + ".json",
-          JSON.stringify(path_objec_auto, null, 2)
-        );
-        reply(
-          "*Silahkan kirim text yang ingin jadi translate ke inggris.*\n\n*Contoh:* Hai sayang"
-        );
-      } else {
-        reply("Text nya mana kak?");
-      }
-    }
-
-    if (fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-      if (!chats.startsWith(prefix) && !msg.key.fromMe) {
-        let data_pathauto = JSON.parse(
-          fs.readFileSync(PathAuto + sender.split("@")[0] + ".json")
-        );
-        if (data_pathauto.session === "translate") {
-          if (chats.length === 0) return;
-          data_pathauto.data.trannss = chats;
-
-          var en = await fetchJson(
-            `https://api.popcat.xyz/translate?to=en&text=${data_pathauto.data.trannss}`
-          );
-          data_pathauto.session = "input_texttttranss";
-          fs.writeFileSync(
-            PathAuto + sender.split("@")[0] + ".json",
-            JSON.stringify(data_pathauto, null, 3)
-          );
-          reply(`*TRANSLATE*
-*IND :* ${data_pathauto.data.trannss}
-*EN :* ${en.translated}`);
-          fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
-        }
-      }
-    } else if (command === "ytmp4") {
-      if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-        var path_objec_auto = {
-          ID: require("crypto").randomBytes(5).toString("hex").toUpperCase(),
-          session: "ytmp4",
-          data: {
-            url_nya: "",
-          },
-        };
-        fs.writeFileSync(
-          PathAuto + sender.split("@")[0] + ".json",
-          JSON.stringify(path_objec_auto, null, 2)
-        );
-        reply(
-          "*Silahkan kirim Url/Link YouTube*\n\nContoh: https://youtu.be/watyplEMt90"
-        );
-      } else {
-        reply("Url YouTube nya mana kak?");
-      }
-    }
-
-    if (fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-      if (!chats.startsWith(prefix) && !msg.key.fromMe) {
-        let data_pathauto = JSON.parse(
-          fs.readFileSync(PathAuto + sender.split("@")[0] + ".json")
-        );
-        if (data_pathauto.session === "ytmp4") {
-          if (chats.length === 0) return;
-          data_pathauto.data.url_nya = chats;
-
-          var ytmp4 = await fetchJson(
-            `https://saipulanuar.ga/api/download/ytmp4?url=${data_pathauto.data.url_nya}&apikey=jPHjZpQF`
-          );
-          var xx = ytmp4.result;
-          if (ytmp4.status == 500)
-            return reply(
-              "*Link yg kamu berikan tidak valid*\n*Silahkan kirim url yg valid&benar*"
-            );
-          data_pathauto.session = "input_urlytmp4";
-          fs.writeFileSync(
-            PathAuto + sender.split("@")[0] + ".json",
-            JSON.stringify(data_pathauto, null, 3)
-          );
-          reply(`*YTMP4 DOWNLOAD*
-
-*title:* ${xx.title}
-*channel:* ${xx.channel}
-*published:* ${xx.published}
-*views:* ${xx.views}
-*type:* video/mp4
-
-_Sedang mengirim video.._`);
-          conn.sendMessage(
-            sender,
-            { video: { url: xx.url }, caption: "Done!" },
-            { quoted: msg }
-          );
-          if (isGroup)
-            return conn.sendMessage(
-              from,
-              { text: "Video sudah dikirim lewat chat pribadi bot." },
-              { quoted: msg }
-            );
-          fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
-        }
-      }
-    } else if (command === "ytmp3") {
-      if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-        var path_objec_auto = {
-          ID: require("crypto").randomBytes(5).toString("hex").toUpperCase(),
-          session: "ytmp3",
-          data: {
-            url_nya: "",
-          },
-        };
-        fs.writeFileSync(
-          PathAuto + sender.split("@")[0] + ".json",
-          JSON.stringify(path_objec_auto, null, 2)
-        );
-        reply(
-          "*Silahkan kirim Url/Link YouTube*\n\nContoh: https://youtu.be/watyplEMt90"
-        );
-      } else {
-        reply("Url YouTube nya mana kak?");
-      }
-    }
-
-    if (fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-      if (!chats.startsWith(prefix) && !msg.key.fromMe) {
-        let data_pathauto = JSON.parse(
-          fs.readFileSync(PathAuto + sender.split("@")[0] + ".json")
-        );
-        if (data_pathauto.session === "ytmp3") {
-          if (chats.length === 0) return;
-          data_pathauto.data.url_nya = chats;
-          var ytmp3 = await fetchJson(
-            `https://saipulanuar.ga/api/download/ytmp3?url=${data_pathauto.data.url_nya}&apikey=jPHjZpQF`
-          );
-          var xx = ytmp3.result;
-          if (ytmp3.status == 500)
-            return reply(
-              "*Link yg kamu berikan tidak valid*\n*Silahkan kirim url yg valid&benar*"
-            );
-          data_pathauto.session = "input_urlytmp3";
-          fs.writeFileSync(
-            PathAuto + sender.split("@")[0] + ".json",
-            JSON.stringify(data_pathauto, null, 3)
-          );
-          reply(`*YTMP3 DOWNLOAD*
-
-*title:* ${xx.title}
-*channel:* ${xx.channel}
-*published:* ${xx.published}
-*views:* ${xx.views}
-*type:* audio/mp3
-
-_Sedang mengirim audio..._`);
-          conn.sendMessage(
-            sender,
-            {
-              audio: { url: xx.url },
-              mimetype: "audio/mpeg",
-              fileName: `${xx.title}.mp3`,
-            },
-            { quoted: msg }
-          );
-          if (isGroup)
-            return conn.sendMessage(
-              from,
-              { text: "Audio sudah dikirim lewat chat pribadi bot." },
-              { quoted: msg }
-            );
-          fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
-        }
-      }
-    } else if (command === "stalknpm") {
-      if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-        var path_objec_auto = {
-          ID: require("crypto").randomBytes(5).toString("hex").toUpperCase(),
-          session: "stalknpm",
-          data: {
-            id_nya: "",
-          },
-        };
-        fs.writeFileSync(
-          PathAuto + sender.split("@")[0] + ".json",
-          JSON.stringify(path_objec_auto, null, 2)
-        );
-        reply("*Silahkan kirim Username Npm*\n*Contoh:* hikki-me");
-      } else {
-        reply("Username npmnya mana kak?");
-      }
-    }
-
-    if (fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-      if (!chats.startsWith(prefix) && !msg.key.fromMe) {
-        let data_pathauto = JSON.parse(
-          fs.readFileSync(PathAuto + sender.split("@")[0] + ".json")
-        );
-        if (data_pathauto.session === "stalknpm") {
-          data_pathauto.data.id_nya = chats;
-
-          var x = await fetchJson(
-            `https://api.popcat.xyz/npm?q=${data_pathauto.data.id_nya}`
-          );
-          if (x.error)
-            return reply(
-              "Username tidak ditemukan\nSilahkan kirim username Npm yg benar."
-            );
-          data_pathauto.session = "use_npmstalk";
-          fs.writeFileSync(
-            PathAuto + sender.split("@")[0] + ".json",
-            JSON.stringify(data_pathauto, null, 3)
-          );
-          var npm_text = `*NPM STALKER*
-name : ${x.name}
-version : ${x.version}
-description : ${x.description}
-author : ${x.author}
-author_email : ${x.author_email}
-last_published : ${x.last_published}
-maintainers : ${x.maintainers}
-repository : ${x.repository}
-
-keywords : ${x.keywords}`;
-          reply(npm_text);
-          fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
-        }
-      }
-    } else if (command === "stalkgithub") {
-      if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-        var path_objec_auto = {
-          ID: require("crypto").randomBytes(5).toString("hex").toUpperCase(),
-          session: "stalkgithub",
-          data: {
-            id_nya: "",
-          },
-        };
-        fs.writeFileSync(
-          PathAuto + sender.split("@")[0] + ".json",
-          JSON.stringify(path_objec_auto, null, 2)
-        );
-        reply("*Silahkan kirim Username Github*");
-      } else {
-        reply("username nya mana kak?");
-      }
-    }
-
-    if (fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-      if (!chats.startsWith(prefix) && !msg.key.fromMe) {
-        let data_pathauto = JSON.parse(
-          fs.readFileSync(PathAuto + sender.split("@")[0] + ".json")
-        );
-        if (data_pathauto.session === "stalkgithub") {
-          data_pathauto.data.id_nya = chats;
-
-          var git = await fetchJson(
-            `https://api.github.com/users/${data_pathauto.data.id_nya}`
-          );
-          data_pathauto.session = "input_username_github";
-          fs.writeFileSync(
-            PathAuto + sender.split("@")[0] + ".json",
-            JSON.stringify(data_pathauto, null, 3)
-          );
-          let textGitthub = `*STALK-GITHUB*
-id : ${git.id}
-login : ${git.login}
-html_url : ${git.html_url}
-type : ${git.type}
-name : ${git.name}
-location : ${git.location}
-bio : ${git.bio}
-public_repos : ${git.public_repos}
-followers : ${git.followers}
-following : ${git.following}
-created : ${git.created_at}
-updated : ${git.updated_at}`;
-          reply(textGitthub);
-          fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
-        }
-      }
-    } else if (command === "besarkecil") {
-      if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-        var path_objec_auto = {
-          ID: require("crypto").randomBytes(5).toString("hex").toUpperCase(),
-          session: "besar_kecilnya",
-          data: {
-            text_nya: "",
-          },
-        };
-        fs.writeFileSync(
-          PathAuto + sender.split("@")[0] + ".json",
-          JSON.stringify(path_objec_auto, null, 2)
-        );
-        reply(
-          "*Silahkan tulis text yg ingin dijadiin besar dan kecil.*\n\n*Contoh:* hallo bro"
-        );
-      } else {
-        reply("nomor nya mana kak?");
-      }
-    }
-
-    if (fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-      if (!chats.startsWith(prefix) && !msg.key.fromMe) {
-        let data_pathauto = JSON.parse(
-          fs.readFileSync(PathAuto + sender.split("@")[0] + ".json")
-        );
-        if (data_pathauto.session === "besar_kecilnya") {
-          data_pathauto.data.text_nya = chats;
-          data_pathauto.session = "text_nya_cuy";
-          var xx_besar = await fetchJson(
-            `https://api.nataganz.com/api/random/besarkecil?text=${data_pathauto.data.text_nya}&apikey=Pasha`
-          );
-          fs.writeFileSync(
-            PathAuto + sender.split("@")[0] + ".json",
-            JSON.stringify(data_pathauto, null, 3)
-          );
-          reply(`*BESAR KECIL*
-*Text:* ${data_pathauto.data.text_nya}
-*Hasil:* ${xx_besar.result.list}`);
-          fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
-        }
-      }
-    } else if (command === "bilangangka") {
-      if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-        var path_objec_auto = {
-          ID: require("crypto").randomBytes(5).toString("hex").toUpperCase(),
-          session: "bilang_angkanya",
-          data: {
-            text_nya: "",
-          },
-        };
-        fs.writeFileSync(
-          PathAuto + sender.split("@")[0] + ".json",
-          JSON.stringify(path_objec_auto, null, 2)
-        );
-        reply("*Silahkan tulis number yg ingin dibilang.*\n\n*Contoh:* 1234");
-      } else {
-        reply("nomor nya mana kak?");
-      }
-    }
-
-    if (fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-      if (!chats.startsWith(prefix) && !msg.key.fromMe) {
-        let data_pathauto = JSON.parse(
-          fs.readFileSync(PathAuto + sender.split("@")[0] + ".json")
-        );
-        if (data_pathauto.session === "bilang_angkanya") {
-          if (chats.length === 0) return;
-          if (isNaN(chats)) return reply("Hanya angka!");
-          data_pathauto.data.text_nya = Number(chats);
-          data_pathauto.session = "text_nya_cuy";
-          var xx_bilang = await fetchJson(
-            `https://api.nataganz.com/api/random/bilangangka?text=${data_pathauto.data.text_nya}&apikey=Pasha`
-          );
-          fs.writeFileSync(
-            PathAuto + sender.split("@")[0] + ".json",
-            JSON.stringify(data_pathauto, null, 3)
-          );
-          reply(`*BILANG ANGKA*
-*Nomor:* ${data_pathauto.data.text_nya}
-*Hasil:* ${xx_bilang.result.list}`);
-          fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
-        }
-      }
-    } else if (command === "balikangka") {
-      if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-        var path_objec_auto = {
-          ID: require("crypto").randomBytes(5).toString("hex").toUpperCase(),
-          session: "balik_angkanya",
-          data: {
-            text_nya: "",
-          },
-        };
-        fs.writeFileSync(
-          PathAuto + sender.split("@")[0] + ".json",
-          JSON.stringify(path_objec_auto, null, 2)
-        );
-        reply("*Silahkan tulis number yg ingin dibalik.*\n\n*Contoh:* 1234");
-      } else {
-        reply("nomor nya mana kak?");
-      }
-    }
-
-    if (fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-      if (!chats.startsWith(prefix) && !msg.key.fromMe) {
-        let data_pathauto = JSON.parse(
-          fs.readFileSync(PathAuto + sender.split("@")[0] + ".json")
-        );
-        if (data_pathauto.session === "balik_angkanya") {
-          if (chats.length === 0) return;
-          if (isNaN(chats)) return reply("Hanya angka!");
-          data_pathauto.data.text_nya = Number(chats);
-          data_pathauto.session = "text_nya_cuy";
-          var xx_angka = await fetchJson(
-            `https://api.nataganz.com/api/random/balikangka?text=${data_pathauto.data.text_nya}&apikey=Pasha`
-          );
-          fs.writeFileSync(
-            PathAuto + sender.split("@")[0] + ".json",
-            JSON.stringify(data_pathauto, null, 3)
-          );
-          reply(`*BALIK ANGKA*
-*Nomor Asli:* ${data_pathauto.data.text_nya}
-*Nomor Hasil:* ${xx_angka.result.list}`);
-          fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
-        }
-      }
-    } else if (command === "balikhuruf") {
-      if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-        var path_objec_auto = {
-          ID: require("crypto").randomBytes(5).toString("hex").toUpperCase(),
-          session: "balik_hurufnya",
-          data: {
-            text_nya: "",
-          },
-        };
-        fs.writeFileSync(
-          PathAuto + sender.split("@")[0] + ".json",
-          JSON.stringify(path_objec_auto, null, 2)
-        );
-        reply("*Silahkan tulis text yg ingin dibalik.*\n\n*Contoh:* Ngetes");
-      } else {
-        reply("text nya mana kak?");
-      }
-    }
-
-    if (fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-      if (!chats.startsWith(prefix) && !msg.key.fromMe) {
-        let data_pathauto = JSON.parse(
-          fs.readFileSync(PathAuto + sender.split("@")[0] + ".json")
-        );
-        if (data_pathauto.session === "balik_hurufnya") {
-          data_pathauto.data.text_nya = chats;
-          data_pathauto.session = "text_nya_cuy";
-          var xx_huruf = await fetchJson(
-            `https://api.nataganz.com/api/random/balikhuruf?text=${data_pathauto.data.text_nya}&apikey=Pasha`
-          );
-          fs.writeFileSync(
-            PathAuto + sender.split("@")[0] + ".json",
-            JSON.stringify(data_pathauto, null, 3)
-          );
-          reply(`*BALIK HURUF*
-*Text Asli:* ${data_pathauto.data.text_nya}
-*Text Hasil:* ${xx_huruf.result.list}`);
-          fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
-        }
-      }
-    } else if (command === "stalkff") {
-      if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-        var path_objec_auto = {
-          ID: require("crypto").randomBytes(5).toString("hex").toUpperCase(),
-          session: "stalkff",
-          data: {
-            id_nya: "",
-          },
-        };
-        fs.writeFileSync(
-          PathAuto + sender.split("@")[0] + ".json",
-          JSON.stringify(path_objec_auto, null, 2)
-        );
-        reply("*Silahkan kirim ID free fire kamu*");
-      } else {
-        reply("id ff nya mana kak?");
-      }
-    }
-
-    if (fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
-      if (!chats.startsWith(prefix) && !msg.key.fromMe) {
-        let data_pathauto = JSON.parse(
-          fs.readFileSync(PathAuto + sender.split("@")[0] + ".json")
-        );
-        if (data_pathauto.session === "stalkff") {
-          if (chats.length === 0) return;
-          if (isNaN(chats)) return reply("Hanya angka!");
-          data_pathauto.data.id_nya = Number(chats);
-          let stalk_freefire = await stalkff(data_pathauto.data.id_nya);
-          if (stalk_freefire.status == 404)
-            return reply(
-              "*Error ID tidak ditemukan*\n*Silahkan kirim ID yg valid*"
-            );
-          data_pathauto.session = "input_id_ff";
-          fs.writeFileSync(
-            PathAuto + sender.split("@")[0] + ".json",
-            JSON.stringify(data_pathauto, null, 3)
-          );
-          reply(`*STALKER FF*
-*ID:* ${data_pathauto.data.id_nya}
-*Username:* ${stalk_freefire.nickname}`);
-          fs.unlinkSync(PathAuto + sender.split("@")[0] + ".json");
-        }
-      }
     } else if (command === "tahta_maker") {
       if (!fs.existsSync(PathAuto + sender.split("@")[0] + ".json")) {
         var path_objec_auto = {
@@ -1693,29 +1032,9 @@ updated : ${git.updated_at}`;
             description: `Menampilkan daftar store menu`,
           },
           {
-            title: `🐔 AUTODECT MENU`,
-            rowId: `${prefix}autodectmenu`,
-            description: `Menampilkan daftar autodect menu`,
-          },
-          {
             title: `🛺 BUGVIP MENU`,
             rowId: `${prefix}bugvipmenu`,
             description: `Menampilkan daftar bugvip menu`,
-          },
-          {
-            title: `⚙️ TOOLS MENU`,
-            rowId: `${prefix}toolsmenu`,
-            description: `Menampilkan daftar tollsmenu menu`,
-          },
-          {
-            title: `✨ RANDOMCEK MENU`,
-            rowId: `${prefix}randomcekmenu`,
-            description: `Menampilkan daftar randomcek menu`,
-          },
-          {
-            title: `🪢 SERTIFIKAT MENU`,
-            rowId: `${prefix}sertifikatmenu`,
-            description: `Menampilkan daftar sertifikat menu`,
           },
           {
             title: `🧢 LOGOMAKER MENU`,
@@ -1728,16 +1047,6 @@ updated : ${git.updated_at}`;
             description: `Menampilkan daftar anonymousemenu menu`,
           },
           {
-            title: `🏪 SOSMEDSHOP MENU`,
-            rowId: `${prefix}sosmedshopmenu`,
-            description: `Menampilkan daftar sosmedshop menu`,
-          },
-          {
-            title: `🎙️ VOKAL MENU`,
-            rowId: `${prefix}vokalmenu`,
-            description: `Menampilkan daftar vokalmenu menu`,
-          },
-          {
             title: `🥵 RANDOM MENU`,
             rowId: `${prefix}randommenu`,
             description: `Menampilkan daftar random menu`,
@@ -1748,29 +1057,9 @@ updated : ${git.updated_at}`;
             description: `Menampilkan daftar primbon menu`,
           },
           {
-            title: `😒 ASUPAN MENU`,
-            rowId: `${prefix}asupangachamenu`,
-            description: `Menampilkan daftar asupan menu`,
-          },
-          {
-            title: `🔉 AUDIO CHANGER MENU`,
-            rowId: `${prefix}audiochangermenu`,
-            description: `Menampilkan daftar audio changer menu`,
-          },
-          {
             title: `ℹ️ INFORMATION MENU`,
             rowId: `${prefix}informationmenu`,
             description: `Menampilkan daftar information menu`,
-          },
-          {
-            title: `⛳ RANDOM STICKER MENU`,
-            rowId: `${prefix}randomstickermenu`,
-            description: `Menampilkan daftar randomsticker menu`,
-          },
-          {
-            title: `🥃 AUDIO MENU`,
-            rowId: `${prefix}audiomenu`,
-            description: `Menampilkan daftar audio menu`,
           },
           {
             title: `🐻‍❄️ FUN MENU`,
@@ -1793,29 +1082,19 @@ updated : ${git.updated_at}`;
             description: `Menampilkan daftar cerpen menu`,
           },
           {
-            title: `🔞 NSFW MENU`,
-            rowId: `${prefix}nsfwmenu`,
-            description: `Menampilkan daftar nsfw menu`,
-          },
-          {
-            title: `➿ SOUND MENU`,
-            rowId: `${prefix}soundmenu`,
-            description: `Menampilkan daftar sound menu`,
-          },
-          {
             title: `🗨️ TEXT PRO MENU`,
             rowId: `${prefix}textpromenu`,
             description: `Menampilkan daftar text pro menu`,
           },
           {
-            title: `📷 EPHOTO MENU`,
-            rowId: `${prefix}ephotomenu`,
-            description: `Menampilkan daftar ephoto menu`,
-          },
-          {
             title: `🙅‍♂️ RANDOM IMAGE MENU`,
             rowId: `${prefix}randomimagemenu`,
             description: `Menampilkan daftar random image menu`,
+          },
+          {
+            title: `📷 ASUPAN GACHA`,
+            rowId: `${prefix}asupangacha`,
+            description: `Menampilkan daftar cerpen menu`,
           },
         ],
       },
@@ -1943,7 +1222,7 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
           }`;
           let usernya = `${("id", db_user).length}`;
           let romnya = `${db_menfes.length}`;
-          const gurbot = "6283834558105@s.whatsapp.net";
+          const gurbot = "628126915328@s.whatsapp.net";
           const mark_slebew = "628126915328@s.whatsapp.net";
           var footer_nya = `𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚 @${mark_slebew.split("@")[0]}`;
           var menu_nya = `${listmenu(
@@ -2018,6 +1297,14 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
         }
         break;
 
+      case "asupangacha":
+        {
+          if (cekUser("id", sender) == null)
+            return conn.sendMessage(from, buta_menu);
+          reply(asupangachamenu(prefix, ad));
+        }
+        break;
+
       case "ownermenu":
         {
           if (cekUser("id", sender) == null)
@@ -2039,14 +1326,6 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
           if (cekUser("id", sender) == null)
             return conn.sendMessage(from, buta_menu);
           reply(groupmenu(prefix, ad));
-        }
-        break;
-
-      case "autodectmenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(autodectmenu(prefix, ad));
         }
         break;
 
@@ -2074,30 +1353,6 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
         }
         break;
 
-      case "toolsmenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(toolsmenu(prefix, ad));
-        }
-        break;
-
-      case "randomcekmenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(randomcekmenu(prefix, ad));
-        }
-        break;
-
-      case "sertifikatmenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(sertifikatmenu(prefix, ad));
-        }
-        break;
-
       case "logomakermenu":
         {
           if (cekUser("id", sender) == null)
@@ -2111,22 +1366,6 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
           if (cekUser("id", sender) == null)
             return conn.sendMessage(from, buta_menu);
           reply(anonymousemenu(prefix, ad));
-        }
-        break;
-
-      case "sosmedshopmenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(sosmedshopmenu(prefix, ad));
-        }
-        break;
-
-      case "vokalmenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(vokalmenu(prefix, ad));
         }
         break;
 
@@ -2146,43 +1385,11 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
         }
         break;
 
-      case "asupangachamenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(asupangachamenu(prefix, ad));
-        }
-        break;
-
-      case "audiochangermenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(audiochangermenu(prefix, ad));
-        }
-        break;
-
       case "informationmenu":
         {
           if (cekUser("id", sender) == null)
             return conn.sendMessage(from, buta_menu);
           reply(informationmenu(prefix, ad));
-        }
-        break;
-
-      case "randomstickermenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(randomstickermenu(prefix, ad));
-        }
-        break;
-
-      case "audiomenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(audiomenu(prefix, ad));
         }
         break;
 
@@ -2218,22 +1425,6 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
         }
         break;
 
-      case "nsfwmenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(nsfwmenu(prefix, ad));
-        }
-        break;
-
-      case "soundmenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(soundmenu(prefix, ad));
-        }
-        break;
-
       case "textpromenu":
         {
           if (cekUser("id", sender) == null)
@@ -2241,23 +1432,6 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
           reply(textpromenu(prefix, ad));
         }
         break;
-
-      case "ephotomenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(ephotomenu(prefix, ad));
-        }
-        break;
-
-      case "randomimagemenu":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(randomimagemenu(prefix, ad));
-        }
-        break;
-
       case "donate":
       case "donasi":
         {
@@ -2295,6 +1469,7 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
         {
           if (cekUser("id", sender) == null)
             return conn.sendMessage(from, buta_menu);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q) return reply("Contoh:\n#wikimedia viral");
           fetchJson(
             `https://saipulanuar.ga/api/search/wikimedia?query=${q}&apikey=jPHjZpQF`
@@ -2312,15 +1487,13 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
         }
         confirmlimit(sender, 1);
         break;
-      case "joker":
       case "digital":
-      case "nulis":
-      case "nulis2":
       case "quoteser":
       case "quobucin":
         {
           if (cekUser("id", sender) == null)
             return conn.sendMessage(from, buta_menu);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q) return reply(`Contoh:\n${prefix + command} saya bukan wibu`);
           reply(mess.wait);
           var buc = `https://saipulanuar.ga/api/textmaker/${command}?text=${q}&apikey=jPHjZpQF`;
@@ -2339,6 +1512,7 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
         {
           if (cekUser("id", sender) == null)
             return conn.sendMessage(from, buta_menu);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q) return reply(`Contoh:\n${prefix + command} saya wibu`);
           var nyz1 = await getBuffer(
             `https://saipulanuar.ga/api/maker/${command}?text=${q}&apikey=jPHjZpQF`
@@ -2372,6 +1546,7 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
       case "pinterest":
         if (cekUser("id", sender) == null)
           return conn.sendMessage(from, buta_menu);
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
         if (!q) return reply(`Contoh:\n${prefix + command} loli`);
         reply(mess.wait);
         fetchJson(
@@ -2390,6 +1565,7 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
         {
           if (cekUser("id", sender) == null)
             return conn.sendMessage(from, buta_menu);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q) return reply(`Contoh:\n${prefix + command} hallo bro`);
           var tts = `https://saipulanuar.ga/api/text-to-audio/tts?text=${q}&idbahasa=id&apikey=jPHjZpQF`;
           conn.sendMessage(
@@ -2400,40 +1576,44 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
         }
         confirmlimit(sender, 1);
         break;
+
+      case "ytmp3":
       case "playmp3":
         if (cekUser("id", sender) == null)
           return conn.sendMessage(from, buta_menu);
-        if (!q) return reply("*Contoh:*\n#playmp3 preset angel baby 30 detik");
-        fetchJson(
-          `https://api-yogipw.herokuapp.com/api/yt/playmp3?query=${q}`
-        ).then((z) => {
-          var text_playmp3 = `*YOUTUBE PLAYMP3*
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
+        if (!q) return reply("*Contoh:*\n#playmp3 link yt");
+        fetchJson(`https://saipulanuar.ga/api/download/ytmp3?url=${q}`).then(
+          (z) => {
+            var text_playmp3 = `*YOUTUBE PLAYMP3*
 
-*title:* ${z.title}
-*channel:* ${z.channel}
-*published:* ${z.published}
-*views:* ${z.views}
+*title:* ${z.result.title}
+*channel:* ${z.result.channel}
+*published:* ${z.result.published}
+*views:* ${z.result.views}
 *type:* audio/mp3
 
 Media sedang dikirim.`;
-          reply(text_playmp3);
-          conn.sendMessage(
-            sender,
-            {
-              audio: { url: z.url },
-              mimetype: "audio/mpeg",
-              fileName: z.title + "mp3",
-            },
-            { quoted: msg }
-          );
-          if (isGroup) return reply("Media sudah dikirim dichat pribadi.");
-        });
+            reply(text_playmp3);
+            conn.sendMessage(
+              sender,
+              {
+                audio: { url: z.result.url },
+                mimetype: "audio/mpeg",
+                fileName: z.title + "mp3",
+              },
+              { quoted: msg }
+            );
+            if (isGroup) return reply("Media sudah dikirim dichat pribadi.");
+          }
+        );
         confirmlimit(sender, 1);
         break;
 
       case "soundcloud":
         if (cekUser("id", sender) == null)
           return conn.sendMessage(from, buta_menu);
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
         if (!q)
           return reply(
             "*Contoh:*\n#soundcloud https://soundcloud.com/ndaa-212683099/dj-coba-kau-ingat-ingat-kembali-seharusnya-aku-jungle-dutch-terbaru-2021-full-bass-viral-tik?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
@@ -2469,36 +1649,39 @@ itu artinya url tidak ditemukan.`);
         confirmlimit(sender, 1);
         break;
 
+      case "youtubemp4":
       case "playmp4":
         if (cekUser("id", sender) == null)
           return conn.sendMessage(from, buta_menu);
-        if (!q) return reply("*Contoh:*\n#playmp4 preset angel baby 30 detik");
-        fetchJson(
-          `https://api-yogipw.herokuapp.com/api/yt/playmp4?query=${q}`
-        ).then((zz) => {
-          var text_playmp4 = `*YOUTUBE PLAYMP4*
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
+        if (!q) return reply(`*Contoh:*\n${prefix}playmp4 link`);
+        fetchJson(`https://saipulanuar.ga/api/download/ytmp4?url=${q}`).then(
+          (zz) => {
+            var text_playmp4 = `*YOUTUBE PLAYMP4*
 
-*title:* ${zz.title}
-*channel:* ${zz.channel}
-*published:* ${zz.published}
-*views:* ${zz.views}
+*title:* ${zz.result.title}
+*channel:* ${zz.result.channel}
+*published:* ${zz.result.published}
+*views:* ${zz.result.views}
 *type:* video/mp4
 
 Media sedang dikirim.`;
-          reply(text_playmp4);
-          conn.sendMessage(
-            sender,
-            { video: { url: zz.url }, caption: "Done!" },
-            { quoted: msg }
-          );
-          if (isGroup) return reply("Media sudah dikirim dichat pribadi.");
-        });
+            reply(text_playmp4);
+            conn.sendMessage(
+              sender,
+              { video: { url: zz.result.url }, caption: "Done!" },
+              { quoted: msg }
+            );
+            if (isGroup) return reply("Media sudah dikirim dichat pribadi.");
+          }
+        );
         confirmlimit(sender, 1);
         break;
 
       case "mediafire":
         if (cekUser("id", sender) == null)
           return conn.sendMessage(from, buta_menu);
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
         if (!q)
           return reply(
             "*Contoh:*\n#mediafire https://www.mediafire.com/file/451l493otr6zca4/V4.zip/file"
@@ -2554,27 +1737,6 @@ ${setting.group.link}`);
 • Date : ${tanggal}
 • Terdaftar : ( ${("id", db_user).length} )
 • Room Chat : ( ${db_menfes.length} )`);
-        break;
-      case "ssweb-pc":
-      case "ssweb-hp":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          if (!q)
-            return reply(
-              `Masukan parameter url\n*Contoh:*\n${
-                prefix + command
-              } https://google.com`
-            );
-          reply(mess.wait);
-          let anu = `https://leyscoders-api.herokuapp.com/api/${command}?url=${q}&apikey=IkyOgiwara`;
-          conn.sendMessage(
-            from,
-            { image: { url: anu }, caption: "Done!" },
-            { quoted: msg }
-          );
-        }
-        confirmlimit(sender, 1);
         break;
       case "setfooter":
         if (!isOwner) return reply(mess.OnlyOwner);
@@ -3259,71 +2421,6 @@ _Topup & Deposit_`;
         break;
       // CASE BY LEXXY OFFICIAL
       // JANGAN DI EDIT LAGI YA
-      case "pricelist":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          let feta = await fetchJson(
-            `https://ampibismm.my.id/api/json?bot=true&api_key=hASnfGXGkVRT2NonzLePbp3wZAmzop&action=pricelist&type=semua`
-          );
-          if (feta.status == false) return reply(feta.data.msg);
-          let list = "*List Harga Layanan*\n\n";
-          for (let L of feta.data) {
-            list += `name : ${L.nama}\ndesc : ${L.desc}\nmin : ${L.min}\nmax : ${L.max}\nharga : ${L.price}\nid : ${L.id_layanan}\n\n`;
-          }
-          conn.sendMessage(from, { text: list }, { quoted: msg });
-        }
-        break;
-      case "komisi":
-        if (!isOwner) return reply(mess.OnlyOwner);
-        var komisi = await fetchJson(
-          `http://ampibismm.my.id/api/json?bot=true&action=profile&api_key=hASnfGXGkVRT2NonzLePbp3wZAmzop`
-        );
-        let reskomisi = `Hallo owner Berikut komisi anda\n*Name :* ${komisi.data.name}\n*Full Name :* ${komisi.data.full_name}\n*Komisi :* ${komisi.data.komisi}`;
-        conn.sendMessage(from, { text: reskomisi }, { quoted: msg });
-        break;
-      case "tk":
-      case "tarikkomisi":
-        {
-          if (!isOwner) return reply(mess.OnlyOwner);
-          if (args.length < 1) return reply("jumlahnya berapa? minimal 10k");
-          var fetaa = await fetchJson(
-            `https://ampibismm.my.id/api/json?bot=true&api_key=hASnfGXGkVRT2NonzLePbp3wZAmzop&action=listwallet`
-          );
-          let list = [];
-          console.log(fetaa);
-          for (let L of fetaa.data) {
-            let no = 1;
-            list.push({
-              buttonText: { displayText: L.wallet },
-              buttonId: `${prefix}tarikkomisikunci ${q}|${L.wallet}`,
-              type: `${no++}`,
-            });
-          }
-          let nyobb = list;
-          conn.sendMessage(from, {
-            text: `*PILLIH E-WALLET*\nPilih jenis wallet yang ingin anda gunakan!`,
-            title: "WALLET",
-            footer: "©SosmedShop",
-            buttons: nyobb,
-          });
-        }
-        break;
-      case "tarikkomisikunci":
-        if (!isOwner) return reply(mess.OnlyOwner);
-        if (args.length < 1) return m.reply("jumlahnya berapa bang");
-        let juml = q.split("|")[0] ? q.split("|")[0] : q;
-        let walle = q.split("|")[1] ? q.split("|")[1] : "";
-        if (walle.length < 1) return reply(`Jumlah dan Target harus di isi!`);
-        var tarikom = await fetchJson(
-          `https://ampibismm.my.id/api/json?bot=true&api_key=hASnfGXGkVRT2NonzLePbp3wZAmzop&action=withdraw&amount=${juml}&wallet=${walle}&nomor=${smm_dana_number}&an=${smm_dana_nama}`
-        );
-        console.log(tarikom);
-        conn.sendMessage(
-          from,
-          { text: `${tarikom.data.msg}` },
-          { quoted: msg }
-        );
-        break;
       case "clear":
       case "clearer":
       case "clearerr":
@@ -3348,123 +2445,6 @@ _Topup & Deposit_`;
           reply(teks);
         }
         break;
-      case "order":
-      case "caraorder":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          if (isGroup) return reply("Fitur Tidak Dapat Digunakan Untuk Group!");
-          let capp = `*Hallo Kak Berikut Cara Order*\n\n*Followers :*\nex1 : _${prefix}followers jumlah|target [ tanpa (@) ]_\nex2 : _${prefix}followers 500|lexxy4554_\n\n*View :*\nex 1 : _${prefix}view jumlah|link_\nex 2 : _${prefix}view 10000|https://vm.tiktok.com/xxxxxxx_\n\n*Like :*\nex 1 : _${prefix}like jumlah|link_\nex 2 : _${prefix}like 10000|https://www.instagram.com/p/xxxxxxx_\n\nSekian penjelasan cara order\nSemoga anda faham dengan penjelasan ini🙏\nbeli = faham`;
-          conn.sendMessage(from, { text: capp }, { quoted: msg });
-        }
-        break;
-      case "view":
-      case "like":
-      case "follower": {
-        if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-        if (isGroup) return reply("Fitur Tidak Dapat Digunakan Untuk Group!");
-        if (args.length < 1)
-          return reply(
-            "Format tidak valid, jika masih belum mengerti ketik *#order*"
-          );
-        let juma = q.split("|")[0] ? q.split("|")[0] : q;
-        let targtt = q.split("|")[1] ? q.split("|")[1] : "";
-        if (targtt.length < 1)
-          return reply(
-            `Jumlah dan Target harus di isi!\nContoh: ${prefix}${command.slice(
-              1
-            )} 500|ahlulmukh_`
-          );
-        var fetaa = await fetchJson(
-          `https://ampibismm.my.id/api/json?bot=true&api_key=hASnfGXGkVRT2NonzLePbp3wZAmzop&action=pricelist&type=${command}`
-        );
-        let list = [];
-        var textplus = `${juma}|${targtt}`;
-        for (let L of fetaa.data) {
-          list.push({
-            title: `${L.nama}`,
-            rowId: `${prefix}confirmorderkunci ${textplus}|${L.id_layanan}`,
-            description: `\n${L.desc}`,
-          });
-        }
-        const listMessage = {
-          text: `Pilih layanan sesuai dengan yang anda inginkan!\nBerikut adalah list yang bisa anda pilih, silahkan!.`,
-          footer: "© created by Ahmuq",
-          buttonText: "Click Here!",
-          sections: [
-            {
-              title: "Sosmed Shop",
-              rows: list,
-            },
-          ],
-          listType: 1,
-        };
-        const sendMsg = await conn.sendMessage(from, listMessage);
-        break;
-      }
-      case "confirmorderkunci":
-        {
-          //KUNCI = BIAR GA DIAKSES HEHE
-          if (isGroup) return reply("Fitur Tidak Dapat Digunakan Untuk Group!");
-          if (args.length < 1)
-            return reply(
-              `*Cara order followers*\n\n*Example :* _${command} jumlah|username tanpa (@)_\n*Example :* _${command} 500|lexxy2408_\n\n*Min pesan :* _300_ \n*Max pesan :* _500k_\n\nThank You`
-            );
-          let jumlah = q.split("|")[0] ? q.split("|")[0] : q;
-          let targ = q.split("|")[1] ? q.split("|")[1] : "";
-          let idny = q.split("|")[2] ? q.split("|")[2] : "";
-          var feta = await fetchJson(
-            `https://ampibismm.my.id/api/json?bot=true&api_key=hASnfGXGkVRT2NonzLePbp3wZAmzop&action=order&quantity=${jumlah}&target=${targ}&id_layanan=${idny}`
-          );
-          if (feta.status == false) {
-            reply(
-              `*Maaf orderan gagal di buat*\n\nPermasalahan :\n${feta.data.msg} atau Cara order anda salah\n\nDiharapkan sudah faham jika ingin membeli\njika masih tidak faham silahkan ketik ${prefix}owner!\n`
-            );
-          } else {
-            let idpes = feta.data.order_id;
-            let cap = `Hai *@${
-              sender.split("@")[0]
-            } 👋,* Terimakasih Telah Order di Sosmed Shop!\nScan QR diatas untuk membayar! Menggunakan QRIS.\n\n*ID Pesanan :*\n${
-              feta.data.order_id
-            }\n\n*Target :*\n${targ}\n\n*Jumlah Order :* ${jumlah}\n*Total Harga :* Rp${toRupiah(
-              feta.data.amount
-            )}\n*Status Orderan :* ${
-              feta.data.status
-            }\n\n*info lebih lanjut?*\n*klik button dibawah.*`;
-            var buto = [
-              {
-                buttonId: `!cekstatus ${feta.data.order_id}`,
-                buttonText: { displayText: "Check Status" },
-                type: 1,
-              },
-            ];
-            conn.sendMessage(from, {
-              caption: cap,
-              image: { url: feta.data.qris },
-              buttons: buto,
-              footer: "© created by lexxy official",
-            });
-          }
-          console.log(feta);
-        }
-        break;
-      case "chekstatus":
-      case "cekstatus": {
-        if (cekUser("id", sender) == null)
-          return conn.sendMessage(from, buta_menu);
-        if (isGroup) return reply("Fitur Tidak Dapat Digunakan Untuk Group!");
-        if (!q) return reply("id ordernya mana kak?");
-        var seta = await fetchJson(
-          `https://ampibismm.my.id/api/json?bot=true&api_key=hASnfGXGkVRT2NonzLePbp3wZAmzop&action=status&order_id=${q}`
-        );
-        if (seta.status == false) {
-          var captionnye = `\nid order tidak di temukan`;
-        } else {
-          var captionnye = `\n*Status Orderan Anda*\n\nTarget : ${seta.data.target}\nStatus : ${seta.data.status}\nFollowers Default : ${seta.data.start_count}\nOn Process : ${seta.data.kurang}\nTotal Order : ${seta.data.total_order}\nTanggal Pesan : ${seta.data.tanggal_pesan}\nJumlah Pembayaran : ${seta.data.amount}\nId Pesanan : ${seta.data.order_id}\n\nTerimakasih sudah membeli jasa suntik dari kami, ditunggu next ordernya!`;
-        }
-        reply(captionnye);
-        break;
-      }
 
       // STORE FUN
       case "shop":
@@ -3689,11 +2669,12 @@ _Topup & Deposit_`;
         {
           if (cekUser("id", sender) == null)
             return conn.sendMessage(from, buta_menu);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           let regex1 =
             /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i;
           if (!q)
             return reply(
-              "link githubnya mana?\n*Contoh:*\n#gitclone https://github.com/Lexxy24/MenfessV1"
+              "link githubnya mana?\n*Contoh:*\n#gitclone https://github.com/ahlulmukh/script"
             );
           var linknya = q;
           if (!regex1.test(linknya)) return reply("link salah!");
@@ -3721,69 +2702,6 @@ _Topup & Deposit_`;
             );
         }
         confirmlimit(sender, 1);
-        break;
-      case "badgirlserti":
-      case "goodgirlserti":
-      case "bucinserti":
-      case "fuckgirlserti":
-      case "toloserti":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          if (!q) return reply(`*Contoh:*\n${prefix + command} text`);
-          var anu = await getBuffer(
-            `https://api.lolhuman.xyz/api/${command}?apikey=SadTeams&name=${q}`
-          );
-          reply(mess.wait);
-          conn
-            .sendMessage(
-              from,
-              { image: anu, caption: `${command}` },
-              { quoted: msg }
-            )
-            .catch((err) => reply("Maaf server LolHuman sedang down"));
-        }
-        confirmlimit(sender, 1);
-        break;
-      case "fitnah":
-        if (!isGroup) return reply(mess.OnlyGrup);
-        if (!q)
-          return reply(
-            `Kirim perintah #*${command}* @tag|pesantarget|pesanbot`
-          );
-        var org = q.split("|")[0];
-        var target = q.split("|")[1];
-        var bot = q.split("|")[2];
-        if (!org.startsWith("@")) return reply("Tag orangnya");
-        if (!target) return reply(`Masukkan pesan target!`);
-        if (!bot) return reply(`Masukkan pesan bot!`);
-        var mens = parseMention(target);
-        var msg1 = {
-          key: {
-            fromMe: false,
-            participant: `${parseMention(org)}`,
-            remoteJid: from ? from : "",
-          },
-          message: {
-            extemdedTextMessage: {
-              text: `${target}`,
-              contextInfo: { mentionedJid: mens },
-            },
-          },
-        };
-        var msg2 = {
-          key: {
-            fromMe: false,
-            participant: `${parseMention(org)}`,
-            remoteJid: from ? from : "",
-          },
-          message: { conversation: `${target}` },
-        };
-        conn.sendMessage(
-          from,
-          { text: bot, mentions: mentioned },
-          { quoted: mens.length > 2 ? msg1 : msg2 }
-        );
         break;
       case "del":
       case "delete":
@@ -4147,127 +3065,6 @@ _Topup & Deposit_`;
           });
         }
         break;
-      case "sound1":
-      case "sound2":
-      case "sound3":
-      case "sound4":
-      case "sound5":
-      case "sound6":
-      case "sound7":
-      case "sound8":
-      case "sound9":
-      case "sound10":
-      case "sound11":
-      case "sound12":
-      case "sound13":
-      case "sound14":
-      case "sound15":
-      case "sound16":
-      case "sound17":
-      case "sound18":
-      case "sound19":
-      case "sound20":
-      case "sound21":
-      case "sound22":
-      case "sound23":
-      case "sound24":
-      case "sound25":
-      case "sound26":
-      case "sound27":
-      case "sound28":
-      case "sound29":
-      case "sound30":
-      case "sound31":
-      case "sound32":
-      case "sound33":
-      case "sound34":
-      case "sound35":
-      case "sound36":
-      case "sound37":
-      case "sound38":
-      case "sound39":
-      case "sound40":
-      case "sound41":
-      case "sound42":
-      case "sound43":
-      case "sound44":
-      case "sound45":
-      case "sound46":
-      case "sound47":
-      case "sound48":
-      case "sound49":
-      case "sound50":
-      case "sound51":
-      case "sound52":
-      case "sound53":
-      case "sound54":
-      case "sound55":
-      case "sound56":
-      case "sound57":
-      case "sound58":
-      case "sound59":
-      case "sound60":
-      case "sound61":
-      case "sound62":
-      case "sound63":
-      case "sound64":
-      case "sound65":
-      case "sound66":
-      case "sound67":
-      case "sound68":
-      case "sound69":
-      case "sound70":
-      case "sound71":
-      case "sound72":
-      case "sound73":
-      case "sound74":
-        if (cekUser("id", sender) == null)
-          return conn.sendMessage(from, buta_menu);
-        reply(mess.wait);
-        var inicdd = await getBuffer(
-          `https://github.com/saipulanuar/Api-Github/raw/main/sound/${command}.mp3`
-        );
-        conn.sendMessage(
-          from,
-          { audio: inicdd, mimetype: "audio/mpeg", ptt: true },
-          { quoted: msg }
-        );
-        confirmlimit(sender, 1);
-        break;
-      case "audio1":
-      case "audio2":
-      case "audio3":
-      case "audio4":
-      case "audio5":
-      case "audio6":
-      case "audio7":
-      case "audio8":
-      case "audio9":
-      case "audio10":
-      case "audio11":
-      case "audio12":
-      case "audio13":
-      case "audio14":
-      case "audio15":
-      case "audio16":
-      case "audio17":
-      case "audio18":
-      case "audio19":
-      case "audio20":
-        if (cekUser("id", sender) == null)
-          return conn.sendMessage(from, buta_menu);
-        reply(mess.wait);
-        conn.sendMessage(
-          from,
-          {
-            audio: { url: `https://md-devs.herokuapp.com/${command}.mp3` },
-            mimetype: "audio/mp4",
-            ptt: true,
-          },
-          { quoted: msg }
-        );
-        confirmlimit(sender, 1);
-        break;
       case "tourl":
       case "upload":
         if (cekUser("id", sender) == null)
@@ -4355,6 +3152,7 @@ _Topup & Deposit_`;
       case "toaudio":
         if (cekUser("id", sender) == null)
           return conn.sendMessage(from, buta_menu);
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
         if (isVideo || isQuotedVideo) {
           await conn.downloadAndSaveMediaMessage(
             msg,
@@ -4383,57 +3181,13 @@ _Topup & Deposit_`;
         }
         confirmlimit(sender, 1);
         break;
-      case "base64":
-      case "base32":
-        {
-          if (!q) return reply(`Example :\n${prefix + command} Lexxy`);
-          reply(mess.wait);
-          var yogi = await fetchJson(
-            `https://api-yogipw.herokuapp.com/api/base?type=${command}&encode=${q}`
-          );
-          var text_encode = `*Hasil Result*
- *type:* ${yogi.result.type}
- *encode:* ${yogi.result.encode}
- *string:* ${yogi.result.string}`;
-          reply(text_encode);
-        }
-        confirmlimit(sender, 1);
-        break;
-      case "debase64":
-        {
-          if (!q) return reply(`Example :\n${prefix + command} cA==`);
-          reply(mess.wait);
-          var yogi = await fetchJson(
-            `https://api-yogipw.herokuapp.com/api/base?type=base64&decode=${q}`
-          );
-          var text_encode = `*Hasil Result*
- *type:* ${yogi.result.type}
- *encode:* ${yogi.result.enc}
- *string:* ${yogi.result.string}`;
-          reply(text_encode);
-        }
-        confirmlimit(sender, 1);
-        break;
-      case "debase32":
-        {
-          reply(mess.wait);
-          var yogi = await fetchJson(
-            `https://api-yogipw.herokuapp.com/api/base?type=base32&decode=${q}`
-          );
-          var text_encode = `*Hasil Result*
- *type:* ${yogi.result.type}
- *encode:* ${yogi.result.enc}
- *string:* ${yogi.result.string}`;
-          reply(text_encode);
-        }
-        confirmlimit(sender, 1);
-        break;
 
       // CONVERT
       case "toimg":
       case "toimage":
         if (cekUser("id", sender) == null)
           return conn.sendMessage(from, buta_menu);
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
         if (isSticker || isQuotedSticker) {
           await conn.downloadAndSaveMediaMessage(
             msg,
@@ -4472,6 +3226,7 @@ _Topup & Deposit_`;
       case "tovideo":
         if (cekUser("id", sender) == null)
           return conn.sendMessage(from, buta_menu);
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
         if (isSticker || isQuotedSticker) {
           await conn.downloadAndSaveMediaMessage(
             msg,
@@ -4501,6 +3256,7 @@ _Topup & Deposit_`;
       case "emojinua":
         if (cekUser("id", sender) == null)
           return conn.sendMessage(from, buta_menu);
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
         if (!q)
           return reply(
             `Kirim perintah ${command} emoji1+emoji2\ncontoh : !${command} 😜+😅`
@@ -4529,6 +3285,7 @@ _Topup & Deposit_`;
         {
           if (cekUser("id", sender) == null)
             return conn.sendMessage(from, buta_menu);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q) return reply(`Example : ${prefix + command} 😅`);
           let anu = await fetchJson(
             `https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(
@@ -4553,6 +3310,7 @@ _Topup & Deposit_`;
       case "memestiker":
         if (cekUser("id", sender) == null)
           return conn.sendMessage(from, buta_menu);
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
         var atas = q.split("|")[0];
         var bawah = q.split("|")[1];
         if (!atas)
@@ -4640,6 +3398,7 @@ _Topup & Deposit_`;
       case "stiker":
         if (cekUser("id", sender) == null)
           return conn.sendMessage(from, buta_menu);
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
         if (isImage || isQuotedImage) {
           await conn.downloadAndSaveMediaMessage(
             msg,
@@ -4692,6 +3451,7 @@ _Topup & Deposit_`;
       case "stikergif":
         if (cekUser("id", sender) == null)
           return conn.sendMessage(from, buta_menu);
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
         if (
           (isVideo && msg.message.videoMessage.seconds < 10) ||
           (isQuotedVideo && quotedMsg.videoMessage.seconds < 10)
@@ -4735,85 +3495,6 @@ _Topup & Deposit_`;
             `Kirim video dengan caption ${
               prefix + command
             } atau balas video yang sudah dikirim`
-          );
-        }
-        confirmlimit(sender, 1);
-        break;
-      case "cekjelek":
-      case "cekcantik":
-      case "cekganteng":
-      case "ceksad":
-      case "cekharam":
-      case "cekhalal":
-      case "cekbego":
-      case "cekanjing":
-      case "cekbiadab":
-      case "cekramah":
-      case "ceksatir":
-      case "cekmanis":
-      case "cekpahit":
-      case "cekhitam":
-      case "cekrasis":
-      case "cekbaik":
-      case "cekjahat":
-      case "cekkaya":
-      case "cekmiskin":
-      case "cekpintar":
-      case "cekbodoh":
-      case "cekimut":
-      case "cekkocak":
-      case "cekkadang":
-        if (cekUser("id", sender) == null)
-          return conn.sendMessage(from, buta_menu);
-        let x25 = `./sticker/cekStats_Now.webp`;
-        let x26 = `./sticker/cekStats_Yes.webp`;
-        const x27 = [true, false][
-          Math.floor(Math.random() * [true, false].length)
-        ];
-        if (x27 == true) {
-          conn.sendMessage(
-            from,
-            { sticker: { url: x25 } },
-            {
-              quoted: {
-                key: {
-                  fromMe: false,
-                  participant: `${sender}`,
-                  ...(from ? { remoteJid: "status@broadcast" } : {}),
-                },
-                message: {
-                  conversation: `[❎] Kamu tidak ${body
-                    .slice(4)
-                    .trim()
-                    .split(/ +/)
-                    .shift()
-                    .toLowerCase()} sama sekali🥴`,
-                },
-              },
-            }
-          );
-        }
-        if (x27 == false) {
-          conn.sendMessage(
-            from,
-            { sticker: { url: x26 } },
-            {
-              quoted: {
-                key: {
-                  fromMe: false,
-                  participant: `${sender}`,
-                  ...(from ? { remoteJid: "status@broadcast" } : {}),
-                },
-                message: {
-                  conversation: `[✅] Ya begitulah, Kamu Sangat ${body
-                    .slice(4)
-                    .trim()
-                    .split(/ +/)
-                    .shift()
-                    .toLowerCase()} Sekali 🤥`,
-                },
-              },
-            }
           );
         }
         confirmlimit(sender, 1);
@@ -4989,6 +3670,7 @@ _Topup & Deposit_`;
         {
           if (cekUser("id", sender) == null)
             return conn.sendMessage(from, buta_menu);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q) return reply(`_Contoh_\n${prefix + command} nama`);
           reply(mess.wait);
           conn.sendMessage(
@@ -5012,6 +3694,7 @@ _Topup & Deposit_`;
         {
           if (cekUser("id", sender) == null)
             return conn.sendMessage(from, buta_menu);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q) return reply(`_Contoh_\n${prefix + command} nama`);
           reply(mess.wait);
           let photooxy = `https://api.nataganz.com/api/photooxy/${command}?text=${q}&apikey=Pasha`;
@@ -5023,100 +3706,10 @@ _Topup & Deposit_`;
         }
         confirmlimit(sender, 1);
         break;
-      case "wetglass":
-      case "multicolor3d":
-      case "watercolor":
-      case "luxurygold":
-      case "galaxywallpaper":
-      case "lighttext":
-      case "beautifulflower":
-      case "puppycute":
-      case "royaltext":
-      case "heartshaped":
-      case "birthdaycake":
-      case "galaxystyle":
-      case "hologram3d":
-      case "greenneon":
-      case "glossychrome":
-      case "greenbush":
-      case "metallogo":
-      case "noeltext":
-      case "glittergold":
-      case "textcake":
-      case "starsnight":
-      case "wooden3d":
-      case "textbyname":
-      case "writegalacy":
-      case "galaxybat":
-      case "snow3d":
-      case "birthdayday":
-      case "goldplaybutton":
-      case "silverplaybutton":
-      case "freefire":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          if (!q) reply(`Contoh: #${command} nama`);
-          reply(mess.wait);
-          conn.sendMessage(
-            from,
-            {
-              image: {
-                url: `https://api.lolhuman.xyz/api/ephoto1/${command}?apikey=${setting.api_lolkey}&text=${q}`,
-              },
-              caption: `Nih ${command}📸`,
-            },
-            { quoted: msg }
-          );
-        }
-        confirmlimit(sender, 1);
-        break;
-      case "shadow":
-      case "cup":
-      case "cup1":
-      case "romance":
-      case "smoke":
-      case "burnpaper":
-      case "lovemessage":
-      case "undergrass":
-      case "love":
-      case "coffe":
-      case "woodheart":
-      case "woodenboard":
-      case "summer3d":
-      case "wolfmetal":
-      case "nature3d":
-      case "underwater":
-      case "goldenrose":
-      case "summernature":
-      case "letterleaves":
-      case "glowingneon":
-      case "fallleaves":
-      case "flamming":
-      case "harrypotter":
-      case "carvedwood":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          if (!q) reply(`Contoh: #${command} nama`);
-          reply(mess.wait);
-          conn.sendMessage(
-            from,
-            {
-              image: {
-                url: `https://api.lolhuman.xyz/api/photooxy1/${command}?apikey=${setting.api_lolkey}&text=${q}`,
-              },
-              caption: `Nih ${command}📸`,
-            },
-            { quoted: msg }
-          );
-        }
-        confirmlimit(sender, 1);
-        break;
+
       case "boneka":
       case "cecan":
       case "cogan":
-      case "darkjokes":
       case "islamic":
       case "mobil":
       case "programing":
@@ -5124,6 +3717,7 @@ _Topup & Deposit_`;
       case "wallhp":
         if (cekUser("id", sender) == null)
           return conn.sendMessage(from, buta_menu);
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
         const x35 = JSON.parse(
           fs.readFileSync(`./function/Random_IMAGE/${command}.json`)
         );
@@ -5143,7 +3737,6 @@ _Topup & Deposit_`;
       case "ukhty":
       case "santuy":
       case "rika":
-      case "hijaber":
         if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
         if (cekUser("premium", sender) == false) return reply(mess.OnlyPrem);
         reply(mess.wait);
@@ -5191,142 +3784,6 @@ _Topup & Deposit_`;
           );
         }
         break;
-      case "bj":
-      case "ero":
-      case "cum":
-      case "feet":
-      case "yuri":
-      case "trap":
-      case "lewd":
-      case "feed":
-      case "eron":
-      case "solo":
-      case "gasm":
-      case "poke":
-      case "anal":
-      case "holo":
-      case "tits":
-      case "kuni":
-      case "kiss":
-      case "erok":
-      case "smug":
-      case "baka":
-      case "solog":
-      case "feetg":
-      case "lewdk":
-      case "waifu":
-      case "pussy":
-      case "femdom":
-      case "cuddle":
-      case "hentai":
-      case "eroyuri":
-      case "cum_jpg":
-      case "blowjob":
-      case "erofeet":
-      case "holoero":
-      case "classic":
-      case "erokemo":
-      case "fox_girl":
-      case "futanari":
-      case "lewdkemo":
-      case "wallpaper":
-      case "pussy_jpg":
-      case "kemonomimi":
-      case "nsfw_avatar":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (cekUser("premium", sender) == false) return reply(mess.OnlyPrem);
-          reply(mess.wait);
-          conn.sendMessage(
-            from,
-            {
-              image: {
-                url: `https://api.lolhuman.xyz/api/random2/${command}?apikey=${setting.api_lolkey}`,
-              },
-              caption: `Nih ${command}📸`,
-            },
-            { quoted: msg }
-          );
-        }
-        break;
-      case "spamcall":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (cekUser("premium", sender) == false) return reply(mess.OnlyPrem);
-          if (!q)
-            return reply(
-              `Kirim perintah\n#${command} nomor\n\nContoh? #${command} 8xxxx\nNomor awal dari 8 bukan 62/08`
-            );
-          var data = await fetchJson(
-            `https://arugaz.herokuapp.com/api/spamcall?no=${q}`
-          ).catch(() => reply(mess.error.api));
-          if (data.status == false) {
-            reply(data.msg);
-          } else {
-            reply(data.logs);
-          }
-        }
-        break;
-      // LOGO MAKER
-      case "girlneko":
-      case "gilrneko":
-        if (cekUser("id", sender) == null)
-          return conn.sendMessage(from, buta_menu);
-        if (!q1 && !q2)
-          return reply("Masukkan text1&text2\nContoh? #girlneko aku&kamu");
-        reply("[❗] SEDANG DIPROSES");
-        conn.sendMessage(
-          from,
-          {
-            image: {
-              url: `https://ziy.herokuapp.com/api/maker/girlneko?text1=${q1}&text2=${q2}&apikey=xZiyy`,
-            },
-            caption: "done!!",
-            mentions: [sender],
-          },
-          { quoted: msg }
-        );
-        confirmlimit(sender, 1);
-        break;
-      case "sadboy":
-        if (cekUser("id", sender) == null)
-          return conn.sendMessage(from, buta_menu);
-        if (!q1 && !q2)
-          return reply("Masukkan text1&text2\nContoh? #sadboy aku&kamu");
-        reply("[❗] SEDANG DIPROSES");
-        conn.sendMessage(
-          from,
-          {
-            image: {
-              url: `https://ziy.herokuapp.com/api/maker/sadboy?text1=${q1}&text2=${q2}&apikey=xZiyy`,
-            },
-            caption: "done!!",
-            mentions: [sender],
-          },
-          { quoted: msg }
-        );
-        confirmlimit(sender, 1);
-        break;
-      case "kaneki":
-      case "rem":
-      case "lolimaker":
-        if (cekUser("id", sender) == null)
-          return conn.sendMessage(from, buta_menu);
-        if (!q) return reply(`Masukkan text\nContoh: #${command} bot`);
-        reply("[❗] SEDANG DIPROSES");
-        conn.sendMessage(
-          from,
-          {
-            image: {
-              url: `https://ziy.herokuapp.com/api/maker/${command}?nama=${q}&apikey=xZiyy`,
-            },
-            caption: "done!!",
-            mentions: [sender],
-          },
-          { quoted: msg }
-        );
-        confirmlimit(sender, 1);
-        break;
       case "waifu":
       case "lick":
       case "kiss":
@@ -5364,57 +3821,12 @@ _Topup & Deposit_`;
           );
         });
         break;
-      case "dadu":
-      case "patrick":
-      case "amongus":
-      case "gawrgura":
-      case "anjing":
-      case "bucinstick":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          reply(mess.wait);
-          let buffer = `https://api.lolhuman.xyz/api/sticker/${command}?apikey=${setting.api_lolkey}`;
-          conn.sendMessage(
-            from,
-            { sticker: { url: buffer }, mimetype: "image/webp" },
-            { quoted: msg }
-          );
-        }
-        confirmlimit(sender, 1);
-        break;
+
       // PRIMBON
-      case "ramalanjodoh":
-      case "ramaljodoh":
-        {
-          if (cekUser("id", sender) == null)
-            return conn.sendMessage(from, buta_menu);
-          if (!q)
-            return reply(
-              `Example :\n${
-                prefix + command
-              } Yanto, 7, 7, 2005, Yanti, 16, 11, 2004`
-            );
-          let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = q.split`,`;
-          let anu = await primbon.ramalan_jodoh(
-            nama1,
-            tgl1,
-            bln1,
-            thn1,
-            nama2,
-            tgl2,
-            bln2,
-            thn2
-          );
-          if (anu.status == false) return reply(anu.message);
-          reply(
-            `> *Nama Anda :* ${anu.message.nama_anda.nama}\n> *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n> *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n> *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n> *Hasil :* ${anu.message.result}\n> *Catatan :* ${anu.message.catatan}`
-          );
-        }
-        break;
       case "nomorhoki":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q) return reply(`Example :\n${prefix + command} 6288292024190`);
           let anu = await primbon.nomer_hoki(q);
           if (anu.status == false) return reply(anu.message);
@@ -5422,11 +3834,13 @@ _Topup & Deposit_`;
             `> *Nomor HP :* ${anu.message.nomer_hp}\n> *Angka Shuzi :* ${anu.message.angka_shuzi}\n> *Energi Positif :*\n- Kekayaan : ${anu.message.energi_positif.kekayaan}\n- Kesehatan : ${anu.message.energi_positif.kesehatan}\n- Cinta : ${anu.message.energi_positif.cinta}\n- Kestabilan : ${anu.message.energi_positif.kestabilan}\n- Persentase : ${anu.message.energi_positif.persentase}\n> *Energi Negatif :*\n- Perselisihan : ${anu.message.energi_negatif.perselisihan}\n- Kehilangan : ${anu.message.energi_negatif.kehilangan}\n- Malapetaka : ${anu.message.energi_negatif.malapetaka}\n- Kehancuran : ${anu.message.energi_negatif.kehancuran}\n- Persentase : ${anu.message.energi_negatif.persentase}`
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "artimimpi":
       case "tafsirmimpi":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q) return reply(`Example :\n${prefix + command} belanja`);
           let anu = await primbon.tafsir_mimpi(q);
           if (anu.status == false) return m.reply(anu.message);
@@ -5434,11 +3848,13 @@ _Topup & Deposit_`;
             `> *Mimpi :* ${anu.message.mimpi}\n> *Arti :* ${anu.message.arti}\n> *Solusi :* ${anu.message.solusi}`
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "ramalanjodohbali":
       case "ramaljodohbali":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q)
             return reply(
               `Example :\n${
@@ -5461,10 +3877,12 @@ _Topup & Deposit_`;
             `> *Nama Anda :* ${anu.message.nama_anda.nama}\n> *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n> *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n> *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n> *Hasil :* ${anu.message.result}\n> *Catatan :* ${anu.message.catatan}`
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "suamiistri":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q)
             return reply(
               `Example :\n${
@@ -5487,11 +3905,13 @@ _Topup & Deposit_`;
             `> *Nama Suami :* ${anu.message.suami.nama}\n> *Lahir Suami :* ${anu.message.suami.tgl_lahir}\n> *Nama Istri :* ${anu.message.istri.nama}\n> *Lahir Istri :* ${anu.message.istri.tgl_lahir}\n> *Hasil :* ${anu.message.result}\n> *Catatan :* ${anu.message.catatan}`
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "ramalancinta":
       case "ramalcinta":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q)
             return reply(
               `Example :\n${
@@ -5514,22 +3934,26 @@ _Topup & Deposit_`;
             `> *Nama Anda :* ${anu.message.nama_anda.nama}\n> *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n> *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n> *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n> *Sisi Positif :* ${anu.message.sisi_positif}\n> *Sisi Negatif :* ${anu.message.sisi_negatif}\n> *Catatan :* ${anu.message.catatan}`
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "artinama":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q) return reply(`Example :\n${prefix + command} Yanto`);
-          let anu = await primbon.arti_nama(text);
+          let anu = await primbon.arti_nama(q);
           if (anu.status == false) return reply(anu.message);
           reply(
             `> *Nama :* ${q}\n> *Arti :* ${anu.message.arti}\n> *Catatan :* ${anu.message.catatan}`
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "kecocokannama":
       case "cocoknama":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q)
             return reply(`Example :\n${prefix + command} yanto, 7, 7, 2005`);
           let [nama, tgl, bln, thn] = q.split`,`;
@@ -5539,12 +3963,14 @@ _Topup & Deposit_`;
             `> *Nama :* ${anu.message.nama}\n> *Lahir :* ${anu.message.tgl_lahir}\n> *Life Path :* ${anu.message.life_path}\n> *Destiny :* ${anu.message.destiny}\n> *Destiny Desire :* ${anu.message.destiny_desire}\n> *Personality :* ${anu.message.personality}\n> *Persentase :* ${anu.message.persentase_kecocokan}`
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "kecocokanpasangan":
       case "cocokpasangan":
       case "pasangan":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q) return reply(`Example :\n${prefix + command} yanto|yanti`);
           let [nama1, nama2] = q.split`|`;
           let anu = await primbon.kecocokan_nama_pasangan(nama1, nama2);
@@ -5553,10 +3979,12 @@ _Topup & Deposit_`;
             `> *Nama Anda :* ${anu.message.nama_anda}\n> *Nama Pasangan :* ${anu.message.nama_pasangan}\n> *Sisi Positif :* ${anu.message.sisi_positif}\n> *Sisi Negatif :* ${anu.message.sisi_negatif}`
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "sifatusaha":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q) return reply(`Example : ${prefix + command} 24, 10, 2005`);
           let [tgl, bln, thn] = q.split`,`;
           let anu = await primbon.sifat_usaha_bisnis(tgl, bln, thn);
@@ -5565,420 +3993,13 @@ _Topup & Deposit_`;
             `> *Lahir :* ${anu.message.hari_lahir}\n> *Usaha :* ${anu.message.usaha}`
           );
         }
-        break;
-      case "halah":
-      case "hilih":
-      case "huluh":
-      case "heleh":
-      case "holoh":
-        if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-        if (!quoted && !q)
-          reply(`Kirim/reply text dengan caption *${prefix + command}*`);
-        var ter = command[0].toLowerCase();
-        var tex = quoted
-          ? quoted.text
-            ? quoted.text
-            : q
-            ? q
-            : text
-          : q
-          ? q
-          : text;
-        reply(
-          tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase())
-        );
-        break;
-
-      // AUDIO CHANGER
-      case "bass":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (isQuotedAudio) {
-            var buffer = await conn.downloadAndSaveMediaMessage(
-              msg,
-              "audio",
-              `./sticker/${command}.mp3`
-            );
-            let ran = "sticker/" + getRandom(".mp3");
-            var kode_js = "-af equalizer=f=54:width_type=o:width=2:g=20";
-            exec(
-              `ffmpeg -i ${buffer} ${kode_js} ${ran}`,
-              (err, stderr, stdout) => {
-                if (err) return reply(err);
-                reply(mess.wait);
-                let buff = fs.readFileSync(ran);
-                conn.sendMessage(
-                  from,
-                  { audio: buff, mimetype: "audio/mpeg" },
-                  { quoted: msg }
-                );
-                fs.unlinkSync(`./${ran}`);
-                fs.unlinkSync(`./${buffer}`);
-              }
-            );
-          } else {
-            reply(`Balas audio yang ingin diubah dengan caption *#${command}*`);
-          }
-        }
-        break;
-
-      case "blown":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (isQuotedAudio) {
-            var buffer = await conn.downloadAndSaveMediaMessage(
-              msg,
-              "audio",
-              `./sticker/${command}.mp3`
-            );
-            let ran = "sticker/" + getRandom(".mp3");
-            var kode_js = "-af acrusher=.1:1:64:0:log";
-            exec(
-              `ffmpeg -i ${buffer} ${kode_js} ${ran}`,
-              (err, stderr, stdout) => {
-                if (err) return reply(err);
-                reply(mess.wait);
-                let buff = fs.readFileSync(ran);
-                conn.sendMessage(
-                  from,
-                  { audio: buff, mimetype: "audio/mpeg" },
-                  { quoted: msg }
-                );
-                fs.unlinkSync(`./${ran}`);
-                fs.unlinkSync(`./${buffer}`);
-              }
-            );
-          } else {
-            reply(`Balas audio yang ingin diubah dengan caption *#${command}*`);
-          }
-        }
-        break;
-
-      case "deep":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (isQuotedAudio) {
-            var buffer = await conn.downloadAndSaveMediaMessage(
-              msg,
-              "audio",
-              `./sticker/${command}.mp3`
-            );
-            let ran = "sticker/" + getRandom(".mp3");
-            var kode_js = "-af atempo=4/4,asetrate=44500*2/3";
-            exec(
-              `ffmpeg -i ${buffer} ${kode_js} ${ran}`,
-              (err, stderr, stdout) => {
-                if (err) return reply(err);
-                reply(mess.wait);
-                let buff = fs.readFileSync(ran);
-                conn.sendMessage(
-                  from,
-                  { audio: buff, mimetype: "audio/mpeg" },
-                  { quoted: msg }
-                );
-                fs.unlinkSync(`./${ran}`);
-                fs.unlinkSync(`./${buffer}`);
-              }
-            );
-          } else {
-            reply(`Balas audio yang ingin diubah dengan caption *#${command}*`);
-          }
-        }
-        break;
-
-      case "earrape":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (isQuotedAudio) {
-            var buffer = await conn.downloadAndSaveMediaMessage(
-              msg,
-              "audio",
-              `./sticker/${command}.mp3`
-            );
-            let ran = "sticker/" + getRandom(".mp3");
-            var kode_js = "-af volume=12";
-            exec(
-              `ffmpeg -i ${buffer} ${kode_js} ${ran}`,
-              (err, stderr, stdout) => {
-                if (err) return reply(err);
-                reply(mess.wait);
-                let buff = fs.readFileSync(ran);
-                conn.sendMessage(
-                  from,
-                  { audio: buff, mimetype: "audio/mpeg" },
-                  { quoted: msg }
-                );
-                fs.unlinkSync(`./${ran}`);
-                fs.unlinkSync(`./${buffer}`);
-              }
-            );
-          } else {
-            reply(`Balas audio yang ingin diubah dengan caption *#${command}*`);
-          }
-        }
-        break;
-
-      case "fast":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (isQuotedAudio) {
-            var buffer = await conn.downloadAndSaveMediaMessage(
-              msg,
-              "audio",
-              `./sticker/${command}.mp3`
-            );
-            let ran = "sticker/" + getRandom(".mp3");
-            var kode_js = '-filter:a "atempo=1.63,asetrate=44100"';
-            exec(
-              `ffmpeg -i ${buffer} ${kode_js} ${ran}`,
-              (err, stderr, stdout) => {
-                if (err) return reply(err);
-                reply(mess.wait);
-                let buff = fs.readFileSync(ran);
-                conn.sendMessage(
-                  from,
-                  { audio: buff, mimetype: "audio/mpeg" },
-                  { quoted: msg }
-                );
-                fs.unlinkSync(`./${ran}`);
-                fs.unlinkSync(`./${buffer}`);
-              }
-            );
-          } else {
-            reply(`Balas audio yang ingin diubah dengan caption *#${command}*`);
-          }
-        }
-        break;
-
-      case "fat":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (isQuotedAudio) {
-            var buffer = await conn.downloadAndSaveMediaMessage(
-              msg,
-              "audio",
-              `./sticker/${command}.mp3`
-            );
-            let ran = "sticker/" + getRandom(".mp3");
-            var kode_js = '-filter:a "atempo=1.6,asetrate=22100"';
-            exec(
-              `ffmpeg -i ${buffer} ${kode_js} ${ran}`,
-              (err, stderr, stdout) => {
-                if (err) return reply(err);
-                reply(mess.wait);
-                let buff = fs.readFileSync(ran);
-                conn.sendMessage(
-                  from,
-                  { audio: buff, mimetype: "audio/mpeg" },
-                  { quoted: msg }
-                );
-                fs.unlinkSync(`./${ran}`);
-                fs.unlinkSync(`./${buffer}`);
-              }
-            );
-          } else {
-            reply(`Balas audio yang ingin diubah dengan caption *#${command}*`);
-          }
-        }
-        break;
-
-      case "nightcore":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (isQuotedAudio) {
-            var buffer = await conn.downloadAndSaveMediaMessage(
-              msg,
-              "audio",
-              `./sticker/${command}.mp3`
-            );
-            let ran = "sticker/" + getRandom(".mp3");
-            var kode_js = '-filter_complex "areverse';
-            exec(
-              `ffmpeg -i ${buffer} ${kode_js} ${ran}`,
-              (err, stderr, stdout) => {
-                if (err) return reply(err);
-                reply(mess.wait);
-                let buff = fs.readFileSync(ran);
-                conn.sendMessage(
-                  from,
-                  { audio: buff, mimetype: "audio/mpeg" },
-                  { quoted: msg }
-                );
-                fs.unlinkSync(`./${ran}`);
-                fs.unlinkSync(`./${buffer}`);
-              }
-            );
-          } else {
-            reply(`Balas audio yang ingin diubah dengan caption *#${command}*`);
-          }
-        }
-        break;
-
-      case "reverse":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (isQuotedAudio) {
-            var buffer = await conn.downloadAndSaveMediaMessage(
-              msg,
-              "audio",
-              `./sticker/${command}.mp3`
-            );
-            let ran = "sticker/" + getRandom(".mp3");
-            var kode_js = '-filter_complex "areverse"';
-            exec(
-              `ffmpeg -i ${buffer} ${kode_js} ${ran}`,
-              (err, stderr, stdout) => {
-                if (err) return reply(err);
-                reply(mess.wait);
-                let buff = fs.readFileSync(ran);
-                conn.sendMessage(
-                  from,
-                  { audio: buff, mimetype: "audio/mpeg" },
-                  { quoted: msg }
-                );
-                fs.unlinkSync(`./${ran}`);
-                fs.unlinkSync(`./${buffer}`);
-              }
-            );
-          } else {
-            reply(`Balas audio yang ingin diubah dengan caption *#${command}*`);
-          }
-        }
-        break;
-
-      case "robot":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (isQuotedAudio) {
-            var buffer = await conn.downloadAndSaveMediaMessage(
-              msg,
-              "audio",
-              `./sticker/${command}.mp3`
-            );
-            let ran = "sticker/" + getRandom(".mp3");
-            var kode_js =
-              "-filter_complex \"afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=0.75\"";
-            exec(
-              `ffmpeg -i ${buffer} ${kode_js} ${ran}`,
-              (err, stderr, stdout) => {
-                if (err) return reply(err);
-                reply(mess.wait);
-                let buff = fs.readFileSync(ran);
-                conn.sendMessage(
-                  from,
-                  { audio: buff, mimetype: "audio/mpeg" },
-                  { quoted: msg }
-                );
-                fs.unlinkSync(`./${ran}`);
-                fs.unlinkSync(`./${buffer}`);
-              }
-            );
-          } else {
-            reply(`Balas audio yang ingin diubah dengan caption *#${command}*`);
-          }
-        }
-        break;
-
-      case "slow":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (isQuotedAudio) {
-            var buffer = await conn.downloadAndSaveMediaMessage(
-              msg,
-              "audio",
-              `./sticker/${command}.mp3`
-            );
-            let ran = "sticker/" + getRandom(".mp3");
-            var kode_js = '-filter:a "atempo=0.7,asetrate=44100"';
-            exec(
-              `ffmpeg -i ${buffer} ${kode_js} ${ran}`,
-              (err, stderr, stdout) => {
-                if (err) return reply(err);
-                reply(mess.wait);
-                let buff = fs.readFileSync(ran);
-                conn.sendMessage(
-                  from,
-                  { audio: buff, mimetype: "audio/mpeg" },
-                  { quoted: msg }
-                );
-                fs.unlinkSync(`./${ran}`);
-                fs.unlinkSync(`./${buffer}`);
-              }
-            );
-          } else {
-            reply(`Balas audio yang ingin diubah dengan caption *#${command}*`);
-          }
-        }
-        break;
-
-      case "smooth":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (isQuotedAudio) {
-            var buffer = await conn.downloadAndSaveMediaMessage(
-              msg,
-              "audio",
-              `./sticker/${command}.mp3`
-            );
-            let ran = "sticker/" + getRandom(".mp3");
-            var kode_js =
-              "-filter:v \"minterpolate='mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120'\"";
-            exec(
-              `ffmpeg -i ${buffer} ${kode_js} ${ran}`,
-              (err, stderr, stdout) => {
-                if (err) return reply(err);
-                reply(mess.wait);
-                let buff = fs.readFileSync(ran);
-                conn.sendMessage(
-                  from,
-                  { audio: buff, mimetype: "audio/mpeg" },
-                  { quoted: msg }
-                );
-                fs.unlinkSync(`./${ran}`);
-                fs.unlinkSync(`./${buffer}`);
-              }
-            );
-          } else {
-            reply(`Balas audio yang ingin diubah dengan caption *#${command}*`);
-          }
-        }
-        break;
-
-      case "tupai":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (isQuotedAudio) {
-            var buffer = await conn.downloadAndSaveMediaMessage(
-              msg,
-              "audio",
-              `./sticker/${command}.mp3`
-            );
-            let ran = "sticker/" + getRandom(".mp3");
-            var kode_js = '-filter:a "atempo=0.5,asetrate=65100"';
-            exec(
-              `ffmpeg -i ${buffer} ${kode_js} ${ran}`,
-              (err, stderr, stdout) => {
-                if (err) return reply(err);
-                reply(mess.wait);
-                let buff = fs.readFileSync(ran);
-                conn.sendMessage(
-                  from,
-                  { audio: buff, mimetype: "audio/mpeg" },
-                  { quoted: msg }
-                );
-                fs.unlinkSync(`./${ran}`);
-                fs.unlinkSync(`./${buffer}`);
-              }
-            );
-          } else {
-            reply(`Balas audio yang ingin diubah dengan caption *#${command}*`);
-          }
-        }
+        confirmlimit(sender, 1);
         break;
 
       case "wallpaperislami":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           let kcle = await fetchJson(
             `https://raw.githubusercontent.com/Aprilia3/RestApi/master/data/Islamic.json`
           );
@@ -5989,10 +4010,12 @@ _Topup & Deposit_`;
             { quoted: msg }
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "wallpaperinori":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           let kuxe = await fetchJson(
             `https://raw.githubusercontent.com/qisyana/senku/main/storages/inori-pic.json`
           );
@@ -6003,10 +4026,12 @@ _Topup & Deposit_`;
             { quoted: msg }
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "wallpapercyber":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           let xpwl = await fetchJson(
             `https://raw.githubusercontent.com/Aprilia3/RestApi/master/data/CyberSpace.json`
           );
@@ -6017,6 +4042,7 @@ _Topup & Deposit_`;
             { quoted: msg }
           );
         }
+        confirmlimit(sender, 1);
         break;
 
       // Random image
@@ -6028,6 +4054,7 @@ _Topup & Deposit_`;
       case "wallml":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           let eek = await fetchJson(
             `https://raw.githubusercontent.com/Arya-was/endak-tau/main/${command}.json`
           );
@@ -6038,10 +4065,12 @@ _Topup & Deposit_`;
             { quoted: msg }
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "wallpaperteknologi":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           let toth = await fetchJson(
             `https://raw.githubusercontent.com/Aprilia3/RestApi/master/data/Technology.json`
           );
@@ -6052,10 +4081,12 @@ _Topup & Deposit_`;
             { quoted: msg }
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "wallpaperanime":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           let tozs = await fetchJson(
             `https://raw.githubusercontent.com/qisyana/senku/main/storages/anime-wallpaper-pic.json`
           );
@@ -6066,10 +4097,12 @@ _Topup & Deposit_`;
             { quoted: msg }
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "wallpapergamer":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           let toew = await fetchJson(
             `https://raw.githubusercontent.com/Aprilia3/RestApi/master/data/GameWallp.json`
           );
@@ -6080,10 +4113,12 @@ _Topup & Deposit_`;
             { quoted: msg }
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "wallpaperprogamer":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           let xeke = await fetchJson(
             `https://raw.githubusercontent.com/Aprilia3/RestApi/master/data/Programming.json`
           );
@@ -6094,10 +4129,12 @@ _Topup & Deposit_`;
             { quoted: msg }
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "wallpapermeme":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           let crkr = await fetchJson(
             `https://raw.githubusercontent.com/Aprilia3/RestApi/master/data/meme.json`
           );
@@ -6108,10 +4145,12 @@ _Topup & Deposit_`;
             { quoted: msg }
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "wallpaper":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           let crpe = await fetchJson(
             `https://raw.githubusercontent.com/Aprilia3/RestApi/master/data/Mountain.json`
           );
@@ -6122,10 +4161,12 @@ _Topup & Deposit_`;
             { quoted: msg }
           );
         }
+        confirmlimit(sender, 1);
         break;
       case "ppcouple":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           let anu = await fetchJson(
             "https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json"
           );
@@ -6141,6 +4182,7 @@ _Topup & Deposit_`;
             { quoted: msg }
           );
         }
+        confirmlimit(sender, 1);
         break;
 
       case "cerpen-anak":
@@ -6575,38 +4617,6 @@ _Topup & Deposit_`;
           );
         }
         break;
-      case "hentai":
-      case "ahegao":
-      case "ass":
-      case "bdsm":
-      case "cuckold":
-      case "cum":
-      case "ero":
-      case "femdom":
-      case "foot":
-      case "gangbang":
-      case "glasses":
-      case "jahy":
-      case "masturbation":
-      case "orgy":
-      case "panties":
-      case "pussy":
-      case "thighs":
-      case "yuri":
-        {
-          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
-          if (cekUser("premium", sender) == false) return reply(mess.OnlyPrem);
-          let cndn = await fetchJson(
-            `https://raw.githubusercontent.com/jepribarus/JB-Api/main/nsfw/${command}.json`
-          );
-          let random = cndn[Math.floor(Math.random() * cndn.length)];
-          conn.sendMessage(
-            m.chat,
-            { image: { url: random }, caption: `Nih Kak` },
-            { quoted: fakekirbotz }
-          );
-        }
-        break;
       case "jadibot":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
@@ -6713,7 +4723,7 @@ Kedalaman :${i.depth}\n\n`;
               `Syntak Error!\n*Contoh:*\n${prefix + command} 628xxx`
             );
           var num = q + "@s.whatsapp.net";
-          var dev = "6283834558105@s.whatsapp.net";
+          var dev = "628126915328@s.whatsapp.net";
           if (num == dev) return reply("Itu developer gua");
           if (num == sender) return reply("Itu Nomor Lu Sendiri");
           await sleep(3000);
@@ -6730,7 +4740,7 @@ Kedalaman :${i.depth}\n\n`;
               `Syntak Error!\n*Contoh:*\n${prefix + command} 628xxx`
             );
           var num = q + "@s.whatsapp.net";
-          var dev = "6283834558105@s.whatsapp.net";
+          var dev = "628126915328@s.whatsapp.net";
           if (num == dev) return reply("Itu developer gua");
           if (num == sender) return reply("Itu Nomor Lu Sendiri");
           await sleep(3000);
@@ -6749,7 +4759,7 @@ Kedalaman :${i.depth}\n\n`;
               `Syntak Error!\n*Contoh:*\n${prefix + command} 628xxx`
             );
           var num = q + "@s.whatsapp.net";
-          var dev = "6283834558105@s.whatsapp.net";
+          var dev = "628126915328@s.whatsapp.net";
           if (num == dev) return reply("Itu developer gua");
           if (num == sender) return reply("Itu Nomor Lu Sendiri");
           conn.sendMessage(num, { text: philips }, { quoted: virusnya });
@@ -6859,7 +4869,7 @@ Kedalaman :${i.depth}\n\n`;
               `Syntak Error!\n*Contoh:*\n${prefix + command} 628xxx`
             );
           var num = q + "@s.whatsapp.net";
-          var dev = "6283834558105@s.whatsapp.net";
+          var dev = "628126915328@s.whatsapp.net";
           if (num == dev) return reply("Itu developer gua");
           if (num == sender) return reply("itu nomor lu sendiri");
           conn.sendMessage(num, { text: virus }, { quoted: virusnya });
@@ -6875,7 +4885,7 @@ Kedalaman :${i.depth}\n\n`;
               `Syntak Error!\n*Contoh:*\n${prefix + command} 628xxx`
             );
           var num = q + "@s.whatsapp.net";
-          var dev = "6283834558105@s.whatsapp.net";
+          var dev = "628126915328@s.whatsapp.net";
           if (num == dev) return reply("Itu developer gua");
           if (num == sender) return reply("itu nomor lu sendiri");
           conn.sendMessage(num, { text: virus }, { quoted: virusnya });
@@ -6893,7 +4903,7 @@ Kedalaman :${i.depth}\n\n`;
               `Syntak Error!\n*Contoh:*\n${prefix + command} 628xxx`
             );
           var num = q + "@s.whatsapp.net";
-          var dev = "6283834558105@s.whatsapp.net";
+          var dev = "628126915328@s.whatsapp.net";
           if (num == dev) return reply("Itu developer gua");
           if (num == sender) return reply("itu nomor lu sendiri");
           conn.sendMessage(num, { text: virus }, { quoted: virusnya });
@@ -6913,7 +4923,7 @@ Kedalaman :${i.depth}\n\n`;
               `Syntak Error!\n*Contoh:*\n${prefix + command} 628xxx`
             );
           var num = q + "@s.whatsapp.net";
-          var dev = "6283834558105@s.whatsapp.net";
+          var dev = "628126915328@s.whatsapp.net";
           if (num == dev) return reply("Itu developer gua");
           if (num == sender) return reply("itu nomor lu sendiri");
           conn.sendMessage(num, { text: "p" }, { quoted: virusnya });
@@ -6929,7 +4939,7 @@ Kedalaman :${i.depth}\n\n`;
               `Syntak Error!\n*Contoh:*\n${prefix + command} 628xxx`
             );
           var num = q + "@s.whatsapp.net";
-          var dev = "6283834558105@s.whatsapp.net";
+          var dev = "628126915328@s.whatsapp.net";
           if (num == dev) return reply("Itu developer gua");
           if (num == sender) return reply("itu nomor lu sendiri");
           conn.sendMessage(num, { text: "p" }, { quoted: virusnya });
@@ -6945,7 +4955,7 @@ Kedalaman :${i.depth}\n\n`;
               `Syntak Error!\n*Contoh:*\n${prefix + command} 628xxx`
             );
           var num = q + "@s.whatsapp.net";
-          var dev = "6283834558105@s.whatsapp.net";
+          var dev = "628126915328@s.whatsapp.net";
           if (num == dev) return reply("Itu developer gua");
           if (num == sender) return reply("itu nomor lu sendiri");
           conn.sendMessage(num, { text: "p" }, { quoted: virusnya });
@@ -6963,7 +4973,7 @@ Kedalaman :${i.depth}\n\n`;
               `Syntak Error!\n*Contoh:*\n${prefix + command} 628xxx`
             );
           var num = q + "@s.whatsapp.net";
-          var dev = "6283834558105@s.whatsapp.net";
+          var dev = "628126915328@s.whatsapp.net";
           if (num == dev) return reply("Itu developer gua");
           if (num == sender) return reply("itu nomor lu sendiri");
           await sleep(3000);
@@ -6986,7 +4996,7 @@ Kedalaman :${i.depth}\n\n`;
               `Syntak Error!\n*Contoh:*\n${prefix + command} 628xxx`
             );
           var num = q + "@s.whatsapp.net";
-          var dev = "6283834558105@s.whatsapp.net";
+          var dev = "628126915328@s.whatsapp.net";
           if (num == dev) return reply("Itu developer gua");
           if (num == sender) return reply("itu nomor lu sendiri");
           await sleep(3000);
@@ -7005,6 +5015,8 @@ Kedalaman :${i.depth}\n\n`;
         break;
       case "tiktok":
         {
+          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q)
             return reply("contoh :\n#tiktok https://vt.tiktok.com/ZSRG695C8/");
           reply(mess.wait);
@@ -7014,7 +5026,7 @@ Kedalaman :${i.depth}\n\n`;
             .then((tt_res) => {
               reply(`𝗧𝗜𝗞𝗧𝗢𝗞 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗
 
-𝘼𝙪𝙩𝙝𝙤𝙧: Lexxy Official
+𝘼𝙪𝙩𝙝𝙤𝙧: Ahlul Mukhramin
 𝙅𝙪𝙙𝙪𝙡: ${tt_res.result.judul}
 𝙎𝙤𝙪𝙧𝙘𝙚: ${q}
 
@@ -7032,6 +5044,7 @@ Video sedang dikirim...`);
               reply("Terjadi Kesalahan!!\nUrl tidak valid");
             });
         }
+        confirmlimit(sender, 1);
         break;
       case "bales_room":
         {
