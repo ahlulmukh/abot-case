@@ -85,32 +85,20 @@ const {
   mainmenu,
   usermenu,
   storemenu,
-  autodectmenu,
+  ownermenu,
   downloadermenu,
   bugvipmenu,
-  randomcekmenu,
-  toolsmenu,
-  sertifikatmenu,
   logomakermenu,
   anonymousemenu,
-  sosmedshopmenu,
-  vokalmenu,
   randomenu,
   primbonmenu,
   asupangachamenu,
-  audiochangermenu,
   informationmenu,
-  randomstickermenu,
-  audiomenu,
   funmenu,
   walpapermenu,
   animemenu,
   cerpenmenu,
-  nsfwmenu,
-  soundmenu,
   textpromenu,
-  ephotomenu,
-  randomimagemenu,
   groupmenu,
 } = require("./help");
 const { jadibot, listJadibot } = require("./function/jadibot");
@@ -1309,7 +1297,7 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
         {
           if (cekUser("id", sender) == null)
             return conn.sendMessage(from, buta_menu);
-          reply(ownermenu(prefix, ad));
+          reply(ownermenu(prefix));
         }
         break;
 
