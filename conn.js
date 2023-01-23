@@ -125,9 +125,12 @@ const ms = require("ms");
 const chalk = require("chalk");
 const axios = require("axios");
 const qs = require("querystring");
+const path = require("path");
 const fetch = require("node-fetch");
 const colors = require("colors/safe");
+const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
 const ffmpeg = require("fluent-ffmpeg");
+ffmpeg.setFfmpegPath(ffmpegPath);
 const moment = require("moment-timezone");
 const { Primbon } = require("scrape-primbon");
 const primbon = new Primbon();
@@ -2750,6 +2753,21 @@ _• Status : ${cekUser("premium", sender) ? "Aktif" : "Tidak"}_`,
         );
         reply("Sukses Reset List Message");
         break;
+
+      case "hapusticker":
+        if (!isOwner) return reply(mess.OnlyOwner);
+        let directory = "./sticker/";
+        fs.readdir(directory, (err, files) => {
+          if (err) throw err;
+          for (const file of files) {
+            fs.unlink(path.join(directory, file), (err) => {
+              if (err) throw err;
+            });
+          }
+        });
+        reply("Sukses Reset List Message");
+        break;
+
       // BROADCAST
       case "bctext":
         {
@@ -4701,7 +4719,6 @@ _Topup & Deposit_`;
                   );
                   fs.unlinkSync(`./${rand1}`);
                   fs.unlinkSync(`./${rand2}`);
-                  fs.unlinkSync(buffer);
                 }
               );
             })

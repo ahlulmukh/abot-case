@@ -12,6 +12,7 @@
     "@adiwajshing/baileys": "^4.4.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "^3.0.0",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "chalk": "^4.1.2",
     "cheerio": "^1.0.0-rc.10",
     "clui": "^0.3.6",
