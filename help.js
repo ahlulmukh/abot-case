@@ -586,18 +586,20 @@ exports.groupmenu = (prefix, ad) => {
 exports.downloadermenu = (prefix, ad) => {
   return `
   ┌──⭓ *DOWNLOADER MENU*
-│
-│⭔ ${prefix}tiktok
-│⭔ ${prefix}ytmp3 error
-│⭔ ${prefix}ytmp4 error
-│⭔ ${prefix}pinterest
-│⭔ ${prefix}gitclone
-│⭔ ${prefix}mediafire
-│⭔ ${prefix}wikimedia
-│⭔ ${prefix}soundcloud
-│⭔ ${prefix}infogempa
-│
-└───────⭓`;
+  │
+  │⭔ ${prefix}tiktok
+  │⭔ ${prefix}ytmp3
+  │⭔ ${prefix}playmp3
+  │⭔ ${prefix}ytmp4
+  │⭔ ${prefix}playmp4
+  │⭔ ${prefix}pinterest
+  │⭔ ${prefix}gitclone
+  │⭔ ${prefix}mediafire
+  │⭔ ${prefix}wikimedia
+  │⭔ ${prefix}soundcloud
+  │⭔ ${prefix}infogempa
+  │
+  └───────⭓`;
 };
 exports.bugvipmenu = (prefix, ad) => {
   return `┌──⭓ *BUG VIP*
