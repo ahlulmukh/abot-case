@@ -119,6 +119,7 @@ exports.allmenu = (prefix, ad) => {
 │
 │⭔ ${prefix}error
 │⭔ ${prefix}clearerr
+│⭔ ${prefix}hapusticker
 │⭔ ${prefix}siaran
 │⭔ ${prefix}session
 │⭔ ${prefix}resetdb
@@ -180,29 +181,15 @@ exports.allmenu = (prefix, ad) => {
 │
 └───────⭓
 
-┌──⭓ *AUTODECT MENU*
-│
-│⭔ ${prefix}sadcat
-│⭔ ${prefix}translate
-│⭔ ${prefix}stalkff
-│⭔ ${prefix}stalknpm
-│⭔ ${prefix}stalkgithub
-│⭔ ${prefix}balikhuruf
-│⭔ ${prefix}balikangka
-│⭔ ${prefix}besarkecil
-│⭔ ${prefix}bilangangka
-│
-└───────⭓
-
 
 ┌──⭓ *DOWNLOADER MENU*
 │
 │⭔ ${prefix}tiktok
 │⭔ ${prefix}ytmp3
-│⭔ ${prefix}ytmp4
-│⭔ ${prefix}pinterest
 │⭔ ${prefix}playmp3
+│⭔ ${prefix}ytmp4
 │⭔ ${prefix}playmp4
+│⭔ ${prefix}pinterest
 │⭔ ${prefix}gitclone
 │⭔ ${prefix}mediafire
 │⭔ ${prefix}wikimedia
@@ -269,76 +256,13 @@ exports.allmenu = (prefix, ad) => {
 │⭔ ${prefix}emojimix2
 │
 └───────⭓
- 
-┌──⭓ *TOLLS MENU*
-│
-│⭔ ${prefix}spamcall
-│⭔ ${prefix}translate
-│⭔ ${prefix}ssweb-pc
-│⭔ ${prefix}ssweb-hp
-│⭔ ${prefix}bitly_short
-│⭔ ${prefix}cuttly_short
-│⭔ ${prefix}tinyurl_short
-│⭔ ${prefix}base32
-│⭔ ${prefix}base64
-│⭔ ${prefix}debase32
-│⭔ ${prefix}debase64
-│
-└───────⭓
-  
-┌──⭓ *RANDOM CEK*
-│
-│⭔ ${prefix}cekjelek
-│⭔ ${prefix}cekcantik
-│⭔ ${prefix}cekganteng
-│⭔ ${prefix}ceksad
-│⭔ ${prefix}cekharam
-│⭔ ${prefix}cekhalal
-│⭔ ${prefix}cekbego
-│⭔ ${prefix}cekanjing
-│⭔ ${prefix}cekbiadab
-│⭔ ${prefix}cekramah
-│⭔ ${prefix}ceksatir
-│⭔ ${prefix}cekmanis
-│⭔ ${prefix}cekpahit
-│⭔ ${prefix}cekhitam
-│⭔ ${prefix}cekrasis
-│⭔ ${prefix}cekbaik
-│⭔ ${prefix}cekjahat
-│⭔ ${prefix}cekkaya
-│⭔ ${prefix}cekmiskin
-│⭔ ${prefix}cekpintar
-│⭔ ${prefix}cekbodoh
-│⭔ ${prefix}cekimut
-│⭔ ${prefix}cekkocak
-│⭔ ${prefix}cekkadang
-│
-└───────⭓
 
 
-┌──⭓ *SERTIFIKAT MENU*
-│
-│⭔ ${prefix}toloserti <nama>
-│⭔ ${prefix}badgirlserti <nama>
-│⭔ ${prefix}goodgirlserti <nama>
-│⭔ ${prefix}fuckgirlserti <nama>
-│⭔ ${prefix}bucinserti <nama>
-│
-└───────⭓
-  
 ┌──⭓ *LOGO MAKER*
 │
-│⭔ ${prefix}joker
 │⭔ ${prefix}digital
-│⭔ ${prefix}nulis
-│⭔ ${prefix}nulis2
 │⭔ ${prefix}quoteser
 │⭔ ${prefix}quobucin
-│⭔ ${prefix}rem
-│⭔ ${prefix}girlneko
-│⭔ ${prefix}sadboy
-│⭔ ${prefix}kaneki
-│⭔ ${prefix}lolimaker
 │
 └───────⭓
  
@@ -350,30 +274,8 @@ exports.allmenu = (prefix, ad) => {
 │⭔ ${prefix}menfess 628xx|bot|hai
 │
 └───────⭓
- 
-┌──⭓ *SOSMED SHOP*
-│
-│⭔ ${prefix}pricelist <layanan>
-│⭔ ${prefix}order <cara order>
-│⭔ ${prefix}like jumlah|target
-│⭔ ${prefix}view jumlah|target
-│⭔ ${prefix}follower jumlah|username
-│⭔ ${prefix}cekstatus <idtrx>
-│⭔ ${prefix}komisi <owner only>
-│⭔ ${prefix}tarikkomisi <owner only>
-│
-└───────⭓
   
-┌──⭓ *VOKAL MENU*
-│
-│⭔ ${prefix}hilih <text>
-│⭔ ${prefix}halah <text>
-│⭔ ${prefix}huluh <text>
-│⭔ ${prefix}heleh <text>
-│⭔ ${prefix}holoh <text>
-│
-└───────⭓
-  
+
 ┌──⭓ *RANDOM MENU*
 │
 │⭔ ${prefix}cecan
@@ -390,8 +292,6 @@ exports.allmenu = (prefix, ad) => {
  
 ┌──⭓ *PRIMBON MENU*
 │
-│⭔ ${prefix}ramaljodoh
-│⭔ ${prefix}ramalanjodoh
 │⭔ ${prefix}nomorhoki
 │⭔ ${prefix}artimimpi
 │⭔ ${prefix}artinama
@@ -416,27 +316,10 @@ exports.allmenu = (prefix, ad) => {
 │⭔ ${prefix}bocil
 │⭔ ${prefix}ukhty
 │⭔ ${prefix}santuy
-│⭔ ${prefix}hijaber
 │
 └───────⭓
- 
-┌──⭓ *AUDIO CHANGER*
-│
-│⭔ ${prefix}fat
-│⭔ ${prefix}fast
-│⭔ ${prefix}slow
-│⭔ ${prefix}bass
-│⭔ ${prefix}deep
-│⭔ ${prefix}tupai
-│⭔ ${prefix}robot
-│⭔ ${prefix}blown
-│⭔ ${prefix}smooth
-│⭔ ${prefix}earrape
-│⭔ ${prefix}reverse
-│⭔ ${prefix}nightcore
-│
-└───────⭓
- 
+
+
 ┌──⭓ *INFORMATION MENU*
 │
 │⭔ ${prefix}gempa
@@ -447,43 +330,8 @@ exports.allmenu = (prefix, ad) => {
 │⭔ ${prefix}aksaratolatin
 │
 └───────⭓
- 
-┌──⭓ *RANDOM STICKER*
-│
-│⭔ ${prefix}dadu
-│⭔ ${prefix}anjing
-│⭔ ${prefix}patrick
-│⭔ ${prefix}bucinstick
-│⭔ ${prefix}gawrgura
-│⭔ ${prefix}amongus
-│
-└───────⭓
- 
-┌──⭓ *AUDIO MENU*
-│
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│⭔ ${prefix}audio${ad++}
-│
-└───────⭓
-  
+
+
 ┌──⭓ *FUN MENU*
 │ 
 │⭔ ${prefix}goblokcek 
@@ -521,7 +369,6 @@ exports.allmenu = (prefix, ad) => {
 │⭔ ${prefix}milf
 │⭔ ${prefix}loli
 │⭔ ${prefix}wallml
-│⭔ ${prefix}waifu
 │⭔ ${prefix}husbu
 │⭔ ${prefix}cosplay
 │⭔ ${prefix}ppcouple
@@ -618,251 +465,21 @@ exports.allmenu = (prefix, ad) => {
 │⭔ ${prefix}cerpen-anak
 │
 └───────⭓
- 
-┌──⭓ *NFSW MENU*
-│   
-│⭔ ${prefix}yuri
-│⭔ ${prefix}ero
-│⭔ ${prefix}foot
-│⭔ ${prefix}ass
-│⭔ ${prefix}cuckold
-│⭔ ${prefix}cum
-│⭔ ${prefix}hentai
-│⭔ ${prefix}gangbang
-│⭔ ${prefix}femdom
-│⭔ ${prefix}ahegao
-│⭔ ${prefix}glasses
-│⭔ ${prefix}jahy
-│⭔ ${prefix}orgy
-│⭔ ${prefix}pussy
-│⭔ ${prefix}thighs
-│⭔ ${prefix}panties
-│⭔ ${prefix}thighs
-│⭔ ${prefix}masturbation
-│⭔ ${prefix}chiisaihentai
-│⭔ ${prefix}trap
-│⭔ ${prefix}blowjob
-│⭔ ${prefix}yaoi
-│⭔ ${prefix}ecchi
-│⭔ ${prefix}hentai
-│⭔ ${prefix}ahegao
-│⭔ ${prefix}hololewd
-│⭔ ${prefix}sideoppai
-│⭔ ${prefix}animefeets
-│⭔ ${prefix}animebooty
-│⭔ ${prefix}animethighss
-│⭔ ${prefix}hentaiparadise
-│⭔ ${prefix}animearmpits
-│⭔ ${prefix}hentaifemdom
-│⭔ ${prefix}lewdanimegirls
-│⭔ ${prefix}biganimetiddies
-│⭔ ${prefix}animebellybutton
-│⭔ ${prefix}hentai4everyone
-│
-└───────⭓
- 
-┌──⭓ *SOUND MENU*
-│   
-│⭔ ${prefix}sound1
-│⭔ ${prefix}sound2
-│⭔ ${prefix}sound3
-│⭔ ${prefix}sound4
-│⭔ ${prefix}sound5
-│⭔ ${prefix}sound6
-│⭔ ${prefix}sound7
-│⭔ ${prefix}sound8
-│⭔ ${prefix}sound9
-│⭔ ${prefix}sound10
-│⭔ ${prefix}sound11
-│⭔ ${prefix}sound12
-│⭔ ${prefix}sound13
-│⭔ ${prefix}sound14
-│⭔ ${prefix}sound15
-│⭔ ${prefix}sound16
-│⭔ ${prefix}sound17
-│⭔ ${prefix}sound18
-│⭔ ${prefix}sound19
-│⭔ ${prefix}sound20
-│⭔ ${prefix}sound21
-│⭔ ${prefix}sound22
-│⭔ ${prefix}sound23
-│⭔ ${prefix}sound24
-│⭔ ${prefix}sound25
-│⭔ ${prefix}sound26
-│⭔ ${prefix}sound27
-│⭔ ${prefix}sound28
-│⭔ ${prefix}sound29
-│⭔ ${prefix}sound30
-│⭔ ${prefix}sound31
-│⭔ ${prefix}sound32
-│⭔ ${prefix}sound33
-│⭔ ${prefix}sound34
-│⭔ ${prefix}sound35
-│⭔ ${prefix}sound36
-│⭔ ${prefix}sound37
-│⭔ ${prefix}sound38
-│⭔ ${prefix}sound39
-│⭔ ${prefix}sound40
-│⭔ ${prefix}sound41
-│⭔ ${prefix}sound42
-│⭔ ${prefix}sound43
-│⭔ ${prefix}sound44
-│⭔ ${prefix}sound45
-│⭔ ${prefix}sound46
-│⭔ ${prefix}sound47
-│⭔ ${prefix}sound48
-│⭔ ${prefix}sound49
-│⭔ ${prefix}sound50
-│⭔ ${prefix}sound51
-│⭔ ${prefix}sound52
-│⭔ ${prefix}sound53
-│⭔ ${prefix}sound54
-│⭔ ${prefix}sound55
-│⭔ ${prefix}sound56
-│⭔ ${prefix}sound57
-│⭔ ${prefix}sound58
-│⭔ ${prefix}sound59
-│⭔ ${prefix}sound60
-│⭔ ${prefix}sound61
-│⭔ ${prefix}sound62
-│⭔ ${prefix}sound63
-│⭔ ${prefix}sound64
-│⭔ ${prefix}sound65
-│⭔ ${prefix}sound66
-│⭔ ${prefix}sound67
-│⭔ ${prefix}sound68
-│⭔ ${prefix}sound69
-│⭔ ${prefix}sound70
-│⭔ ${prefix}sound71
-│⭔ ${prefix}sound72
-│⭔ ${prefix}sound73
-│⭔ ${prefix}sound74
-│
-└───────⭓
- 
+
+
 ┌──⭓ *TEXT PRO MENU*
 │ 
 │⭔ ${prefix}metallic text
 │⭔ ${prefix}naruto text
 │⭔ ${prefix}butterfly text
 │⭔ ${prefix}flaming text
-│⭔ ${prefix}shadow text
-│⭔ ${prefix}cup text
-│⭔ ${prefix}cup1 text
-│⭔ ${prefix}romance text
-│⭔ ${prefix}smoke text
-│⭔ ${prefix}burnpaper text
-│⭔ ${prefix}lovemessage text
-│⭔ ${prefix}undergrass text
-│⭔ ${prefix}love text
-│⭔ ${prefix}coffe text
-│⭔ ${prefix}woodheart text
-│⭔ ${prefix}woodenboard text
-│⭔ ${prefix}summer3d text
-│⭔ ${prefix}wolfmetal text
-│⭔ ${prefix}nature3d text
-│⭔ ${prefix}underwater text
-│⭔ ${prefix}goldenrose text
-│⭔ ${prefix}summernature text
-│⭔ ${prefix}letterleaves text
-│⭔ ${prefix}glowingneon text
-│⭔ ${prefix}fallleaves text
-│⭔ ${prefix}flamming text
-│⭔ ${prefix}harrypotter text
-│⭔ ${prefix}carvedwood text
-│⭔ ${prefix}tiktok text1 text2
-│⭔ ${prefix}arcade8bit text1 text2
-│⭔ ${prefix}battlefield4 text1 text2
-│⭔ ${prefix}pubg text1 text2
-│
-└───────⭓
- 
-┌──⭓ *EPHOTO MENU*
-│ 
-│⭔ ${prefix}wetglass text
-│⭔ ${prefix}multicolor3d text
-│⭔ ${prefix}watercolor text
-│⭔ ${prefix}luxurygold text
-│⭔ ${prefix}galaxywallpaper text
-│⭔ ${prefix}lighttext text
-│⭔ ${prefix}beautifulflower text
-│⭔ ${prefix}puppycute text
-│⭔ ${prefix}royaltext text
-│⭔ ${prefix}heartshaped text
-│⭔ ${prefix}birthdaycake text
-│⭔ ${prefix}galaxystyle text
-│⭔ ${prefix}hologram3d text
-│⭔ ${prefix}greenneon text
-│⭔ ${prefix}glossychrome text
-│⭔ ${prefix}greenbush text
-│⭔ ${prefix}metallogo text
-│⭔ ${prefix}noeltext text
-│⭔ ${prefix}glittergold text
-│⭔ ${prefix}textcake text
-│⭔ ${prefix}starsnight text
-│⭔ ${prefix}wooden3d text
-│⭔ ${prefix}textbyname text
-│⭔ ${prefix}writegalacy text
-│⭔ ${prefix}galaxybat text
-│⭔ ${prefix}snow3d text
-│⭔ ${prefix}birthdayday text
-│⭔ ${prefix}goldplaybutton text
-│⭔ ${prefix}silverplaybutton text
-│⭔ ${prefix}freefire text
-│
-└───────⭓
- 
-┌──⭓ *RANDOM IMAGE*
-│  
-│⭔ ${prefix}bj
-│⭔ ${prefix}ero
-│⭔ ${prefix}ppcp
-│⭔ ${prefix}cum
-│⭔ ${prefix}feet
-│⭔ ${prefix}yuri
-│⭔ ${prefix}trap
-│⭔ ${prefix}lewd
-│⭔ ${prefix}feed
-│⭔ ${prefix}eron
-│⭔ ${prefix}solo
-│⭔ ${prefix}gasm
-│⭔ ${prefix}poke
-│⭔ ${prefix}anal
-│⭔ ${prefix}holo
-│⭔ ${prefix}tits
-│⭔ ${prefix}kuni
-│⭔ ${prefix}kiss
-│⭔ ${prefix}erok
-│⭔ ${prefix}smug
-│⭔ ${prefix}baka
-│⭔ ${prefix}solog
-│⭔ ${prefix}feetg
-│⭔ ${prefix}lewdk
-│⭔ ${prefix}waifu
-│⭔ ${prefix}pussy
-│⭔ ${prefix}femdom
-│⭔ ${prefix}cuddle
-│⭔ ${prefix}hentai
-│⭔ ${prefix}eroyuri
-│⭔ ${prefix}cum_jpg
-│⭔ ${prefix}blowjob
-│⭔ ${prefix}erofeet
-│⭔ ${prefix}holoero
-│⭔ ${prefix}classic
-│⭔ ${prefix}erokemo
-│⭔ ${prefix}fox_girl
-│⭔ ${prefix}futanari
-│⭔ ${prefix}lewdkemo
-│⭔ ${prefix}wallpaper
-│⭔ ${prefix}pussy_jpg
-│⭔ ${prefix}kemonomimi
-│⭔ ${prefix}nsfw_avatar
 │
 └───────⭓`;
 };
 
 exports.mainmenu = (prefix, ad) => {
-  return `┌──⭓ *MAIN MENU*
+  return `
+┌──⭓ *MAIN MENU*
 │
 │⭔ ${prefix}menu
 │⭔ ${prefix}iklan
@@ -903,6 +520,7 @@ exports.ownermenu = (prefix, ad) => {
 │⭔ ${prefix}error
 │⭔ ${prefix}clearerr
 │⭔ ${prefix}siaran
+│⭔ ${prefix}hapusticker
 │⭔ ${prefix}session
 │⭔ ${prefix}resetdb
 │⭔ ${prefix}runtime
@@ -965,37 +583,21 @@ exports.groupmenu = (prefix, ad) => {
 │
 └───────⭓`;
 };
-exports.autodectmenu = (prefix, ad) => {
-  return `┌──⭓ *AUTODECT MENU*
-  │
-  │⭔ ${prefix}sadcat
-  │⭔ ${prefix}translate
-  │⭔ ${prefix}stalkff
-  │⭔ ${prefix}stalknpm
-  │⭔ ${prefix}stalkgithub
-  │⭔ ${prefix}balikhuruf
-  │⭔ ${prefix}balikangka
-  │⭔ ${prefix}besarkecil
-  │⭔ ${prefix}bilangangka
-  │
-  └───────⭓`;
-};
 exports.downloadermenu = (prefix, ad) => {
-  return `┌──⭓ *DOWNLOADER MENU*
-  │
-  │⭔ ${prefix}tiktok
-  │⭔ ${prefix}ytmp3
-  │⭔ ${prefix}ytmp4
-  │⭔ ${prefix}pinterest
-  │⭔ ${prefix}playmp3
-  │⭔ ${prefix}playmp4
-  │⭔ ${prefix}gitclone
-  │⭔ ${prefix}mediafire
-  │⭔ ${prefix}wikimedia
-  │⭔ ${prefix}soundcloud
-  │⭔ ${prefix}infogempa
-  │
-  └───────⭓`;
+  return `
+  ┌──⭓ *DOWNLOADER MENU*
+│
+│⭔ ${prefix}tiktok
+│⭔ ${prefix}ytmp3 error
+│⭔ ${prefix}ytmp4 error
+│⭔ ${prefix}pinterest
+│⭔ ${prefix}gitclone
+│⭔ ${prefix}mediafire
+│⭔ ${prefix}wikimedia
+│⭔ ${prefix}soundcloud
+│⭔ ${prefix}infogempa
+│
+└───────⭓`;
 };
 exports.bugvipmenu = (prefix, ad) => {
   return `┌──⭓ *BUG VIP*
@@ -1058,81 +660,16 @@ exports.convertmenu = (prefix, ad) => {
   │
   └───────⭓`;
 };
-exports.toolsmenu = (prefix, ad) => {
-  return `┌──⭓ *TOLLS MENU*
-  │
-  │⭔ ${prefix}spamcall
-  │⭔ ${prefix}translate
-  │⭔ ${prefix}ssweb-pc
-  │⭔ ${prefix}ssweb-hp
-  │⭔ ${prefix}bitly_short
-  │⭔ ${prefix}cuttly_short
-  │⭔ ${prefix}tinyurl_short
-  │⭔ ${prefix}base32
-  │⭔ ${prefix}base64
-  │⭔ ${prefix}debase32
-  │⭔ ${prefix}debase64
-  │
-  └───────⭓`;
-};
-exports.randomcekmenu = (prefix, ad) => {
-  return `┌──⭓ *RANDOM CEK*
-  │
-  │⭔ ${prefix}cekjelek
-  │⭔ ${prefix}cekcantik
-  │⭔ ${prefix}cekganteng
-  │⭔ ${prefix}ceksad
-  │⭔ ${prefix}cekharam
-  │⭔ ${prefix}cekhalal
-  │⭔ ${prefix}cekbego
-  │⭔ ${prefix}cekanjing
-  │⭔ ${prefix}cekbiadab
-  │⭔ ${prefix}cekramah
-  │⭔ ${prefix}ceksatir
-  │⭔ ${prefix}cekmanis
-  │⭔ ${prefix}cekpahit
-  │⭔ ${prefix}cekhitam
-  │⭔ ${prefix}cekrasis
-  │⭔ ${prefix}cekbaik
-  │⭔ ${prefix}cekjahat
-  │⭔ ${prefix}cekkaya
-  │⭔ ${prefix}cekmiskin
-  │⭔ ${prefix}cekpintar
-  │⭔ ${prefix}cekbodoh
-  │⭔ ${prefix}cekimut
-  │⭔ ${prefix}cekkocak
-  │⭔ ${prefix}cekkadang
-  │
-  └───────⭓`;
-};
-exports.sertifikatmenu = (prefix, ad) => {
-  return `
-  ┌──⭓ *SERTIFIKAT MENU*
-  │
-  │⭔ ${prefix}toloserti <nama>
-  │⭔ ${prefix}badgirlserti <nama>
-  │⭔ ${prefix}goodgirlserti <nama>
-  │⭔ ${prefix}fuckgirlserti <nama>
-  │⭔ ${prefix}bucinserti <nama>
-  │
-  └───────⭓`;
-};
+
 exports.logomakermenu = (prefix, ad) => {
-  return `┌──⭓ *LOGO MAKER*
-  │
-  │⭔ ${prefix}joker
-  │⭔ ${prefix}digital
-  │⭔ ${prefix}nulis
-  │⭔ ${prefix}nulis2
-  │⭔ ${prefix}quoteser
-  │⭔ ${prefix}quobucin
-  │⭔ ${prefix}rem
-  │⭔ ${prefix}girlneko
-  │⭔ ${prefix}sadboy
-  │⭔ ${prefix}kaneki
-  │⭔ ${prefix}lolimaker
-  │
-  └───────⭓`;
+  return `
+  ┌──⭓ *LOGO MAKER*
+│
+│⭔ ${prefix}digital
+│⭔ ${prefix}quoteser
+│⭔ ${prefix}quobucin
+│
+└───────⭓`;
 };
 exports.anonymousemenu = (prefix, ad) => {
   return `
@@ -1145,97 +682,53 @@ exports.anonymousemenu = (prefix, ad) => {
   │
   └───────⭓`;
 };
-exports.sosmedshopmenu = (prefix, ad) => {
-  return `┌──⭓ *SOSMED SHOP*
-  │
-  │⭔ ${prefix}pricelist <layanan>
-  │⭔ ${prefix}order <cara order>
-  │⭔ ${prefix}like jumlah|target
-  │⭔ ${prefix}view jumlah|target
-  │⭔ ${prefix}follower jumlah|username
-  │⭔ ${prefix}cekstatus <idtrx>
-  │⭔ ${prefix}komisi <owner only>
-  │⭔ ${prefix}tarikkomisi <owner only>
-  │
-  └───────⭓`;
-};
-exports.vokalmenu = (prefix, ad) => {
-  return `┌──⭓ *VOKAL MENU*
-  │
-  │⭔ ${prefix}hilih <text>
-  │⭔ ${prefix}halah <text>
-  │⭔ ${prefix}huluh <text>
-  │⭔ ${prefix}heleh <text>
-  │⭔ ${prefix}holoh <text>
-  │
-  └───────⭓`;
-};
+
 exports.randomenu = (prefix, ad) => {
   return `┌──⭓ *RANDOM MENU*
-  │
-  │⭔ ${prefix}cecan
-  │⭔ ${prefix}cogan
-  │⭔ ${prefix}mobil
-  │⭔ ${prefix}islamic
-  │⭔ ${prefix}darkjokes
-  │⭔ ${prefix}boneka
-  │⭔ ${prefix}wallhp
-  │⭔ ${prefix}tatasurya
-  │⭔ ${prefix}programing
-  │
-  └───────⭓`;
+│
+│⭔ ${prefix}cecan
+│⭔ ${prefix}cogan
+│⭔ ${prefix}mobil
+│⭔ ${prefix}islamic
+│⭔ ${prefix}darkjokes
+│⭔ ${prefix}boneka
+│⭔ ${prefix}wallhp
+│⭔ ${prefix}tatasurya
+│⭔ ${prefix}programing
+│
+└───────⭓`;
 };
 exports.primbonmenu = (prefix, ad) => {
   return `┌──⭓ *PRIMBON MENU*
-  │
-  │⭔ ${prefix}ramaljodoh
-  │⭔ ${prefix}ramalanjodoh
-  │⭔ ${prefix}nomorhoki
-  │⭔ ${prefix}artimimpi
-  │⭔ ${prefix}artinama
-  │⭔ ${prefix}sifatusaha
-  │⭔ ${prefix}tafsirmimpi
-  │⭔ ${prefix}pasangan
-  │⭔ ${prefix}suamiistri
-  │⭔ ${prefix}ramalcinta
-  │⭔ ${prefix}ramalancinta
-  │⭔ ${prefix}ramaljodohbali
-  │⭔ ${prefix}ramalanjodohbali
-  │⭔ ${prefix}cocoknama
-  │⭔ ${prefix}kecocokannama
-  │⭔ ${prefix}cocokpasangan
-  │⭔ ${prefix}kecocokanpasangan
-  │
-  └───────⭓`;
+│
+│⭔ ${prefix}nomorhoki
+│⭔ ${prefix}artimimpi
+│⭔ ${prefix}artinama
+│⭔ ${prefix}sifatusaha
+│⭔ ${prefix}tafsirmimpi
+│⭔ ${prefix}pasangan
+│⭔ ${prefix}suamiistri
+│⭔ ${prefix}ramalcinta
+│⭔ ${prefix}ramalancinta
+│⭔ ${prefix}ramaljodohbali
+│⭔ ${prefix}ramalanjodohbali
+│⭔ ${prefix}cocoknama
+│⭔ ${prefix}kecocokannama
+│⭔ ${prefix}cocokpasangan
+│⭔ ${prefix}kecocokanpasangan
+│
+└───────⭓`;
 };
 exports.asupangachamenu = (prefix, ad) => {
-  return `┌──⭓ *ASUPAN GACHA*
-  │
-  │⭔ ${prefix}rika
-  │⭔ ${prefix}bocil
-  │⭔ ${prefix}ukhty
-  │⭔ ${prefix}santuy
-  │⭔ ${prefix}hijaber
-  │
-  └───────⭓`;
-};
-exports.audiochangermenu = (prefix, ad) => {
-  return `┌──⭓ *AUDIO CHANGER*
-  │
-  │⭔ ${prefix}fat
-  │⭔ ${prefix}fast
-  │⭔ ${prefix}slow
-  │⭔ ${prefix}bass
-  │⭔ ${prefix}deep
-  │⭔ ${prefix}tupai
-  │⭔ ${prefix}robot
-  │⭔ ${prefix}blown
-  │⭔ ${prefix}smooth
-  │⭔ ${prefix}earrape
-  │⭔ ${prefix}reverse
-  │⭔ ${prefix}nightcore
-  │
-  └───────⭓`;
+  return `
+  ┌──⭓ *ASUPAN GACHA*
+│
+│⭔ ${prefix}rika
+│⭔ ${prefix}bocil
+│⭔ ${prefix}ukhty
+│⭔ ${prefix}santuy
+│
+└───────⭓`;
 };
 exports.informationmenu = (prefix, ad) => {
   return `┌──⭓ *INFORMATION MENU*
@@ -1249,44 +742,7 @@ exports.informationmenu = (prefix, ad) => {
   │
   └───────⭓`;
 };
-exports.randomstickermenu = (prefix, ad) => {
-  return `┌──⭓ *RANDOM STICKER*
-  │
-  │⭔ ${prefix}dadu
-  │⭔ ${prefix}anjing
-  │⭔ ${prefix}patrick
-  │⭔ ${prefix}bucinstick
-  │⭔ ${prefix}gawrgura
-  │⭔ ${prefix}amongus
-  │
-  └───────⭓`;
-};
-exports.audiomenu = (prefix, ad) => {
-  return `──⭓ *AUDIO MENU*
-  │
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │⭔ ${prefix}audio${ad++}
-  │
-  └───────⭓`;
-};
+
 exports.funmenu = (prefix, ad) => {
   return `┌──⭓ *FUN MENU*
   │ 
@@ -1322,55 +778,54 @@ exports.funmenu = (prefix, ad) => {
 };
 exports.walpapermenu = (prefix, ad) => {
   return `┌──⭓ *WALLPAPER MENU*
-  │ 
-  │⭔ ${prefix}milf
-  │⭔ ${prefix}loli
-  │⭔ ${prefix}wallml
-  │⭔ ${prefix}waifu
-  │⭔ ${prefix}husbu
-  │⭔ ${prefix}cosplay
-  │⭔ ${prefix}ppcouple
-  │⭔ ${prefix}wallpaperislami
-  │⭔ ${prefix}wallpaperinori
-  │⭔ ${prefix}wallpaperanime
-  │⭔ ${prefix}wallpapergamer
-  │⭔ ${prefix}wallpapermeme
-  │⭔ ${prefix}wallpaperprogamer
-  │⭔ ${prefix}wallpaperteknologi
-  │⭔ ${prefix}wallpapercyber
-  │
-  └───────⭓`;
+│ 
+│⭔ ${prefix}milf
+│⭔ ${prefix}loli
+│⭔ ${prefix}wallml
+│⭔ ${prefix}husbu
+│⭔ ${prefix}cosplay
+│⭔ ${prefix}ppcouple
+│⭔ ${prefix}wallpaperislami
+│⭔ ${prefix}wallpaperinori
+│⭔ ${prefix}wallpaperanime
+│⭔ ${prefix}wallpapergamer
+│⭔ ${prefix}wallpapermeme
+│⭔ ${prefix}wallpaperprogamer
+│⭔ ${prefix}wallpaperteknologi
+│⭔ ${prefix}wallpapercyber
+│
+└───────⭓`;
 };
 exports.animemenu = (prefix, ad) => {
   return `┌──⭓ *ANIME MENU*
-  │  
-  │⭔ ${prefix}cry
-  │⭔ ${prefix}hug
-  │⭔ ${prefix}pat
-  │⭔ ${prefix}bully
-  │⭔ ${prefix}lick
-  │⭔ ${prefix}kiss
-  │⭔ ${prefix}awoo
-  │⭔ ${prefix}waifu
-  │⭔ ${prefix}shinobu
-  │⭔ ${prefix}cuddle
-  │⭔ ${prefix}megumin
-  │⭔ ${prefix}slap
-  │⭔ ${prefix}neko
-  │⭔ ${prefix}wink
-  │⭔ ${prefix}dance
-  │⭔ ${prefix}poke
-  │⭔ ${prefix}glomp
-  │⭔ ${prefix}bite
-  │⭔ ${prefix}nom
-  │⭔ ${prefix}handhold
-  │⭔ ${prefix}highfive
-  │⭔ ${prefix}wave
-  │⭔ ${prefix}smug
-  │⭔ ${prefix}smile
-  │⭔ ${prefix}bonk
-  │
-  └───────⭓`;
+│  
+│⭔ ${prefix}cry
+│⭔ ${prefix}hug
+│⭔ ${prefix}pat
+│⭔ ${prefix}bully
+│⭔ ${prefix}lick
+│⭔ ${prefix}kiss
+│⭔ ${prefix}awoo
+│⭔ ${prefix}waifu
+│⭔ ${prefix}shinobu
+│⭔ ${prefix}cuddle
+│⭔ ${prefix}megumin
+│⭔ ${prefix}slap
+│⭔ ${prefix}neko
+│⭔ ${prefix}wink
+│⭔ ${prefix}dance
+│⭔ ${prefix}poke
+│⭔ ${prefix}glomp
+│⭔ ${prefix}bite
+│⭔ ${prefix}nom
+│⭔ ${prefix}handhold
+│⭔ ${prefix}highfive
+│⭔ ${prefix}wave
+│⭔ ${prefix}smug
+│⭔ ${prefix}smile
+│⭔ ${prefix}bonk
+│
+└───────⭓`;
 };
 exports.cerpenmenu = (prefix, ad) => {
   return `┌──⭓ *CERPEN MENU*
@@ -1426,129 +881,6 @@ exports.cerpenmenu = (prefix, ad) => {
   │
   └───────⭓`;
 };
-exports.nsfwmenu = (prefix, ad) => {
-  return `┌──⭓ *NFSW MENU*
-  │   
-  │⭔ ${prefix}yuri
-  │⭔ ${prefix}ero
-  │⭔ ${prefix}foot
-  │⭔ ${prefix}ass
-  │⭔ ${prefix}cuckold
-  │⭔ ${prefix}cum
-  │⭔ ${prefix}hentai
-  │⭔ ${prefix}gangbang
-  │⭔ ${prefix}femdom
-  │⭔ ${prefix}ahegao
-  │⭔ ${prefix}glasses
-  │⭔ ${prefix}jahy
-  │⭔ ${prefix}orgy
-  │⭔ ${prefix}pussy
-  │⭔ ${prefix}thighs
-  │⭔ ${prefix}panties
-  │⭔ ${prefix}thighs
-  │⭔ ${prefix}masturbation
-  │⭔ ${prefix}chiisaihentai
-  │⭔ ${prefix}trap
-  │⭔ ${prefix}blowjob
-  │⭔ ${prefix}yaoi
-  │⭔ ${prefix}ecchi
-  │⭔ ${prefix}hentai
-  │⭔ ${prefix}ahegao
-  │⭔ ${prefix}hololewd
-  │⭔ ${prefix}sideoppai
-  │⭔ ${prefix}animefeets
-  │⭔ ${prefix}animebooty
-  │⭔ ${prefix}animethighss
-  │⭔ ${prefix}hentaiparadise
-  │⭔ ${prefix}animearmpits
-  │⭔ ${prefix}hentaifemdom
-  │⭔ ${prefix}lewdanimegirls
-  │⭔ ${prefix}biganimetiddies
-  │⭔ ${prefix}animebellybutton
-  │⭔ ${prefix}hentai4everyone
-  │
-  └───────⭓`;
-};
-exports.soundmenu = (prefix, ad) => {
-  return `┌──⭓ *SOUND MENU*
-  │   
-  │⭔ ${prefix}sound1
-  │⭔ ${prefix}sound2
-  │⭔ ${prefix}sound3
-  │⭔ ${prefix}sound4
-  │⭔ ${prefix}sound5
-  │⭔ ${prefix}sound6
-  │⭔ ${prefix}sound7
-  │⭔ ${prefix}sound8
-  │⭔ ${prefix}sound9
-  │⭔ ${prefix}sound10
-  │⭔ ${prefix}sound11
-  │⭔ ${prefix}sound12
-  │⭔ ${prefix}sound13
-  │⭔ ${prefix}sound14
-  │⭔ ${prefix}sound15
-  │⭔ ${prefix}sound16
-  │⭔ ${prefix}sound17
-  │⭔ ${prefix}sound18
-  │⭔ ${prefix}sound19
-  │⭔ ${prefix}sound20
-  │⭔ ${prefix}sound21
-  │⭔ ${prefix}sound22
-  │⭔ ${prefix}sound23
-  │⭔ ${prefix}sound24
-  │⭔ ${prefix}sound25
-  │⭔ ${prefix}sound26
-  │⭔ ${prefix}sound27
-  │⭔ ${prefix}sound28
-  │⭔ ${prefix}sound29
-  │⭔ ${prefix}sound30
-  │⭔ ${prefix}sound31
-  │⭔ ${prefix}sound32
-  │⭔ ${prefix}sound33
-  │⭔ ${prefix}sound34
-  │⭔ ${prefix}sound35
-  │⭔ ${prefix}sound36
-  │⭔ ${prefix}sound37
-  │⭔ ${prefix}sound38
-  │⭔ ${prefix}sound39
-  │⭔ ${prefix}sound40
-  │⭔ ${prefix}sound41
-  │⭔ ${prefix}sound42
-  │⭔ ${prefix}sound43
-  │⭔ ${prefix}sound44
-  │⭔ ${prefix}sound45
-  │⭔ ${prefix}sound46
-  │⭔ ${prefix}sound47
-  │⭔ ${prefix}sound48
-  │⭔ ${prefix}sound49
-  │⭔ ${prefix}sound50
-  │⭔ ${prefix}sound51
-  │⭔ ${prefix}sound52
-  │⭔ ${prefix}sound53
-  │⭔ ${prefix}sound54
-  │⭔ ${prefix}sound55
-  │⭔ ${prefix}sound56
-  │⭔ ${prefix}sound57
-  │⭔ ${prefix}sound58
-  │⭔ ${prefix}sound59
-  │⭔ ${prefix}sound60
-  │⭔ ${prefix}sound61
-  │⭔ ${prefix}sound62
-  │⭔ ${prefix}sound63
-  │⭔ ${prefix}sound64
-  │⭔ ${prefix}sound65
-  │⭔ ${prefix}sound66
-  │⭔ ${prefix}sound67
-  │⭔ ${prefix}sound68
-  │⭔ ${prefix}sound69
-  │⭔ ${prefix}sound70
-  │⭔ ${prefix}sound71
-  │⭔ ${prefix}sound72
-  │⭔ ${prefix}sound73
-  │⭔ ${prefix}sound74
-  │
-  └───────⭓`;
-};
 exports.textpromenu = (prefix, ad) => {
   return `┌──⭓ *TEXT PRO MENU*
   │ 
@@ -1556,119 +888,6 @@ exports.textpromenu = (prefix, ad) => {
   │⭔ ${prefix}naruto text
   │⭔ ${prefix}butterfly text
   │⭔ ${prefix}flaming text
-  │⭔ ${prefix}shadow text
-  │⭔ ${prefix}cup text
-  │⭔ ${prefix}cup1 text
-  │⭔ ${prefix}romance text
-  │⭔ ${prefix}smoke text
-  │⭔ ${prefix}burnpaper text
-  │⭔ ${prefix}lovemessage text
-  │⭔ ${prefix}undergrass text
-  │⭔ ${prefix}love text
-  │⭔ ${prefix}coffe text
-  │⭔ ${prefix}woodheart text
-  │⭔ ${prefix}woodenboard text
-  │⭔ ${prefix}summer3d text
-  │⭔ ${prefix}wolfmetal text
-  │⭔ ${prefix}nature3d text
-  │⭔ ${prefix}underwater text
-  │⭔ ${prefix}goldenrose text
-  │⭔ ${prefix}summernature text
-  │⭔ ${prefix}letterleaves text
-  │⭔ ${prefix}glowingneon text
-  │⭔ ${prefix}fallleaves text
-  │⭔ ${prefix}flamming text
-  │⭔ ${prefix}harrypotter text
-  │⭔ ${prefix}carvedwood text
-  │⭔ ${prefix}tiktok text1 text2
-  │⭔ ${prefix}arcade8bit text1 text2
-  │⭔ ${prefix}battlefield4 text1 text2
-  │⭔ ${prefix}pubg text1 text2
-  │
-  └───────⭓`;
-};
-exports.ephotomenu = (prefix, ad) => {
-  return `┌──⭓ *EPHOTO MENU*
-  │ 
-  │⭔ ${prefix}wetglass text
-  │⭔ ${prefix}multicolor3d text
-  │⭔ ${prefix}watercolor text
-  │⭔ ${prefix}luxurygold text
-  │⭔ ${prefix}galaxywallpaper text
-  │⭔ ${prefix}lighttext text
-  │⭔ ${prefix}beautifulflower text
-  │⭔ ${prefix}puppycute text
-  │⭔ ${prefix}royaltext text
-  │⭔ ${prefix}heartshaped text
-  │⭔ ${prefix}birthdaycake text
-  │⭔ ${prefix}galaxystyle text
-  │⭔ ${prefix}hologram3d text
-  │⭔ ${prefix}greenneon text
-  │⭔ ${prefix}glossychrome text
-  │⭔ ${prefix}greenbush text
-  │⭔ ${prefix}metallogo text
-  │⭔ ${prefix}noeltext text
-  │⭔ ${prefix}glittergold text
-  │⭔ ${prefix}textcake text
-  │⭔ ${prefix}starsnight text
-  │⭔ ${prefix}wooden3d text
-  │⭔ ${prefix}textbyname text
-  │⭔ ${prefix}writegalacy text
-  │⭔ ${prefix}galaxybat text
-  │⭔ ${prefix}snow3d text
-  │⭔ ${prefix}birthdayday text
-  │⭔ ${prefix}goldplaybutton text
-  │⭔ ${prefix}silverplaybutton text
-  │⭔ ${prefix}freefire text
-  │
-  └───────⭓`;
-};
-exports.randomimagemenu = (prefix, ad) => {
-  return `┌──⭓ *RANDOM IMAGE*
-  │  
-  │⭔ ${prefix}bj
-  │⭔ ${prefix}ero
-  │⭔ ${prefix}ppcp
-  │⭔ ${prefix}cum
-  │⭔ ${prefix}feet
-  │⭔ ${prefix}yuri
-  │⭔ ${prefix}trap
-  │⭔ ${prefix}lewd
-  │⭔ ${prefix}feed
-  │⭔ ${prefix}eron
-  │⭔ ${prefix}solo
-  │⭔ ${prefix}gasm
-  │⭔ ${prefix}poke
-  │⭔ ${prefix}anal
-  │⭔ ${prefix}holo
-  │⭔ ${prefix}tits
-  │⭔ ${prefix}kuni
-  │⭔ ${prefix}kiss
-  │⭔ ${prefix}erok
-  │⭔ ${prefix}smug
-  │⭔ ${prefix}baka
-  │⭔ ${prefix}solog
-  │⭔ ${prefix}feetg
-  │⭔ ${prefix}lewdk
-  │⭔ ${prefix}waifu
-  │⭔ ${prefix}pussy
-  │⭔ ${prefix}femdom
-  │⭔ ${prefix}cuddle
-  │⭔ ${prefix}hentai
-  │⭔ ${prefix}eroyuri
-  │⭔ ${prefix}cum_jpg
-  │⭔ ${prefix}blowjob
-  │⭔ ${prefix}erofeet
-  │⭔ ${prefix}holoero
-  │⭔ ${prefix}classic
-  │⭔ ${prefix}erokemo
-  │⭔ ${prefix}fox_girl
-  │⭔ ${prefix}futanari
-  │⭔ ${prefix}lewdkemo
-  │⭔ ${prefix}wallpaper
-  │⭔ ${prefix}pussy_jpg
-  │⭔ ${prefix}kemonomimi
-  │⭔ ${prefix}nsfw_avatar
   │
   └───────⭓`;
 };

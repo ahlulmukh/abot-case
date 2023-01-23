@@ -27,6 +27,7 @@
     "path": "^0.12.7",
     "qrcode": "^1.5.0",
     "qrcode-terminal": "^0.12.0",
-    "scrape-primbon": "^1.1.0"
+    "scrape-primbon": "^1.1.0",
+    "yt-search": "^2.10.4"
   }
 }
