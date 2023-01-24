@@ -2739,6 +2739,8 @@ _Topup & Deposit_`;
 
       case "google":
         {
+          if (cekUser("id", sender) == null)
+            return conn.sendMessage(from, buta_menu);
           if (checklimitUser(sender) <= 0) return reply(limitabis);
           if (!q) return reply(`Example : ${prefix + command} aliando`);
           let google = require("google-it");
