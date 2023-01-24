@@ -101,6 +101,12 @@ exports.allmenu = (prefix, ad) => {
 │
 └───────⭓
 
+┌──⭓ *ChatGPT OpenAI*
+│
+│⭔ ${prefix}ai teksnya
+│
+└───────⭓
+
 ┌──⭓ *USER MENU*
 │
 │⭔ ${prefix}verify
@@ -188,6 +194,7 @@ exports.allmenu = (prefix, ad) => {
 │⭔ ${prefix}ytmp3
 │⭔ ${prefix}playmp3
 │⭔ ${prefix}ytmp4
+│⭔ ${prefix}igdl
 │⭔ ${prefix}playmp4
 │⭔ ${prefix}pinterest
 │⭔ ${prefix}gitclone
@@ -591,6 +598,7 @@ exports.downloadermenu = (prefix, ad) => {
   │⭔ ${prefix}playmp3
   │⭔ ${prefix}ytmp4
   │⭔ ${prefix}playmp4
+  │⭔ ${prefix}igdl
   │⭔ ${prefix}pinterest
   │⭔ ${prefix}gitclone
   │⭔ ${prefix}wikimedia
@@ -888,6 +896,14 @@ exports.textpromenu = (prefix, ad) => {
   │⭔ ${prefix}naruto text
   │⭔ ${prefix}butterfly text
   │⭔ ${prefix}flaming text
+  │
+  └───────⭓`;
+};
+exports.chatgpt = (prefix, ad) => {
+  return `
+  ┌──⭓ *ChatGPT OpenAI*
+  │
+  │⭔ ${prefix}ai teksnya
   │
   └───────⭓`;
 };
