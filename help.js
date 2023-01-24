@@ -200,6 +200,7 @@ exports.allmenu = (prefix, ad) => {
 │⭔ ${prefix}gitclone
 │⭔ ${prefix}wikimedia
 │⭔ ${prefix}soundcloud
+│⭔ ${prefix}google
 │⭔ ${prefix}infogempa
 │
 └───────⭓
@@ -591,7 +592,7 @@ exports.groupmenu = (prefix, ad) => {
 };
 exports.downloadermenu = (prefix, ad) => {
   return `
-  ┌──⭓ *DOWNLOADER MENU*
+  ┌──⭓ *DOWNLOADER & SEARCH MENU*
   │
   │⭔ ${prefix}tiktok
   │⭔ ${prefix}ytmp3
@@ -604,6 +605,7 @@ exports.downloadermenu = (prefix, ad) => {
   │⭔ ${prefix}wikimedia
   │⭔ ${prefix}soundcloud
   │⭔ ${prefix}infogempa
+  │⭔ ${prefix}google
   │
   └───────⭓`;
 };
