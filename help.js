@@ -191,7 +191,6 @@ exports.allmenu = (prefix, ad) => {
 │⭔ ${prefix}playmp4
 │⭔ ${prefix}pinterest
 │⭔ ${prefix}gitclone
-│⭔ ${prefix}mediafire
 │⭔ ${prefix}wikimedia
 │⭔ ${prefix}soundcloud
 │⭔ ${prefix}infogempa
@@ -594,7 +593,6 @@ exports.downloadermenu = (prefix, ad) => {
   │⭔ ${prefix}playmp4
   │⭔ ${prefix}pinterest
   │⭔ ${prefix}gitclone
-  │⭔ ${prefix}mediafire
   │⭔ ${prefix}wikimedia
   │⭔ ${prefix}soundcloud
   │⭔ ${prefix}infogempa
