@@ -2737,6 +2737,23 @@ _Topup & Deposit_`;
         }
         break;
 
+      case "google":
+        {
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
+          if (!q) return reply(`Example : ${prefix + command} aliando`);
+          let google = require("google-it");
+          google({ query: q }).then((res) => {
+            let teks = `Google Search From : ${q}\n\n`;
+            for (let g of res) {
+              teks += `⭔ *Title* : ${g.title}\n`;
+              teks += `⭔ *Description* : ${g.snippet}\n`;
+              teks += `⭔ *Link* : ${g.link}\n\n=====================\n\n`;
+            }
+            reply(teks);
+          });
+          confirmlimit(sender, 1);
+        }
+        break;
       case "setppgrup":
       case "setppgc":
         if (!isGroup) return reply(mess.OnlyGrup);
