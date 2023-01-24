@@ -65,6 +65,7 @@ const {
 const { mediafireDl } = require("./function/scrape_Mediafire");
 const { webp2mp4File } = require("./function/Webp_Tomp4");
 const { cerpen } = require("./function/Search_Cerpen");
+const { Configuration, OpenAIApi } = require("openai");
 const {
   bioskop,
   bioskopNow,
@@ -115,6 +116,7 @@ const axios = require("axios");
 const qs = require("querystring");
 const path = require("path");
 const fetch = require("node-fetch");
+let settingai = require("./database/key.json");
 const colors = require("colors/safe");
 const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
 const ffmpeg = require("fluent-ffmpeg");
@@ -552,6 +554,36 @@ Video sedang dikirim...`);
         return null;
       }
     };
+
+    // OpenAI Setting
+    if (setting.autoAI) {
+      if (budy) {
+        try {
+          if (settingai.keyopenai === "ISI_APIKEY_OPENAI_DISINI")
+            return reply(
+              "Apikey belum diisi\n\nSilahkan isi terlebih dahulu apikeynya di file key.json\n\nApikeynya bisa dibuat di website: https://beta.openai.com/account/api-keys"
+            );
+          const configuration = new Configuration({
+            apiKey: settingai.keyopenai,
+          });
+          const openai = new OpenAIApi(configuration);
+
+          const response = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: budy,
+            temperature: 0.3,
+            max_tokens: 3000,
+            top_p: 1.0,
+            frequency_penalty: 0.0,
+            presence_penalty: 0.0,
+          });
+          m.reply(`${response.data.choices[0].text}\n\n`);
+        } catch (err) {
+          console.log(err);
+          m.reply("Maaf, sepertinya ada yang error");
+        }
+      }
+    }
 
     const setRoom = (satu, dua, tiga) => {
       Object.keys(db_menfes).forEach((i) => {
@@ -1076,7 +1108,7 @@ _*Waktu:* ${jam} WIB_`);
           },
           {
             title: `🙅‍♂️ RANDOM IMAGE MENU`,
-            rowId: `${prefix}randomimagemenu`,
+            rowId: `${prefix}randommenu`,
             description: `Menampilkan daftar random image menu`,
           },
           {
@@ -1666,46 +1698,6 @@ Media sedang dikirim.`;
         confirmlimit(sender, 1);
         break;
 
-      case "mediafire":
-        if (cekUser("id", sender) == null)
-          return conn.sendMessage(from, buta_menu);
-        if (checklimitUser(sender) <= 0) return reply(limitabis);
-        if (!q)
-          return reply(
-            "*Contoh:*\n#mediafire https://www.mediafire.com/file/451l493otr6zca4/V4.zip/file"
-          );
-        let isLinks = q.match(
-          /(?:https?:\/{2})?(?:w{3}\.)?mediafire(?:com)?\.(?:com|be)(?:\/www\?v=|\/)([^\s&]+)/
-        );
-        if (!isLinks) return reply("Link yang kamu berikan tidak valid");
-        reply("*Mengunduh Media...*");
-        let baby1 = await mediafireDl(`${isLinks}`);
-        if (baby1[0].size.split("MB")[0] >= 100)
-          return reply("File Melebihi Batas " + util.format(baby1));
-        let result4 = `-----[ *MEDIAFIRE DOWNLOADER* ]-----
-
-*Name* : ${baby1[0].nama}
-*Size* : ${baby1[0].size}
-*Type* : ${baby1[0].mime}
-
-_Wait Mengirim file..._
-`;
-        reply(result4);
-        if (isGroup)
-          return reply("*document udah dikirim ke chat pribadi bot.*");
-        conn
-          .sendMessage(
-            sender,
-            {
-              document: { url: baby1[0].link },
-              fileName: baby1[0].nama,
-              mimetype: baby1[0].mime,
-            },
-            { quoted: msg }
-          )
-          .catch((err) => reply("Gagal saat mendownload File"));
-        confirmlimit(sender, 1);
-        break;
       case "grupbot":
       case "groupbot":
         if (cekUser("id", sender) == null)
@@ -5047,6 +5039,40 @@ Video sedang dikirim...`);
           conn.sendMessage(id_dua, { text: "Tulis 1 pesan yg ingin dibalas" });
         }
         break;
+      //Ai Fiture
+      case "ai":
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
+        try {
+          if (settingai.keyopenai === "ISI_APIKEY_OPENAI_DISINI")
+            return reply(
+              "Apikey belum diisi\n\nSilahkan isi terlebih dahulu apikeynya di file key.json\n\nApikeynya bisa dibuat di website: https://beta.openai.com/account/api-keys"
+            );
+          if (!q)
+            return reply(
+              `Chattingan dengan AI.\nTanyakan apa saja kepada ai dengan cara penggunaan \n\n${prefix}${command} tolong berikan motivasi cinta`
+            );
+          const configuration = new Configuration({
+            apiKey: settingai.keyopenai,
+          });
+          const openai = new OpenAIApi(configuration);
+
+          const response = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: q,
+            temperature: 0.3,
+            max_tokens: 3000,
+            top_p: 1.0,
+            frequency_penalty: 0.0,
+            presence_penalty: 0.0,
+          });
+          reply(`${response.data.choices[0].text}\n\n`);
+          confirmlimit(sender, 1);
+        } catch (err) {
+          console.log(err);
+          reply("Maaf, sepertinya ada yang error");
+        }
+        break;
+
       default:
         if (!isCmd) {
           if (cekPesan("id", sender) == null) return;
