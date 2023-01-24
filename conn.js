@@ -417,7 +417,7 @@ module.exports = async (conn, msg, m, setting, store) => {
         );
         reply(`𝗧𝗜𝗞𝗧𝗢𝗞 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗
 
-𝘼𝙪𝙩𝙝𝙤𝙧: Lexxy Official
+𝘼𝙪𝙩𝙝𝙤𝙧: Abot
 𝙅𝙪𝙙𝙪𝙡: ${tt_res.result.judul}
 𝙎𝙤𝙪𝙧𝙘𝙚: ${chats}
 
@@ -1656,7 +1656,7 @@ Media sedang dikirim.`;
         ).then((sdc) => {
           reply(`*SOUNDCLOUD DOWNLOAD*
 
-*author:* Lexxy Official
+*author:* Abot
 *title:* ${sdc.result.title}
 *duration:* ${sdc.result.duration}
 *quality:* ${sdc.result.quality}
