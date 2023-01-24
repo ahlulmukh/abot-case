@@ -101,6 +101,8 @@ const {
   cerpenmenu,
   textpromenu,
   groupmenu,
+  chatgpt,
+  convertmenu,
 } = require("./help");
 const { jadibot, listJadibot } = require("./function/jadibot");
 
@@ -1149,6 +1151,7 @@ _*Waktu:* ${jam} WIB_`);
 
     switch (command) {
       case "verify":
+      case "daftar":
         {
           if (cekUser("id", sender) !== null)
             return reply("Kamu sudah terdaftar !!");
@@ -1322,6 +1325,14 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
           if (cekUser("id", sender) == null)
             return conn.sendMessage(from, buta_menu);
           reply(asupangachamenu(prefix, ad));
+        }
+        break;
+
+      case "openai":
+        {
+          if (cekUser("id", sender) == null)
+            return conn.sendMessage(from, buta_menu);
+          reply(chatgpt(prefix, ad));
         }
         break;
 
@@ -1759,6 +1770,7 @@ ${setting.group.link}`);
           reply(teks_db);
         }
         break;
+
       case "addprem":
         {
           if (!isOwner) return reply(mess.OnlyOwner);
@@ -2724,6 +2736,7 @@ _Topup & Deposit_`;
           reply("Tag atau reply orang yg mau dikick\n\n*Contoh:* #kick @tag");
         }
         break;
+
       case "setppgrup":
       case "setppgc":
         if (!isGroup) return reply(mess.OnlyGrup);
@@ -5039,8 +5052,10 @@ Video sedang dikirim...`);
           conn.sendMessage(id_dua, { text: "Tulis 1 pesan yg ingin dibalas" });
         }
         break;
+
       //Ai Fiture
       case "ai":
+        if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
         if (checklimitUser(sender) <= 0) return reply(limitabis);
         try {
           if (settingai.keyopenai === "ISI_APIKEY_OPENAI_DISINI")
@@ -5049,7 +5064,7 @@ Video sedang dikirim...`);
             );
           if (!q)
             return reply(
-              `Chattingan dengan AI.\nTanyakan apa saja kepada ai dengan cara penggunaan \n\n${prefix}${command} tolong berikan motivasi cinta`
+              `Chattingan dengan AI.\nTanyakan apa saja kepada ai dengan cara penggunaan \n\nContoh : ${prefix}${command} tolong berikan motivasi cinta`
             );
           const configuration = new Configuration({
             apiKey: settingai.keyopenai,
