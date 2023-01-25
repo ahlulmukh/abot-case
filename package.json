@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "description": "Create By Lexxy Official",
   "main": "main.js",
+  "type": "commonjs",
   "scripts": {
-    "start": "node main.js"
+    "start": "node main"
   },
   "author": "Lexxy Official",
   "license": "ISC",

@@ -1771,6 +1771,50 @@ ${setting.group.link}`);
         }
         break;
 
+      case "listpc":
+        {
+          if (!isOwner) return reply(mess.OnlyOwner);
+          let anu = await store.chats
+            .all()
+            .filter((v) => v.id.endsWith(".net"))
+            .map((v) => v.id);
+          let teks = `⬣ *LIST PERSONAL CHAT*\n\nTotal Chat : ${anu.length} Chat\n\n`;
+          for (let i of anu) {
+            let nama = store.messages[i].array[0].pushName;
+            teks += `⬡ *Nama :* ${nama}\n⬡ *User :* @${
+              i.split("@")[0]
+            }\n⬡ *Chat :* https://wa.me/${
+              i.split("@")[0]
+            }\n\n=====================\n\n`;
+          }
+          reply(teks);
+        }
+        break;
+
+      case "listgc":
+        {
+          if (!isOwner) return reply(mess.OnlyOwner);
+          let anu = await store.chats
+            .all()
+            .filter((v) => v.id.endsWith("@g.us"))
+            .map((v) => v.id);
+          let teks = `⬣ *LIST GROUP CHAT*\n\nTotal Group : ${anu.length} Group\n\n`;
+          for (let i of anu) {
+            let metadata = await conn.groupMetadata(i);
+            teks += `⬡ *Nama :* ${metadata.subject}\n⬡ *Owner :* @${
+              metadata.owner.split("@")[0]
+            }\n⬡ *ID :* ${metadata.id}\n⬡ *Dibuat :* ${moment(
+              metadata.creation * 1000
+            )
+              .tz("Asia/Jakarta")
+              .format("DD/MM/YYYY HH:mm:ss")}\n⬡ *Member :* ${
+              metadata.participants.length
+            }\n\n=====================\n\n`;
+          }
+          reply(teks);
+        }
+        break;
+
       case "addprem":
         {
           if (!isOwner) return reply(mess.OnlyOwner);
@@ -1905,20 +1949,6 @@ _• Status : ${cekUser("premium", sender) ? "Aktif" : "Tidak"}_`,
           "./database/db_ListMessage",
           JSON.stringify(db_respon_list, null, 1)
         );
-        reply("Sukses Reset List Message");
-        break;
-
-      case "hapusticker":
-        if (!isOwner) return reply(mess.OnlyOwner);
-        let directory = "./sticker/";
-        fs.readdir(directory, (err, files) => {
-          if (err) throw err;
-          for (const file of files) {
-            fs.unlink(path.join(directory, file), (err) => {
-              if (err) throw err;
-            });
-          }
-        });
         reply("Sukses Reset List Message");
         break;
 
@@ -5104,6 +5134,34 @@ Video sedang dikirim...`);
         } catch (err) {
           console.log(err);
           reply("Maaf, sepertinya ada yang error");
+        }
+        break;
+
+      case "join":
+        {
+          if (!isOwner) return reply(mess.OnlyOwner);
+          if (!q) return reply("Masukkan Link Group!");
+          if (!isUrl(args[0]) && !args[0].includes("whatsapp.com"))
+            return reply("Link Invalid!");
+          reply(mess.wait);
+          let result = args[0].split("https://chat.whatsapp.com/")[1];
+          await conn
+            .groupAcceptInvite(result)
+            .then((res) => reply(jsonformat(res)))
+            .catch((err) => reply(jsonformat(err)));
+        }
+        break;
+
+      case "leave":
+        {
+          if (!isOwner) return reply(mess.owner);
+          if (!q) return reply("Masukkan Link Group!");
+          reply(mess.wait);
+          let result = q;
+          await conn
+            .groupLeave(result)
+            .then((res) => reply(jsonformat(res)))
+            .catch((err) => reply(jsonformat(err)));
         }
         break;
 
