@@ -126,6 +126,8 @@ exports.allmenu = (prefix, ad) => {
 │⭔ ${prefix}error
 │⭔ ${prefix}clearerr
 │⭔ ${prefix}hapusticker
+│⭔ ${prefix}listgc
+│⭔ ${prefix}listpc  
 │⭔ ${prefix}siaran
 │⭔ ${prefix}session
 │⭔ ${prefix}resetdb
@@ -163,7 +165,6 @@ exports.allmenu = (prefix, ad) => {
 
 ┌──⭓ *GROUP MENU*
 │
-│⭔ ${prefix}fitnah
 │⭔ ${prefix}delete
 │⭔ ${prefix}revoke
 │⭔ ${prefix}tagall
@@ -522,12 +523,12 @@ exports.usermenu = (prefix, ad) => {
 └───────⭓`;
 };
 exports.ownermenu = (prefix) => {
-  return `┌──⭓ *OWNER MENU*
+  return `
+  ┌──⭓ *OWNER MENU*
 │
 │⭔ ${prefix}error
 │⭔ ${prefix}clearerr
 │⭔ ${prefix}siaran
-│⭔ ${prefix}hapusticker
 │⭔ ${prefix}session
 │⭔ ${prefix}resetdb
 │⭔ ${prefix}runtime
@@ -538,6 +539,8 @@ exports.ownermenu = (prefix) => {
 │⭔ ${prefix}addprem
 │⭔ ${prefix}delprem
 │⭔ ${prefix}bc
+│⭔ ${prefix}listgc
+│⭔ ${prefix}listpc
 │⭔ ${prefix}bctext
 │⭔ ${prefix}bcvideo
 │⭔ ${prefix}bcaudio
@@ -566,7 +569,6 @@ exports.storemenu = (prefix, ad) => {
 exports.groupmenu = (prefix, ad) => {
   return `┌──⭓ *GROUP MENU*
 │
-│⭔ ${prefix}fitnah
 │⭔ ${prefix}delete
 │⭔ ${prefix}revoke
 │⭔ ${prefix}tagall
@@ -604,7 +606,6 @@ exports.downloadermenu = (prefix, ad) => {
   │⭔ ${prefix}gitclone
   │⭔ ${prefix}wikimedia
   │⭔ ${prefix}soundcloud
-  │⭔ ${prefix}infogempa
   │⭔ ${prefix}google
   │
   └───────⭓`;
@@ -694,7 +695,8 @@ exports.anonymousemenu = (prefix, ad) => {
 };
 
 exports.randomenu = (prefix, ad) => {
-  return `┌──⭓ *RANDOM MENU*
+  return `
+┌──⭓ *RANDOM MENU*
 │
 │⭔ ${prefix}cecan
 │⭔ ${prefix}cogan
@@ -709,7 +711,8 @@ exports.randomenu = (prefix, ad) => {
 └───────⭓`;
 };
 exports.primbonmenu = (prefix, ad) => {
-  return `┌──⭓ *PRIMBON MENU*
+  return `
+┌──⭓ *PRIMBON MENU*
 │
 │⭔ ${prefix}nomorhoki
 │⭔ ${prefix}artimimpi
@@ -744,6 +747,7 @@ exports.informationmenu = (prefix, ad) => {
   return `┌──⭓ *INFORMATION MENU*
   │
   │⭔ ${prefix}gempa
+  │⭔ ${prefix}infogempa
   │⭔ ${prefix}jadwaltv
   │⭔ ${prefix}gempanow
   │⭔ ${prefix}bioskopnow
