@@ -1,5 +1,3 @@
-// Created By Lexxy Official
-// Jangan Lu Jual Ya Tod
 
 const { modul } = require('./module');
 const { baileys, boom, chalk, fs, path, process } = modul;
