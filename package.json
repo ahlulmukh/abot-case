@@ -1,13 +1,13 @@
 {
-  "name": "Bot",
-  "version": "0.0.0",
-  "description": "Create By Lexxy Official",
+  "name": "abot-md",
+  "version": "1.0.0",
+  "description": "Create By Ahlul Mukhramin",
   "main": "main.js",
   "type": "commonjs",
   "scripts": {
     "start": "node main"
   },
-  "author": "Lexxy Official",
+  "author": "Ahmuq",
   "license": "ISC",
   "dependencies": {
     "@adiwajshing/baileys": "^4.4.0",

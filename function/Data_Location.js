@@ -1,20 +1,16 @@
-//GUA LEXXY SUKA SKR
-//SIMPLE KEREN RAPIH
-//CREATED BY LEXXY OFFICIAL
-
-const fs = require('fs')
+const fs = require("fs");
 
 JSON_DATA = {
-setting: JSON.parse(fs.readFileSync('./config.json')),
-antilink: JSON.parse(fs.readFileSync('./database/antilink.json')),
-mess: JSON.parse(fs.readFileSync('./database/message.json')),
-welcome: JSON.parse(fs.readFileSync('./database/welcome.json')),
-db_user: JSON.parse(fs.readFileSync('./database/pengguna.json')),
-db_menfes: JSON.parse(fs.readFileSync('./database/menfess.json')),
-server_eror: JSON.parse(fs.readFileSync('./database/func_error.json')),
-db_respon_list: JSON.parse(fs.readFileSync('./database/db_addlist.json')),
-auto_downloadTT: JSON.parse(fs.readFileSync('./database/tiktokDown.json')),
-}
+  setting: JSON.parse(fs.readFileSync("./config.json")),
+  antilink: JSON.parse(fs.readFileSync("./database/antilink.json")),
+  mess: JSON.parse(fs.readFileSync("./database/message.json")),
+  welcome: JSON.parse(fs.readFileSync("./database/welcome.json")),
+  db_user: JSON.parse(fs.readFileSync("./database/pengguna.json")),
+  db_menfes: JSON.parse(fs.readFileSync("./database/menfess.json")),
+  server_eror: JSON.parse(fs.readFileSync("./database/func_error.json")),
+  db_respon_list: JSON.parse(fs.readFileSync("./database/db_addlist.json")),
+  auto_downloadTT: JSON.parse(fs.readFileSync("./database/tiktokDown.json")),
+};
 
 exports.setting_JSON = JSON_DATA.setting;
 exports.welcome_JSON = JSON_DATA.welcome;
