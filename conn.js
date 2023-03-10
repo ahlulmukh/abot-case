@@ -1,5 +1,3 @@
-// CREATE BY LEXXY OFFICIAL
-
 "use strict";
 const {
   BufferJSON,
@@ -556,36 +554,6 @@ Video sedang dikirim...`);
         return null;
       }
     };
-
-    // OpenAI Setting
-    if (setting.autoAI) {
-      if (budy) {
-        try {
-          if (settingai.keyopenai === "ISI_APIKEY_OPENAI_DISINI")
-            return reply(
-              "Apikey belum diisi\n\nSilahkan isi terlebih dahulu apikeynya di file key.json\n\nApikeynya bisa dibuat di website: https://beta.openai.com/account/api-keys"
-            );
-          const configuration = new Configuration({
-            apiKey: settingai.keyopenai,
-          });
-          const openai = new OpenAIApi(configuration);
-
-          const response = await openai.createCompletion({
-            model: "text-davinci-003",
-            prompt: budy,
-            temperature: 0.3,
-            max_tokens: 3000,
-            top_p: 1.0,
-            frequency_penalty: 0.0,
-            presence_penalty: 0.0,
-          });
-          m.reply(`${response.data.choices[0].text}\n\n`);
-        } catch (err) {
-          console.log(err);
-          m.reply("Maaf, sepertinya ada yang error");
-        }
-      }
-    }
 
     const setRoom = (satu, dua, tiga) => {
       Object.keys(db_menfes).forEach((i) => {
