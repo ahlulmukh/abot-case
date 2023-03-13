@@ -20,6 +20,27 @@
 
 ###
 
+## FEATURE SCRIPT 💡
+
+| FEATURE MY SCRIPT | 🌱  |
+| ----------------- | --- |
+| Sticker           | ✔️  |
+| Chat GPT          | ✔️  |
+| Owner Menu        | ✔️  |
+| Download          | ✔️  |
+| Group Menu        | ✔️  |
+| Register User     | ✔️  |
+| Limit User        | ✔️  |
+| Converter Menu    | ✔️  |
+| Main Menu         | ✔️  |
+| User Menu         | ✔️  |
+| Store Menu        | ✔️  |
+| Bug Menu          | ✔️  |
+| Logomaker Menu    | ✔️  |
+| Anonymouse Menu   | ✔️  |
+| Menfess           | ✔️  |
+| And More          | ✔️  |
+
 ## Cara Instal
 
 ### FOR TERMUX USER
