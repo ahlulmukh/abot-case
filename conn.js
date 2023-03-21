@@ -5088,20 +5088,20 @@ Video sedang dikirim...`);
           });
           const openai = new OpenAIApi(configuration);
 
-          const response = await openai.createCompletion({
-            model: "text-davinci-003",
-            prompt: q,
-            temperature: 0.3,
-            max_tokens: 3000,
-            top_p: 1.0,
-            frequency_penalty: 0.0,
-            presence_penalty: 0.0,
+          const response = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: text }],
           });
-          reply(`${response.data.choices[0].text}\n\n`);
-          confirmlimit(sender, 1);
-        } catch (err) {
-          console.log(err);
-          reply("Maaf, sepertinya ada yang error");
+          m.reply(`${response.data.choices[0].message.content}`);
+        } catch (error) {
+          if (error.response) {
+            console.log(error.response.status);
+            console.log(error.response.data);
+            console.log(`${error.response.status}\n\n${error.response.data}`);
+          } else {
+            console.log(error);
+            m.reply("Maaf, sepertinya ada yang error :" + error.message);
+          }
         }
         break;
 
