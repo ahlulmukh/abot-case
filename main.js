@@ -68,8 +68,6 @@ const connectToWhatsApp = async () => {
     require("./conn")(conn, msg, m, setting, Memory_Store);
   });
 
-  conn.ev.on("creds.update", () => saveState);
-
   conn.reply = (from, content, msg) =>
     conn.sendMessage(from, { text: content }, { quoted: msg });
 
