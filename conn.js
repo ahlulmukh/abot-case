@@ -2893,6 +2893,34 @@ _Topup & Deposit_`;
           }
         }
         break;
+
+      case "creategc":
+        {
+          if (!isOwner) return reply(mess.OnlyOwner);
+          if (!q) return reply("Nama groupnya?");
+          let cret = await conn.groupCreate(q, []);
+          let response = await conn.groupInviteCode(cret.id);
+          let teks = `\`\`\`「  CREATION GROUP MESSAGE  」\`\`\`
+          
+          ▸ Name : ${cret.subject}
+          ▸ Owner : @${cret.owner.split("@")[0]}
+          ▸ Creation : ${moment(cret.creation * 1000)
+            .tz("Asia/Jakarta")
+            .format("DD/MM/YYYY HH:mm:ss")} WIB
+          ▸ Link : https://chat.whatsapp.com/${response}
+          `;
+          setTimeout(() => {
+            reply(teks);
+          }, 7000);
+          setTimeout(() => {
+            conn.groupParticipantsUpdate(cret.id, [m.sender], "promote");
+          }, 5000);
+          setTimeout(() => {
+            conn.groupParticipantsUpdate(cret.id, [m.sender], "add");
+          }, 1000);
+        }
+        break;
+
       case "antilink":
         {
           if (!isGroup) return reply(mess.OnlyGrup);

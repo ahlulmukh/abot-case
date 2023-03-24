@@ -101,6 +101,7 @@ exports.allmenu = (prefix, ad) => {
 ┌──⭓ *ChatGPT OpenAI*
 │
 │⭔ ${prefix}ai teksnya
+│⭔ ${prefix}ai-img teksnya
 │
 └───────⭓
 
