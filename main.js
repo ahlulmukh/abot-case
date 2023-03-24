@@ -94,6 +94,25 @@ const connectToWhatsApp = async () => {
     require("./conn")(conn, msg, m, setting, Memory_Store);
   });
 
+  conn.ev.process(async (events) => {
+    if (events["presence.update"]) {
+      await conn.sendPresenceUpdate("available");
+    }
+    if (events["messages.upsert"]) {
+      const upsert = events["messages.upsert"];
+      for (let msg of upsert.messages) {
+        if (msg.key.remoteJid === "status@broadcast") {
+          if (msg.message?.protocolMessage) return;
+          await delay(3000);
+          await conn.readMessages([msg.key]);
+        }
+      }
+    }
+    if (events["creds.update"]) {
+      await saveCreds();
+    }
+  });
+
   conn.reply = (from, content, msg) =>
     conn.sendMessage(from, { text: content }, { quoted: msg });
 
