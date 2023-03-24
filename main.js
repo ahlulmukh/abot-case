@@ -9,6 +9,7 @@ const {
   jidDecode,
   generateForwardMessageContent,
   generateWAMessageFromContent,
+  fetchLatestBaileysVersion,
 } = require("@adiwajshing/baileys");
 const fs = require("fs");
 const chalk = require("chalk");
@@ -50,12 +51,37 @@ const connectToWhatsApp = async () => {
     `./${setting.sessionName}`
   );
 
+  const { version, isLatest } = await fetchLatestBaileysVersion();
+
   const conn = makeWASocket({
+    version,
+    logger: pino({ level: "silent" }),
     printQRInTerminal: true,
-    logger: logg({ level: "fatal" }),
-    browser: ["ABOTMD", "Safari", "1.0.0"],
+    patchMessageBeforeSending: (message) => {
+      const requiresPatch = !!(
+        message.buttonsMessage ||
+        message.templateMessage ||
+        message.listMessage
+      );
+      if (requiresPatch) {
+        message = {
+          viewOnceMessage: {
+            message: {
+              messageContextInfo: {
+                deviceListMetadataVersion: 2,
+                deviceListMetadata: {},
+              },
+              ...message,
+            },
+          },
+        };
+      }
+      return message;
+    },
+    browser: ["abot Multi Device", "Safari", "1.0.0"],
     auth: state,
   });
+
   Memory_Store.bind(conn.ev);
 
   conn.ev.on("messages.upsert", async (m) => {
