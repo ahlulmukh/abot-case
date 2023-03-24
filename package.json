@@ -10,7 +10,7 @@
   "author": "Ahmuq",
   "license": "ISC",
   "dependencies": {
-    "@adiwajshing/baileys": "^4.4.0",
+    "@adiwajshing/baileys": "^5.0.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "^3.0.0",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",

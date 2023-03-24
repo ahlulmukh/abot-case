@@ -3,7 +3,7 @@ process.on("uncaughtException", console.error);
 const {
   default: makeWASocket,
   DisconnectReason,
-  useSingleFileAuthState,
+  useMultiFileAuthState,
   makeInMemoryStore,
   downloadContentFromMessage,
   jidDecode,
@@ -40,14 +40,16 @@ const {
 const { updateGroup } = require("./function/update_Group");
 
 let setting = JSON.parse(fs.readFileSync("./config.json"));
-let session = `./${setting.sessionName}.json`;
-const { state, saveState } = useSingleFileAuthState(session);
 
 const status = new Spinner(chalk.cyan(` Booting WhatsApp Bot`));
 const starting = new Spinner(chalk.cyan(` Preparing After Connect`));
 const reconnect = new Spinner(chalk.redBright(` Reconnecting WhatsApp Bot`));
 
 const connectToWhatsApp = async () => {
+  const { state, saveCreds } = await useMultiFileAuthState(
+    `./${setting.sessionName}`
+  );
+
   const conn = makeWASocket({
     printQRInTerminal: true,
     logger: logg({ level: "fatal" }),
