@@ -1,0 +1,35 @@
+{
+  "name": "abot-md",
+  "version": "1.0.0",
+  "description": "Create By Ahlul Mukhramin",
+  "main": "main.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node main"
+  },
+  "author": "Ahmuq",
+  "license": "ISC",
+  "dependencies": {
+    "@adiwajshing/baileys": "^5.0.0",
+    "@adiwajshing/keyed-db": "^0.2.4",
+    "@bochilteam/scraper": "^3.0.0",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "chalk": "^4.1.2",
+    "cheerio": "^1.0.0-rc.10",
+    "clui": "^0.3.6",
+    "colors": "^1.4.0",
+    "crypto": "^1.0.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "form-data": "^4.0.0",
+    "google-it": "^1.6.4",
+    "moment-timezone": "^0.5.34",
+    "node-cron": "^3.0.2",
+    "node-fetch": "2.6.7",
+    "node-webpmux": "^3.1.1",
+    "openai": "^3.1.0",
+    "path": "^0.12.7",
+    "qrcode": "^1.5.0",
+    "qrcode-terminal": "^0.12.0",
+    "scrape-primbon": "^1.1.0"
+  }
+}
