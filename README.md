@@ -43,6 +43,10 @@
 
 ## Cara Instal
 
+## Node Modules
+
+[`Download Disini`](https://drive.google.com/file/d/1jHyziX3707Dxdjzv7Rpt3RLsJED3S9Wo/view?usp=share_link)
+
 ### FOR TERMUX USER
 
 1. Type mentioned below given commands one by one in Termux.
@@ -70,6 +74,8 @@ $ node .
 $ pkg install yarn -y
 $ yarn install
 ```
+
+
 
 ## FOR WINDOWS/VPS/RDP USER
 
