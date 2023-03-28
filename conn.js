@@ -2409,8 +2409,7 @@ _Topup & Deposit_`;
           );
         }
         break;
-      // CASE BY LEXXY OFFICIAL
-      // JANGAN DI EDIT LAGI YA
+
       case "clear":
       case "clearer":
       case "clearerr":
