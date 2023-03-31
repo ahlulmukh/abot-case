@@ -45,6 +45,7 @@
 
 ## Node Modules
 
+Jika ingin node modules manual silahkan
 [`Download Disini`](https://drive.google.com/file/d/1jHyziX3707Dxdjzv7Rpt3RLsJED3S9Wo/view?usp=share_link)
 
 ### FOR TERMUX USER
@@ -75,8 +76,6 @@ $ pkg install yarn -y
 $ yarn install
 ```
 
-
-
 ## FOR WINDOWS/VPS/RDP USER
 
 - Download And Install Git [`Click Here`](https://git-scm.com/downloads)
@@ -90,8 +89,22 @@ cd AbotMD-Release
 npm install
 npm update
 ```
-## Donate
-<a href="https://saweria.co/ahlulmukh" target="_blank"><img src="https://user-images.githubusercontent.com/26188697/180601310-e82c63e4-412b-4c36-b7b5-7ba713c80380.png" alt="Donate For Ahlul" height="41" width="174"></a>
 
+## Setting Open AI Key
+
+- go first to website openai [`Click Here`](https://openai.com/blog/openai-api)
+- and go to folder database/key.json
+- change ISI_APIKEY_OPENAI_DISINI to your apikey
+
+## Setting Apikey
+
+- Go first to my website api [`Click Here`](https://api.aldev.my.id)
+- If you have account login, if you don't have account you can create first
+- After your login or register get the apikey.
+- and go to config.json changer your apikey in config.json
+
+## Donate
+
+<a href="https://saweria.co/ahlulmukh" target="_blank"><img src="https://user-images.githubusercontent.com/26188697/180601310-e82c63e4-412b-4c36-b7b5-7ba713c80380.png" alt="Donate For Ahlul" height="41" width="174"></a>
 
 ---
