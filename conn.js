@@ -5050,6 +5050,69 @@ Kedalaman :${i.depth}\n\n`;
           mentions(`Sukses kirim *${command}* to @${num.split("@")[0]}`, [num]);
         }
         break;
+      case "fbdl":
+        {
+          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
+          if (!q)
+            return reply(
+              "contoh :\n#fbdl https://www.facebook.com/UstazAzharIdrusFansClub/videos/813224618838631"
+            );
+          reply(mess.wait);
+          let buttons = [
+            {
+              buttonId: `.fbmp3 ${q}`,
+              buttonText: { displayText: "Audio" },
+              type: 1,
+            },
+          ];
+          let { data } = await axios.get(
+            `https://api.aldev.my.id/api/dowloader/fbdown?url=${q}&apikey=${setting.apikey}`
+          );
+          conn.sendMessage(
+            m.chat,
+            {
+              video: { url: data.result.HD },
+              mimetype: "video/mp4",
+              caption: "Done ya kak :D",
+              buttons,
+            },
+            { quoted: m }
+          );
+        }
+        break;
+
+      case "fbmp3":
+        {
+          if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+          if (checklimitUser(sender) <= 0) return reply(limitabis);
+          if (!q)
+            return reply(
+              "contoh :\n#fbdl https://www.facebook.com/UstazAzharIdrusFansClub/videos/813224618838631"
+            );
+          reply(mess.wait);
+          let buttons = [
+            {
+              buttonId: `.fbdl ${q}`,
+              buttonText: { displayText: "Video" },
+              type: 1,
+            },
+          ];
+          let { data } = await axios.get(
+            `https://api.aldev.my.id/api/dowloader/fbdown?url=${q}&apikey=${setting.apikey}`
+          );
+          conn.sendMessage(
+            m.chat,
+            {
+              audio: { url: data.result.audio },
+              mimetype: "audio/mpeg",
+              caption: "Done ya kak :D",
+              buttons,
+            },
+            { quoted: m }
+          );
+        }
+        break;
       case "tiktok":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
