@@ -99,7 +99,7 @@ npm update
 ## Setting Apikey
 
 - Go first to my website api [`Click Here`](https://api.aldev.my.id)
-- If you have account login, if you don't have account you can create first
+- If you have account login first, if you don't have account you can create first
 - After your login or register get the apikey.
 - and go to config.json changer your apikey in config.json
 
