@@ -5113,6 +5113,37 @@ Kedalaman :${i.depth}\n\n`;
           );
         }
         break;
+      case "igdl": {
+        if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
+        if (checklimitUser(sender) <= 0) return reply(limitabis);
+        if (!q)
+          return reply(
+            "contoh :\n#igdl https://www.instagram.com/tv/CeBAd9wAA6G"
+          );
+        reply(mess.wait);
+        fetchJson(
+          `https://api.aldev.my.id/api/dowloader/igdowloader?url=${q}&apikey=${setting.apikey}`
+        )
+          .then((ig_res) => {
+            reply(`IG DOWNLOADER
+
+𝙅𝙪𝙙𝙪𝙡: ${ig_res.result.decs}
+𝙎𝙤𝙪𝙧𝙘𝙚: ${q}
+
+Media sedang dikirim...`);
+            conn.sendMessage(
+              from,
+              {
+                video: { url: tt_res.result.video.link2 },
+                caption: "Done ya",
+              },
+              { quotes: msg }
+            );
+          })
+          .catch((err) => {
+            reply("Terjadi Kesalahan!!\nUrl tidak valid");
+          });
+      }
       case "tiktok":
         {
           if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
