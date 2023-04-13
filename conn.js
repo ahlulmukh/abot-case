@@ -1582,9 +1582,10 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
           return conn.sendMessage(from, buta_menu);
         if (checklimitUser(sender) <= 0) return reply(limitabis);
         if (!q) return reply("*Contoh:*\n#playmp3 link yt");
-        fetchJson(`https://saipulanuar.ga/api/download/ytmp3?url=${q}`).then(
-          (z) => {
-            var text_playmp3 = `*YOUTUBE PLAYMP3*
+        fetchJson(
+          `https://api.aldev.my.id/api/dowloader/yt?url=${q}&apikey=${setting.apikey}`
+        ).then((z) => {
+          var text_playmp3 = `*YOUTUBE PLAYMP3*
 
 *title:s* ${z.result.title}
 *channel:* ${z.result.channel}
@@ -1593,19 +1594,18 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
 *type:* audio/mp3
 
 Media sedang dikirim.`;
-            reply(text_playmp3);
-            conn.sendMessage(
-              sender,
-              {
-                audio: { url: z.result.url },
-                mimetype: "audio/mpeg",
-                fileName: z.title + "mp3",
-              },
-              { quoted: msg }
-            );
-            if (isGroup) return reply("Media sudah dikirim dichat pribadi.");
-          }
-        );
+          reply(text_playmp3);
+          conn.sendMessage(
+            sender,
+            {
+              audio: { url: z.result.mp3.result },
+              mimetype: "audio/mpeg",
+              fileName: z.title + "mp3",
+            },
+            { quoted: msg }
+          );
+          if (isGroup) return reply("Media sudah dikirim dichat pribadi.");
+        });
         confirmlimit(sender, 1);
         break;
 
@@ -1654,9 +1654,10 @@ itu artinya url tidak ditemukan.`);
           return conn.sendMessage(from, buta_menu);
         if (checklimitUser(sender) <= 0) return reply(limitabis);
         if (!q) return reply(`*Contoh:*\n${prefix}playmp4 link`);
-        fetchJson(`https://saipulanuar.ga/api/download/ytmp4?url=${q}`).then(
-          (zz) => {
-            var text_playmp4 = `*YOUTUBE PLAYMP4*
+        fetchJson(
+          `https://api.aldev.my.id/api/dowloader/yt?url=${q}&apikey=${setting.apikey}`
+        ).then((zz) => {
+          var text_playmp4 = `*YOUTUBE PLAYMP4*
 
 *title:* ${zz.result.title}
 *channel:* ${zz.result.channel}
@@ -1665,15 +1666,14 @@ itu artinya url tidak ditemukan.`);
 *type:* video/mp4
 
 Media sedang dikirim.`;
-            reply(text_playmp4);
-            conn.sendMessage(
-              sender,
-              { video: { url: zz.result.url }, caption: "Done!" },
-              { quoted: msg }
-            );
-            if (isGroup) return reply("Media sudah dikirim dichat pribadi.");
-          }
-        );
+          reply(text_playmp4);
+          conn.sendMessage(
+            sender,
+            { video: { url: zz.result.mp4.result }, caption: "Done!" },
+            { quoted: msg }
+          );
+          if (isGroup) return reply("Media sudah dikirim dichat pribadi.");
+        });
         confirmlimit(sender, 1);
         break;
 
