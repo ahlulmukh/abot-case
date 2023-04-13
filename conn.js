@@ -5196,7 +5196,7 @@ Video sedang dikirim...`);
         if (cekUser("id", sender) == null) return reply(mess.OnlyUser);
         if (checklimitUser(sender) <= 0) return reply(limitabis);
         try {
-          if (settingai.keyopenai === "ISI_APIKEY_OPENAI_DISINI")
+          if (setting.keyopenai === "ISI_APIKEY_OPENAI_DISINI")
             return reply(
               "Apikey belum diisi\n\nSilahkan isi terlebih dahulu apikeynya di file key.json\n\nApikeynya bisa dibuat di website: https://beta.openai.com/account/api-keys"
             );
@@ -5205,7 +5205,7 @@ Video sedang dikirim...`);
               `Chattingan dengan AI.\nTanyakan apa saja kepada ai dengan cara penggunaan \n\nContoh : ${prefix}${command} tolong berikan motivasi cinta`
             );
           const configuration = new Configuration({
-            apiKey: settingai.keyopenai,
+            apiKey: setting.keyopenai,
           });
           const openai = new OpenAIApi(configuration);
 
