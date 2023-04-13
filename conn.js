@@ -1586,7 +1586,7 @@ _Rp100.000 - ( Topup & Fitur 600+ )_
           (z) => {
             var text_playmp3 = `*YOUTUBE PLAYMP3*
 
-*title:* ${z.result.title}
+*title:s* ${z.result.title}
 *channel:* ${z.result.channel}
 *published:* ${z.result.published}
 *views:* ${z.result.views}
