@@ -23,7 +23,8 @@
 
 > Abot-MD adalah bot yang saya buat dan kembangkan sendiri
 > Jika kamu menemukan semacam bug, harap untuk dimaklumi.
-> script ini tidak support termux
+> script ini tidak support termux.
+> Open Contributor, bebas jika ingin fix scnya.
 
 # Bugs and Tester
 
