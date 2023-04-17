@@ -116,7 +116,6 @@ const axios = require("axios");
 const qs = require("querystring");
 const path = require("path");
 const fetch = require("node-fetch");
-let settingai = require("./database/key.json");
 const colors = require("colors/safe");
 const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
 const ffmpeg = require("fluent-ffmpeg");
