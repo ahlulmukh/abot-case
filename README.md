@@ -1,4 +1,5 @@
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
+
 </p>
 <p align="center">
 <a href="#"><img title="Abot" src="https://img.shields.io/badge/Ahlul-B0TZ-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
@@ -28,8 +29,8 @@
 
 # Bugs and Tester
 
-* Jika kamu menemukan bug jangan lupa buka Issues
-* Info Lebih Lanjut, Chat [owner-ahlul](https://wa.me/628126915328)
+- Jika kamu menemukan bug jangan lupa buka Issues
+- Info Lebih Lanjut, Chat [owner-ahlul](https://wa.me/628126915328)
 
 ###
 
@@ -49,24 +50,7 @@
 
 ## FEATURE SCRIPT 💡
 
-| FEATURE MY SCRIPT | 🌱  |
-| ----------------- | --- |
-| Sticker           | ✔️  |
-| Chat GPT          | ✔️  |
-| Owner Menu        | ✔️  |
-| Download          | ✔️  |
-| Group Menu        | ✔️  |
-| Register User     | ✔️  |
-| Limit User        | ✔️  |
-| Converter Menu    | ✔️  |
-| Main Menu         | ✔️  |
-| User Menu         | ✔️  |
-| Store Menu        | ✔️  |
-| Bug Menu          | ✔️  |
-| Logomaker Menu    | ✔️  |
-| Anonymouse Menu   | ✔️  |
-| Menfess           | ✔️  |
-| And More          | ✔️  |
+Ini adalah v2 only button, baru tersedia fiture group menu, sticker maker, next bakal diupdate lagi :D
 
 ## Cara Instal
 
@@ -116,12 +100,6 @@ cd AbotMD-Release
 npm install
 npm update
 ```
-
-## Setting Open AI Key
-
-- go first to website openai [`Click Here`](https://openai.com/blog/openai-api)
-- and go to folder database/key.json
-- change ISI_APIKEY_OPENAI_DISINI to your apikey
 
 ## Setting Apikey
 
