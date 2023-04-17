@@ -50,7 +50,7 @@
 
 ## FEATURE SCRIPT 💡
 
-Ini adalah v2 only button, baru tersedia fiture group menu, sticker maker, next bakal diupdate lagi :D
+Ini adalah v2 only button, agar support wa ori terbaru, baru tersedia fiture group menu, sticker maker, next bakal diupdate lagi :D
 
 ## Cara Instal
 
