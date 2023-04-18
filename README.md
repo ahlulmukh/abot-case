@@ -1,91 +1,53 @@
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
+<img src="https://camo.githubusercontent.com/82291b0fe831bfc6781e07fc5090cbd0a8b912bb8b8d4fec0696c881834f81ac/68747470733a2f2f70726f626f742e6d656469612f394575424971676170492e676966" width="800" height="3">
 
-</p>
 <p align="center">
-<a href="#"><img title="Abot" src="https://img.shields.io/badge/Ahlul-B0TZ-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
+<img src="https://raw.githubusercontent.com/Chandra-XD/cn-grabbed-result/main/media/gif/itsuka%20kotori%20on%20Tumblr.gif" />
 </p>
-<p align="center">
-<a href="https://github.com/ahlulmukh/Abot-MD"><img title="Creator" src="https://img.shields.io/badge/Author-Ahlul-red.svg?style=for-the-badge&logo=github"></a>
-</p>
-<p align="center">
-<a href="https://github.com/ahlulmukh/followers"><img title="Followers" src="https://img.shields.io/github/followers/ahlulmukh ?color=red&style=flat-square"></a>
-<a href="https://github.com/ahlulmukh/Abot-MD/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/ahlulmukh/Abot-MD?color=blue&style=flat-square"></a>
-<a href="https://github.com/ahlulmukh/Abot-MD/network/members"><img title="Forks" src="https://img.shields.io/github/forks/ahlulmukh/Abot-MD?color=red&style=flat-square"></a>
-<a href="https://github.com/ahlulmukh/Abot-MD/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/ahlulmukh/Abot-MD?label=Watchers&color=blue&style=flat-square"></a>
-<a href="https://github.com/ahlulmukh/Abot-MD/"><img title="Open Source" src="https://badges.frapsoft.com/os/v2/open-source.svg?v=103"></a>
-<a href="https://github.com/ahlulmukh/Abot-MD/"><img title="Size" src="https://img.shields.io/github/repo-size/ahlulmukh/Abot-MD?style=flat-square&color=green"></a>
-<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fahlulmukh%2FAbot-MD&count_bg=%2379C83D&title_bg=%23555555&icon=probot.svg&icon_color=%2300FF6D&title=hits&edge_flat=false"/></a>
-<a href="https://github.com/ahlulmukh/Abot-MD/graphs/commit-activity"><img height="20" src="https://img.shields.io/badge/Maintained%3F-no-green.svg"></a>&nbsp;&nbsp;
-</p>
+<a href="https://visitor-badge.glitch.me/badge?page_id=ahlulmukh/Abot-MD"><img title="Visitor" src="https://visitor-badge.glitch.me/badge?page_id=ahlulmukh/Abot-MD"></a>
+<a href="https://github.com/ahlulmukh/Abot-MD/network/members"><img title="Forks" src="https://img.shields.io/github/forks/ahlulmukh/Abot-MD?label=Forks&color=blue&style=flat-square"></a>
+<a href="https://github.com/ahlulmukh/Abot-MD/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/ahlulmukh/Abot-MD?label=Watchers&color=green&style=flat-square"></a>
+<a href="https://github.com/ahlulmukh/Abot-MD/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/ahlulmukh/Abot-MD?label=Stars&color=yellow&style=flat-square"></a>
+<a href="https://github.com/ahlulmukh/Abot-MD/graphs/contributors"><img title="Contributors" src="https://img.shields.io/github/contributors/ahlulmukh/Abot-MD?label=Contributors&color=blue&style=flat-square"></a>
+<a href="https://github.com/ahlulmukh/Abot-MD/issues"><img title="Issues" src="https://img.shields.io/github/issues/ahlulmukh/Abot-MD?label=Issues&color=success&style=flat-square"></a>
+<a href="https://github.com/ahlulmukh/Abot-MD/issues?q=is%3Aissue+is%3Aclosed"><img title="Issues" src="https://img.shields.io/github/issues-closed/ahlulmukh/Abot-MD?label=Issues&color=red&style=flat-square"></a>
+<a href="https://github.com/ahlulmukh/Abot-MD/pulls"><img title="Pull Request" src="https://img.shields.io/github/issues-pr/ahlulmukh/Abot-MD?label=PullRequest&color=success&style=flat-square"></a>
+<a href="https://github.com/ahlulmukh/Abot-MD/pulls?q=is%3Apr+is%3Aclosed"><img title="Pull Request" src="https://img.shields.io/github/issues-pr-closed/ahlulmukh/Abot-MD?label=PullRequest&color=red&style=flat-square"></a>
+<br>
+<br>
+<details>
+ <summary>Changelog</summary>
 
-<h2 align="left">Catatan (Note)</h2>
+## Senin, 18 April 2023
 
-###
+- Release V2<br>
+  sebelumya sudah release v1 silahkan download jika ingin memakai yang v1 pada tab release.
+- Fix button untuk wa original<br>
+  buttor sudah support untuk wa ori
+- Remove List Menu<br>
+  Karena update wa terbaru list sudah dihilangkan
+- Pembutan ulang fiture baru<br>
+  Fiture yang baru tersedia yaitu fiture group,dan pembuatan sticker, yang lainnya akan ditambahkan terus.
 
-> Abot-MD adalah bot yang saya buat dan kembangkan sendiri
-> Jika kamu menemukan semacam bug, harap untuk dimaklumi.
-> script ini tidak support termux.
-> Open Contributor, bebas jika ingin fix scnya.
+</details>
+<details>
+ <summary>Cara Pemasangan</summary>
 
-# Bugs and Tester
+## FOR TERMUX/UBUNTU/SSH USER
 
-- Jika kamu menemukan bug jangan lupa buka Issues
-- Info Lebih Lanjut, Chat [owner-ahlul](https://wa.me/628126915328)
+```bash
+apt update && apt upgrade
+apt install git -y
+apt install nodejs -y
+apt install ffmpeg -y
+apt install imagemagick -y
+git clone https://github.com/ahlulmukh/Abot-MD
+cd Abot-MD
+pkg install yarn
+yarn
 
-###
-
-<div align="center">
-  <img height="200" src="https://i.pinimg.com/564x/03/33/23/033323221f22eaa931980054c5e4b317.jpg"  />
-</div>
-
-###
-
-<h2 align="center">Abot-MD</h2>
-
-###
-
-<p align="left">This is Script of WhatsApp multi device, working with Baileys</p>
-
-###
-
-## FEATURE SCRIPT 💡
-
-Ini adalah v2 only button, agar support wa ori terbaru, baru tersedia fiture group menu, sticker maker, next bakal diupdate lagi :D
-
-## Cara Instal
-
-## Node Modules
-
-Jika ingin node modules manual silahkan
-[`Download Disini`](https://drive.google.com/file/d/1jHyziX3707Dxdjzv7Rpt3RLsJED3S9Wo/view?usp=share_link)
-
-### FOR TERMUX USER
-
-1. Type mentioned below given commands one by one in Termux.
-
-```sh
-$ pkg upgrade && pkg update
-$ pkg install git -y
-$ pkg install nodejs -y
-$ pkg install ffmpeg -y
-$ pkg install imagemagick -y
-$ pkg install libwebp -y
-$ git clone https://github.com/ahlulmukh/AbotMD-Release.git
-$ cd AbotMD-Release
-$ npm i
-$ node .
 ```
 
-2. Wait for bot starting...
-3. Scan QR code from 2nd device. (Go to whatsapp > Linked Devices > Click on `link a device`)
-4. Now your bot is ready to rock n roll.
-
-#### If npm install failed, try using yarn instead of npm
-
-```sh
-$ pkg install yarn -y
-$ yarn install
-```
+---
 
 ## FOR WINDOWS/VPS/RDP USER
 
@@ -95,21 +57,119 @@ $ yarn install
 - Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/ahlulmukh/AbotMD-Release.git
-cd AbotMD-Release
+git clone https://github.com/ahlulmukh/Abot-MD
+cd Abot-MD
 npm install
 npm update
+npm start
 ```
 
-## Setting Apikey
+---
 
-- Go first to my website api [`Click Here`](https://api.aldev.my.id)
-- If you have account login first, if you don't have account you can create first
-- After your login or register get the apikey.
-- and go to config.json changer your apikey in config.json
+## Run
 
-## Donate
-
-<a href="https://saweria.co/ahlulmukh" target="_blank"><img src="https://user-images.githubusercontent.com/26188697/180601310-e82c63e4-412b-4c36-b7b5-7ba713c80380.png" alt="Donate For Ahlul" height="41" width="174"></a>
+```bash
+node .
+```
 
 ---
+
+## Arguments `node . [--options] [<session name>]`
+
+### `--session <file name>`
+
+Use another session with another name, default is `session.data.json`
+
+### `--prefix <prefixes>`
+
+- `prefixes` are seperated by each character
+  Set prefix
+
+### `--server`
+
+Used for [heroku](https://heroku.com/) or scan through website
+
+### `--db <json-server-url>`
+
+#### GET
+
+```http
+GET /
+Accept: application/json
+```
+
+#### POST
+
+```http
+POST /
+Content-Type: application/json
+
+{
+ data: {}
+}
+```
+
+### `--big-qr`
+
+If small qr unicode doesn't support
+
+### `--img`
+
+Enable image inspector through terminal
+
+### `--test`
+
+**Development** Testing Mode
+
+### `--trace`
+
+```js
+conn.logger.level = "trace";
+```
+
+### `--debug`
+
+```js
+conn.logger.level = "debug";
+```
+
+---
+
+</details>
+<details>
+ <summary>My Sosmed</summary><br>
+
+[![Instagram Badge](https://img.shields.io/badge/-Instagram-e4405f?style=flat-square&logo=Instagram&logoColor=white)](https://www.instagram.com/ahlulmukh)
+[![Facebook Badge](https://img.shields.io/badge/-Facebook-0088cc?style=flat-square&logo=Facebook&logoColor=white)](https://facebook.com/ahlulmukh)
+[![Telegram Badge](https://img.shields.io/badge/-Telegram-0088cc?style=flat-square&logo=Telegram&logoColor=white)](https://t.me/ahlulmukh)
+[![Whatsapp Badge](https://img.shields.io/badge/-Whatsapp-%808080?style=flat-square&logo=Whatsapp&logoColor=white)](https://s.id/1Gqvt)
+[![Email Badge](https://img.shields.io/badge/Email-3b5998?style=flat-square&logo=email&logoColor=white)](mailto:ahluldev20@gmail.com)
+<a href="https://github.com/ahlulmukh"><img src="https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github" />
+
+</details>
+
+<details>
+ <summary>Donate Me</summary>
+
+### Pulsa
+
+- Tsel: 628126915328
+
+### Uang digital
+
+<!-- - [Saweria]()
+- [Trakteer]() -->
+</details>
+<details>
+ <summary>Thanks To</summary>
+
+#### Thank's To
+
+- Allah SWT
+- Orang Tua
+- [Adiwajshing](https://github.com/adiwajshing)
+- All creator bot
+- Dan semua yang selalu mendukung
+
+</details>
+<img src="https://camo.githubusercontent.com/82291b0fe831bfc6781e07fc5090cbd0a8b912bb8b8d4fec0696c881834f81ac/68747470733a2f2f70726f626f742e6d656469612f394575424971676170492e676966" width="800" height="3">
