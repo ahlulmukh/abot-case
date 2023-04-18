@@ -357,6 +357,14 @@ module.exports = abot = async (abot, m) => {
     };
 
     switch (command) {
+      //================ Main Menu ==================//
+
+      case "runtime":
+        {
+          m.reply(` BOT AKTIF SELAMA : ${runtime(process.uptime())} `);
+        }
+        break;
+
       case "speedtest":
         {
           m.reply("Testing Speed...");
@@ -391,6 +399,141 @@ module.exports = abot = async (abot, m) => {
         }
         break;
 
+      case "menu":
+        {
+          const mark_slebew = "0@s.whatsapp.net";
+          const more = String.fromCharCode(100);
+          const strip_ny = more.repeat(401);
+          let time = require("moment-timezone")
+            .tz("Asia/Jakarta")
+            .format("HH:mm:ss");
+          var footer_nya = `  𝕀ℕ𝔽𝕆
+    
+  🕓 Waktu : ${time2} WIB
+  🗓️ Tanggal : ${tanggal}
+  ⏱️ Runtime : ${runtime(process.uptime())}
+  
+  - Subs Yt : @aldevvv
+  
+  Jangan Lupa Donasi Kepada Bot`;
+          let menu = `Hai ${pushname} ${ucapanWaktu} 👋
+  
+  Silahkan Ketik .allmenu
+  Untuk Menggunakan Fitur Bot`;
+          let buttons = [
+            {
+              buttonId: "ytku",
+              buttonText: { displayText: "YOUTUBE" },
+              type: 1,
+            },
+            {
+              buttonId: "allmenu",
+              buttonText: { displayText: "SEMUA MENU" },
+              type: 1,
+            },
+          ];
+          let buttonMessage = {
+            text: `${menu}`,
+            footer: `${footer_nya}`,
+            buttons: buttons,
+            headerType: 1,
+          };
+          abot.sendMessage(m.chat, buttonMessage, { quoted: m });
+        }
+        break;
+
+      case "allmenu":
+        {
+          const more = String.fromCharCode(8206);
+          const readmore = more.repeat(4001);
+          var no = 1;
+          var ad = 1;
+          var footer_nya = `© AbotMD`;
+          var menu_nya = `Selamat ${ucapanWaktu} ${pushname}
+  
+  𝗚𝗥𝗢𝗨𝗣 𝗠𝗘𝗡𝗨 
+  ⿻ !Gc o/c
+  ⿻ !Revoke/R
+  ⿻ !Lgc 
+  ⿻ !k/kick @
+  ⿻ !Hidetag/tag
+  ⿻ !Antilink
+  ⿻ !Tagall text
+  
+  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 
+  ⿻ !S / Sticker
+  ⿻ !Toimg
+  ⿻ !Tt3 / Ttmp3
+  ⿻ !Tt / Ttmp4
+  ⿻ !Tts <Text>
+  ⿻ !Pint <Nama Gambar>
+  
+  
+  𝗥𝗨𝗡𝗧𝗜𝗠𝗘 
+  ${runtime(process.uptime())}
+  `;
+          var buttonMessage = {
+            text: menu_nya,
+            footer: footer_nya,
+            mentions: [sender],
+            buttons: [
+              {
+                buttonId: "myown",
+                buttonText: { displayText: "OWNER 👑" },
+                type: 1,
+              },
+            ],
+            headerType: 1,
+          };
+          abot.sendMessage(from, buttonMessage);
+        }
+        break;
+
+      case "groupmenu":
+        {
+          const more = String.fromCharCode(8206);
+          const readmore = more.repeat(4001);
+          var no = 1;
+          var ad = 1;
+          var footer_nya = `© abot`;
+          var menu_nya = `Halo ${m.pushName} 
+   𝗚𝗥𝗢𝗨𝗣 𝗠𝗘𝗡𝗨 
+   ⿻ !Gc o/c
+   ⿻ !Revoke/R
+   ⿻ !Lgc 
+   ⿻ !k/kick @
+   ⿻ !Add 628xx
+   ⿻ !Hidetag/tag
+   ⿻ !block @
+   ⿻ !unblock @
+   ⿻ !Tagall text
+   ⿻ !S / Sticker
+   ⿻ !Toimg
+  
+  𝗥𝗨𝗡𝗧𝗜𝗠𝗘
+  ${runtime(process.uptime())}
+  `;
+          var buttonMessage = {
+            text: menu_nya,
+            footer: footer_nya,
+            mentions: [sender],
+            buttons: [
+              {
+                buttonId: "owner",
+                buttonText: { displayText: "OWNER" },
+                type: 1,
+              },
+            ],
+            headerType: 1,
+          };
+          abot.sendMessage(from, buttonMessage);
+        }
+        break;
+
+      //================ Main Menu ==================//
+
+      //================ Maker Menu ==================//
+
       case "toimage":
       case "toimg":
         {
@@ -408,6 +551,76 @@ module.exports = abot = async (abot, m) => {
           });
         }
         break;
+
+      case "tts":
+        {
+          if (!q) return m.reply(`Contoh:\n${prefix + command} hallo bro`);
+          var tts = `https://saipulanuar.ga/api/text-to-audio/tts?text=${q}&idbahasa=id&apikey=jPHjZpQF`;
+          abot.sendMessage(
+            sender,
+            { audio: { url: tts }, mimetype: "audio/mpeg", ptt: true },
+            { quoted: m }
+          );
+        }
+        break;
+
+      case "url":
+      case "tourl":
+        {
+          if (!quoted)
+            throw `Kirim/Reply Image Dengan Caption ${prefix + command}`;
+          if (!/image/.test(mime))
+            throw `Kirim/Reply Image Dengan Caption ${prefix + command}`;
+          sticWait(from);
+          let { TelegraPh } = require("./lib/uploader");
+          let media = await abot.downloadAndSaveMediaMessage(quoted);
+          let anu = await TelegraPh(media);
+          try {
+            let link = await abot.sendMessage(m.chat, {
+              text: `${anu}\n\n 🖨️ Nih Link Nya`,
+            });
+          } catch (e) {
+            m.reply(
+              `Mohon Maaf Kemungkinan Server Telegraph Sedang Eror\nCoba Lakukan Beberapa Menit Lagi`
+            );
+          }
+        }
+        break;
+
+      case "sticker":
+      case "s":
+      case "stickergif":
+      case "sgif":
+        {
+          if (!quoted)
+            throw `Balas Video/Image Dengan Caption ${prefix + command}`;
+          if (/image/.test(mime)) {
+            let media = await quoted.download();
+            let encmedia = await abot.sendImageAsSticker(m.chat, media, m, {
+              packname: global.packname,
+              author: global.author,
+            });
+            await fs.unlinkSync(encmedia);
+          } else if (/video/.test(mime)) {
+            if ((quoted.msg || quoted).seconds > 11)
+              return m.reply("Maksimal 10 detik!");
+            let media = await quoted.download();
+            let encmedia = await abot.sendVideoAsSticker(m.chat, media, m, {
+              packname: global.packname,
+              author: global.author,
+            });
+            await fs.unlinkSync(encmedia);
+          } else {
+            throw `Kirim Gambar/Video Dengan Caption ${
+              prefix + command
+            }\nDurasi Video 1-9 Detik`;
+          }
+        }
+        break;
+
+      //=================================================//
+
+      //================== GROUP MENU ==================//
 
       case "promote":
         {
@@ -451,37 +664,6 @@ module.exports = abot = async (abot, m) => {
         }
         break;
 
-      case "sticker":
-      case "s":
-      case "stickergif":
-      case "sgif":
-        {
-          if (!quoted)
-            throw `Balas Video/Image Dengan Caption ${prefix + command}`;
-          if (/image/.test(mime)) {
-            let media = await quoted.download();
-            let encmedia = await abot.sendImageAsSticker(m.chat, media, m, {
-              packname: global.packname,
-              author: global.author,
-            });
-            await fs.unlinkSync(encmedia);
-          } else if (/video/.test(mime)) {
-            if ((quoted.msg || quoted).seconds > 11)
-              return m.reply("Maksimal 10 detik!");
-            let media = await quoted.download();
-            let encmedia = await abot.sendVideoAsSticker(m.chat, media, m, {
-              packname: global.packname,
-              author: global.author,
-            });
-            await fs.unlinkSync(encmedia);
-          } else {
-            throw `Kirim Gambar/Video Dengan Caption ${
-              prefix + command
-            }\nDurasi Video 1-9 Detik`;
-          }
-        }
-        break;
-
       case "k":
       case "kick":
         {
@@ -511,6 +693,88 @@ module.exports = abot = async (abot, m) => {
             { text: q ? q : "", mentions: participants.map((a) => a.id) },
             { quoted: repPy }
           );
+        }
+        break;
+
+      case "tagall":
+        if (!isGroupAdmins && !isOwner) return sticAdmin(from);
+        if (!q) return m.reply(`Teks?`);
+        let teks_tagall = `══✪〘 *😎 Tag All* 〙✪══\n\n${q ? q : ""}\n\n`;
+        for (let mem of participants) {
+          teks_tagall += `⚘ @${mem.id.split("@")[0]}\n`;
+        }
+        abot.sendMessage(from, {
+          text: teks_tagall,
+          mentions: participants.map((a) => a.id),
+        });
+        break;
+
+      case "c":
+        if (!isGroup)
+          return m.reply("Perintah ini hanya bisa digunakan digrup");
+        if (!isGroupAdmins)
+          return m.reply("Perintah ini hanya bisa digunakan oleh Admin Grup");
+        abot.groupSettingUpdate(from, "announcement");
+        m.reply(`succes`);
+        break;
+
+      case "linkgroup":
+      case "linkgc":
+      case "lgc":
+        {
+          if (!m.isGroup) throw groupon(from);
+          if (!isBotAdmins) throw SiGroupadmin(from);
+          let response = await abot.groupInviteCode(m.chat);
+          abot.sendText(
+            m.chat,
+            `https://chat.whatsapp.com/${response}\n\nLink Group : ${groupMetadata.subject}`,
+            m,
+            { detectLink: true }
+          );
+        }
+        break;
+
+      case "gc":
+      case "group":
+        if (!isGroupAdmins)
+          return m.reply("Perintah ini hanya bisa digunakan oleh Admin Grup");
+        if (!q)
+          return m.reply(
+            `Kirim perintah #${command} _options_\nOptions : close & open\nContoh : #${command} close`
+          );
+        if (args[0] == "c") {
+          abot.groupSettingUpdate(from, "announcement");
+          m.reply(
+            `Sukses mengizinkan hanya admin yang dapat mengirim pesan ke grup ini`
+          );
+        } else if (args[0] == "o") {
+          abot.groupSettingUpdate(from, "not_announcement");
+          m.reply(
+            `Sukses mengizinkan semua peserta dapat mengirim pesan ke grup ini`
+          );
+        } else {
+          m.reply(
+            `Kirim perintah #${command} _options_\nOptions : close & open\nContoh : #${command} close`
+          );
+        }
+        break;
+
+      //=================================================//
+
+      //================ Owner Menu ===============//
+
+      case "soff":
+        {
+          if (!isCreator) return m.reply("🦆");
+          abot.public = true;
+          m.reply("```Sukses Mematikan Mode Seleb```");
+        }
+        break;
+      case "son":
+        {
+          if (!isCreator) return m.reply("🦆");
+          abot.public = false;
+          m.reply("```Sukses Aktifkan Mode Seleb```");
         }
         break;
 
@@ -559,109 +823,6 @@ module.exports = abot = async (abot, m) => {
             fs.unlinkSync(medis);
             m.reply(`Sukses`);
           }
-        }
-        break;
-
-      case "tagall":
-        if (!isGroupAdmins && !isOwner) return sticAdmin(from);
-        if (!q) return m.reply(`Teks?`);
-        let teks_tagall = `══✪〘 *😎 Tag All* 〙✪══\n\n${q ? q : ""}\n\n`;
-        for (let mem of participants) {
-          teks_tagall += `⚘ @${mem.id.split("@")[0]}\n`;
-        }
-        abot.sendMessage(from, {
-          text: teks_tagall,
-          mentions: participants.map((a) => a.id),
-        });
-        break;
-
-      case "menu":
-        {
-          const mark_slebew = "0@s.whatsapp.net";
-          const more = String.fromCharCode(100);
-          const strip_ny = more.repeat(401);
-          let time = require("moment-timezone")
-            .tz("Asia/Jakarta")
-            .format("HH:mm:ss");
-          var footer_nya = `  𝕀ℕ𝔽𝕆
-  
-🕓 Waktu : ${time2} WIB
-🗓️ Tanggal : ${tanggal}
-⏱️ Runtime : ${runtime(process.uptime())}
-
-- Subs Yt : @aldevvv
-
-Jangan Lupa Donasi Kepada Bot`;
-          let menu = `Hai ${pushname} ${ucapanWaktu} 👋
-
-Silahkan Ketik .allmenu
-Untuk Menggunakan Fitur Bot`;
-          let buttons = [
-            {
-              buttonId: "ytku",
-              buttonText: { displayText: "YOUTUBE" },
-              type: 1,
-            },
-            {
-              buttonId: "allmenu",
-              buttonText: { displayText: "SEMUA MENU" },
-              type: 1,
-            },
-          ];
-          let buttonMessage = {
-            text: `${menu}`,
-            footer: `${footer_nya}`,
-            buttons: buttons,
-            headerType: 1,
-          };
-          abot.sendMessage(m.chat, buttonMessage, { quoted: m });
-        }
-        break;
-
-      case "allmenu":
-        {
-          const more = String.fromCharCode(8206);
-          const readmore = more.repeat(4001);
-          var no = 1;
-          var ad = 1;
-          var footer_nya = `© AbotMD`;
-          var menu_nya = `Selamat ${ucapanWaktu} ${pushname}
-
-𝗚𝗥𝗢𝗨𝗣 𝗠𝗘𝗡𝗨 
-⿻ !Gc o/c
-⿻ !Revoke/R
-⿻ !Lgc 
-⿻ !k/kick @
-⿻ !Hidetag/tag
-⿻ !Antilink
-⿻ !Tagall text
-
-𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 
-⿻ !S / Sticker
-⿻ !Toimg
-⿻ !Tt3 / Ttmp3
-⿻ !Tt / Ttmp4
-⿻ !Tts <Text>
-⿻ !Pint <Nama Gambar>
-
-
-𝗥𝗨𝗡𝗧𝗜𝗠𝗘 
-${runtime(process.uptime())}
-`;
-          var buttonMessage = {
-            text: menu_nya,
-            footer: footer_nya,
-            mentions: [sender],
-            buttons: [
-              {
-                buttonId: "myown",
-                buttonText: { displayText: "OWNER 👑" },
-                type: 1,
-              },
-            ],
-            headerType: 1,
-          };
-          abot.sendMessage(from, buttonMessage);
         }
         break;
 
@@ -718,164 +879,10 @@ ${runtime(process.uptime())}
         );
         break;
 
-      case "groupmenu":
-        {
-          const more = String.fromCharCode(8206);
-          const readmore = more.repeat(4001);
-          var no = 1;
-          var ad = 1;
-          var footer_nya = `© abot`;
-          var menu_nya = `Halo ${m.pushName} 
- 𝗚𝗥𝗢𝗨𝗣 𝗠𝗘𝗡𝗨 
- ⿻ !Gc o/c
- ⿻ !Revoke/R
- ⿻ !Lgc 
- ⿻ !k/kick @
- ⿻ !Add 628xx
- ⿻ !Hidetag/tag
- ⿻ !block @
- ⿻ !unblock @
- ⿻ !Tagall text
- ⿻ !S / Sticker
- ⿻ !Toimg
-
-𝗥𝗨𝗡𝗧𝗜𝗠𝗘
-${runtime(process.uptime())}
-`;
-          var buttonMessage = {
-            text: menu_nya,
-            footer: footer_nya,
-            mentions: [sender],
-            buttons: [
-              {
-                buttonId: "owner",
-                buttonText: { displayText: "OWNER" },
-                type: 1,
-              },
-            ],
-            headerType: 1,
-          };
-          abot.sendMessage(from, buttonMessage);
-        }
-        break;
-
-      case "wallpaper":
-        {
-          if (!quoted) throw `*Ngetik Yg Bener Dek!!* ${prefix + command}`;
-          sticWait(from);
-          if (!text) throw "Masukkan Query Title";
-          let { wallpaper } = require("./lib/scraper");
-          anu = await wallpaper(text);
-          result = anu[Math.floor(Math.random() * anu.length)];
-          let buttons = [
-            {
-              buttonId: `wallpaper ${text}`,
-              buttonText: { displayText: "Next Image" },
-              type: 1,
-            },
-          ];
-          let buttonMessage = {
-            image: { url: result.image[0] },
-            caption: `⭔ Title : ${result.title}\n⭔ Category : ${
-              result.type
-            }\n⭔ Detail : ${result.source}\n⭔ Media Url : ${
-              result.image[2] || result.image[1] || result.image[0]
-            }`,
-            footer: abot.user.name,
-            buttons: buttons,
-            headerType: 4,
-          };
-          abot.sendMessage(m.chat, buttonMessage, { quoted: fkontak });
-        }
-        break;
-
-      case "soff":
-        {
-          if (!isCreator) return m.reply("🦆");
-          abot.public = true;
-          m.reply("```Sukses Mematikan Mode Seleb```");
-        }
-        break;
-      case "son":
-        {
-          if (!isCreator) return m.reply("🦆");
-          abot.public = false;
-          m.reply("```Sukses Aktifkan Mode Seleb```");
-        }
-        break;
-
-      case "url":
-      case "tourl":
-        {
-          if (!quoted)
-            throw `Kirim/Reply Image Dengan Caption ${prefix + command}`;
-          if (!/image/.test(mime))
-            throw `Kirim/Reply Image Dengan Caption ${prefix + command}`;
-          sticWait(from);
-          let { TelegraPh } = require("./lib/uploader");
-          let media = await abot.downloadAndSaveMediaMessage(quoted);
-          let anu = await TelegraPh(media);
-          try {
-            let link = await abot.sendMessage(m.chat, {
-              text: `${anu}\n\n 🖨️ Nih Link Nya`,
-            });
-          } catch (e) {
-            m.reply(
-              `Mohon Maaf Kemungkinan Server Telegraph Sedang Eror\nCoba Lakukan Beberapa Menit Lagi`
-            );
-          }
-        }
-        break;
-
-      case "wikimedia":
-        {
-          if (!quoted) throw `*Ngetik Yg Bener Dek!!* ${prefix + command}`;
-          sticWait(from);
-          if (!text) throw "Masukkan Query Title";
-          let { wikimedia } = require("./lib/scraper");
-          anu = await wikimedia(text);
-          result = anu[Math.floor(Math.random() * anu.length)];
-          let buttons = [
-            {
-              buttonId: `wikimedia ${text}`,
-              buttonText: { displayText: "Next Image" },
-              type: 1,
-            },
-          ];
-          let buttonMessage = {
-            image: { url: result.image },
-            caption: `⭔ Title : ${result.title}\n⭔ Source : ${result.source}\n⭔ Media Url : ${result.image}`,
-            footer: abot.user.name,
-            buttons: buttons,
-            headerType: 4,
-          };
-          abot.sendMessage(m.chat, buttonMessage, { quoted: fkontak });
-        }
-        break;
       //=================================================//
-      case "quotesanime":
-      case "quoteanime":
-        {
-          let { quotesAnime } = require("./lib/scraper");
-          let anu = await quotesAnime();
-          result = anu[Math.floor(Math.random() * anu.length)];
-          let buttons = [
-            {
-              buttonId: `quotesanime`,
-              buttonText: { displayText: "Next" },
-              type: 1,
-            },
-          ];
-          let buttonMessage = {
-            text: `~_${result.quotes}_\n\nBy '${result.karakter}', ${result.anime}\n\n- ${result.up_at}`,
-            footer: "Press The Button Below",
-            buttons: buttons,
-            headerType: 2,
-          };
-          abot.sendMessage(m.chat, buttonMessage, { quoted: fkontak });
-        }
-        break;
-      //=================================================//
+
+      //================ Downlaoder Menu ===============//
+
       case "couple":
         {
           let anu = await fetchJson(
@@ -893,15 +900,6 @@ ${runtime(process.uptime())}
             { quoted: fkontak }
           );
         }
-        break;
-
-      case "c":
-        if (!isGroup)
-          return m.reply("Perintah ini hanya bisa digunakan digrup");
-        if (!isGroupAdmins)
-          return m.reply("Perintah ini hanya bisa digunakan oleh Admin Grup");
-        abot.groupSettingUpdate(from, "announcement");
-        m.reply(`succes`);
         break;
 
       case "ttnwm":
@@ -935,7 +933,6 @@ ${runtime(process.uptime())}
           }
         }
         break;
-      //=================================================//
 
       case "tiktok":
       case "tt":
@@ -1002,66 +999,89 @@ ${runtime(process.uptime())}
         }
         break;
 
-      //===========================================================
-
-      case "runtime":
+      case "quotesanime":
+      case "quoteanime":
         {
-          m.reply(` BOT AKTIF SELAMA : ${runtime(process.uptime())} `);
+          let { quotesAnime } = require("./lib/scraper");
+          let anu = await quotesAnime();
+          result = anu[Math.floor(Math.random() * anu.length)];
+          let buttons = [
+            {
+              buttonId: `quotesanime`,
+              buttonText: { displayText: "Next" },
+              type: 1,
+            },
+          ];
+          let buttonMessage = {
+            text: `~_${result.quotes}_\n\nBy '${result.karakter}', ${result.anime}\n\n- ${result.up_at}`,
+            footer: "Press The Button Below",
+            buttons: buttons,
+            headerType: 2,
+          };
+          abot.sendMessage(m.chat, buttonMessage, { quoted: fkontak });
         }
         break;
 
-      case "gc":
-      case "group":
-        if (!isGroupAdmins)
-          return m.reply("Perintah ini hanya bisa digunakan oleh Admin Grup");
-        if (!q)
-          return m.reply(
-            `Kirim perintah #${command} _options_\nOptions : close & open\nContoh : #${command} close`
-          );
-        if (args[0] == "c") {
-          abot.groupSettingUpdate(from, "announcement");
-          m.reply(
-            `Sukses mengizinkan hanya admin yang dapat mengirim pesan ke grup ini`
-          );
-        } else if (args[0] == "o") {
-          abot.groupSettingUpdate(from, "not_announcement");
-          m.reply(
-            `Sukses mengizinkan semua peserta dapat mengirim pesan ke grup ini`
-          );
-        } else {
-          m.reply(
-            `Kirim perintah #${command} _options_\nOptions : close & open\nContoh : #${command} close`
-          );
-        }
-        break;
-
-      case "linkgroup":
-      case "linkgc":
-      case "lgc":
+      case "wallpaper":
         {
-          if (!m.isGroup) throw groupon(from);
-          if (!isBotAdmins) throw SiGroupadmin(from);
-          let response = await abot.groupInviteCode(m.chat);
-          abot.sendText(
-            m.chat,
-            `https://chat.whatsapp.com/${response}\n\nLink Group : ${groupMetadata.subject}`,
-            m,
-            { detectLink: true }
-          );
+          if (!quoted) throw `*Ngetik Yg Bener Dek!!* ${prefix + command}`;
+          sticWait(from);
+          if (!text) throw "Masukkan Query Title";
+          let { wallpaper } = require("./lib/scraper");
+          anu = await wallpaper(text);
+          result = anu[Math.floor(Math.random() * anu.length)];
+          let buttons = [
+            {
+              buttonId: `wallpaper ${text}`,
+              buttonText: { displayText: "Next Image" },
+              type: 1,
+            },
+          ];
+          let buttonMessage = {
+            image: { url: result.image[0] },
+            caption: `⭔ Title : ${result.title}\n⭔ Category : ${
+              result.type
+            }\n⭔ Detail : ${result.source}\n⭔ Media Url : ${
+              result.image[2] || result.image[1] || result.image[0]
+            }`,
+            footer: abot.user.name,
+            buttons: buttons,
+            headerType: 4,
+          };
+          abot.sendMessage(m.chat, buttonMessage, { quoted: fkontak });
         }
         break;
 
-      case "tts":
+      //================ Downloader Menu ===============//
+
+      //================ Search Menu ===============//
+
+      case "wikimedia":
         {
-          if (!q) return m.reply(`Contoh:\n${prefix + command} hallo bro`);
-          var tts = `https://saipulanuar.ga/api/text-to-audio/tts?text=${q}&idbahasa=id&apikey=jPHjZpQF`;
-          abot.sendMessage(
-            sender,
-            { audio: { url: tts }, mimetype: "audio/mpeg", ptt: true },
-            { quoted: m }
-          );
+          if (!quoted) throw `*Ngetik Yg Bener Dek!!* ${prefix + command}`;
+          sticWait(from);
+          if (!text) throw "Masukkan Query Title";
+          let { wikimedia } = require("./lib/scraper");
+          anu = await wikimedia(text);
+          result = anu[Math.floor(Math.random() * anu.length)];
+          let buttons = [
+            {
+              buttonId: `wikimedia ${text}`,
+              buttonText: { displayText: "Next Image" },
+              type: 1,
+            },
+          ];
+          let buttonMessage = {
+            image: { url: result.image },
+            caption: `⭔ Title : ${result.title}\n⭔ Source : ${result.source}\n⭔ Media Url : ${result.image}`,
+            footer: abot.user.name,
+            buttons: buttons,
+            headerType: 4,
+          };
+          abot.sendMessage(m.chat, buttonMessage, { quoted: fkontak });
         }
         break;
+      //================ Search Menu ===============//
 
       default:
     }
