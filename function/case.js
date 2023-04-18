@@ -451,25 +451,50 @@ module.exports = abot = async (abot, m) => {
           var footer_nya = `© AbotMD`;
           var menu_nya = `Selamat ${ucapanWaktu} ${pushname}
   
-  𝗚𝗥𝗢𝗨𝗣 𝗠𝗘𝗡𝗨 
+  MAIN MENU
+  ⿻ !runtime
+  ⿻ !speedtest
+  ⿻ !menu 
+  ⿻ !allmenu
+  ⿻ !groupmenu
+
+  MAKER MENU
+  ⿻ !toimg
+  ⿻ !tts
+  ⿻ !tourl / url
+  ⿻ !sticker / s / stickergif /sgif
+  
+  GROUP MENU
   ⿻ !Gc o/c
+  ⿻ !promote
+  ⿻ !demote
   ⿻ !Revoke/R
   ⿻ !Lgc 
   ⿻ !k/kick @
   ⿻ !Hidetag/tag
   ⿻ !Antilink
   ⿻ !Tagall text
+
+  Owner Menu
+  ⿻ !soff
+  ⿻ !soon
+  ⿻ !setppbot
+  ⿻ !addprem
+  ⿻ !delprem
+  ⿻ !listprem
+
+  Downloader Menu
+  ⿻ !couple
+  ⿻ !ttnwm
+  ⿻ !tiktok
+  ⿻ !ttmp3
+  ⿻ !quotesanime
+  ⿻ !wallpaper
+
+  Search Menu
+  ⿻ !wikimedia
   
-  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 
-  ⿻ !S / Sticker
-  ⿻ !Toimg
-  ⿻ !Tt3 / Ttmp3
-  ⿻ !Tt / Ttmp4
-  ⿻ !Tts <Text>
-  ⿻ !Pint <Nama Gambar>
-  
-  
-  𝗥𝗨𝗡𝗧𝗜𝗠𝗘 
+  RUNTIME
   ${runtime(process.uptime())}
   `;
           var buttonMessage = {
@@ -847,6 +872,7 @@ module.exports = abot = async (abot, m) => {
         );
         m.reply(`Nomor ${bnnd} Sudah Terdaftar Ke Premium!!!`);
         break;
+
       case "delprem":
         if (!isCreator) return m.reply("```Only Owner!!!```");
         if (!args[0])
