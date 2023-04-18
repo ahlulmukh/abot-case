@@ -17,6 +17,11 @@
 <details>
  <summary>Changelog</summary>
 
+## Selasa, 19 April 2023
+
+- Merapikan Menu
+- Fix Beberapa Variabel yang tidak penting
+
 ## Senin, 18 April 2023
 
 - Release V2<br>
