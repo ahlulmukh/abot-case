@@ -459,6 +459,9 @@ module.exports = abot = async (abot, m) => {
   ⿻ !allmenu
   ⿻ !groupmenu
 
+  AI MENU
+  ⿻ !ai
+
   MAKER MENU
   ⿻ !toimg
   ⿻ !tts
