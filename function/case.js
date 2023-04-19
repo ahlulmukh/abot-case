@@ -494,6 +494,8 @@ module.exports = abot = async (abot, m) => {
   ⿻ !ttmp3
   ⿻ !quotesanime
   ⿻ !wallpaper
+  ⿻ !facebokdl
+  ⿻ !fbmp3
 
   Search Menu
   ⿻ !wikimedia
