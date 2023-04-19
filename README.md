@@ -17,6 +17,11 @@
 <details>
  <summary>Changelog</summary>
 
+## Kamis, 20 April 2023
+
+- Add facebook video and audio downloader in menu
+- add fiture facebook video and audio downloader
+
 ## Rabu, 19 April 2023
 
 - Merapikan Menu
