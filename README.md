@@ -21,6 +21,7 @@
 
 - Merapikan Menu
 - Fix Beberapa Variabel yang tidak penting
+- Add Fiture ChatGPT OpenAI
 
 ## Selasa, 18 April 2023
 
@@ -79,68 +80,19 @@ node .
 
 ---
 
-## Arguments `node . [--options] [<session name>]`
-
-### `--session <file name>`
-
-Use another session with another name, default is `session.data.json`
-
-### `--prefix <prefixes>`
-
-- `prefixes` are seperated by each character
-  Set prefix
-
-### `--server`
-
-Used for [heroku](https://heroku.com/) or scan through website
-
-### `--db <json-server-url>`
-
-#### GET
-
-```http
-GET /
-Accept: application/json
-```
-
-#### POST
-
-```http
-POST /
-Content-Type: application/json
-
-{
- data: {}
-}
-```
-
-### `--big-qr`
-
-If small qr unicode doesn't support
-
-### `--img`
-
-Enable image inspector through terminal
-
-### `--test`
-
-**Development** Testing Mode
-
-### `--trace`
-
-```js
-conn.logger.level = "trace";
-```
-
-### `--debug`
-
-```js
-conn.logger.level = "debug";
-```
-
----
-
 </details>
+<details>
+
+ <summary>Konfigurasi</summary>
+
+```bash
+buka setting.js pada folder config/setting.js
+ubah nomor Creater, nomor onwer, dan lainnya yang pengen dirubah
+Tambahakn apikey open ai pada global.keyopenai agar chatgpt berfungsi
+```
+
+ </details>
+
 <details>
  <summary>My Sosmed</summary><br>
 
@@ -154,6 +106,7 @@ conn.logger.level = "debug";
 </details>
 
 <details>
+
  <summary>Donate Me</summary>
 
 ### Pulsa
