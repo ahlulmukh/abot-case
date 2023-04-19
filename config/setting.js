@@ -14,6 +14,7 @@ global.youtube = "";
 global.website = "";
 global.github = "";
 global.keyopenai = "ISI_APIKEY_OPENAI_DISINI";
+global.keyopenai = "2d2703d1";
 global.nomorowner = "https://wa.me/628126915328";
 global.region = "I`m From Indonesia";
 global.prefa = ["", "!", ".", "#", "-", "•"];

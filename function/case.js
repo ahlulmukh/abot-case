@@ -997,6 +997,69 @@ module.exports = abot = async (abot, m) => {
         }
         break;
 
+      case "facebook":
+      case "fbdl":
+        {
+          if (!q)
+            throw `Example : ${
+              prefix + command
+            } https://www.facebook.com/UstazAzharIdrusFansClub/videos/813224618838631`;
+          m.reply(`_Waitt... ⏳_`);
+          let data = await fetchJson(
+            `https://api.aldev.my.id/api/dowloader/fbdown?url=${q}&apikey=${global.apikey}`
+          );
+          try {
+            var buttons = [
+              {
+                buttonId: `fbaudio ${q}`,
+                buttonText: { displayText: "SOUND 🎶" },
+                type: 1,
+              },
+            ];
+            var buttonMessage = {
+              video: { url: data.result.HD },
+              caption: `> Title: ${data.result.title}\n> *Author : abot*`,
+              footer: `Facebook Downloader`,
+              buttons: buttons,
+              headerType: 5,
+            };
+            abot.sendMessage(m.chat, buttonMessage, { quoted: m });
+          } catch (e) {
+            m.reply(`Eror Bangsat URL Gak Valid Atau Fitur Sedang Eror`);
+          }
+        }
+        break;
+
+      case "fbaudio":
+      case "fbmp3":
+        try {
+          if (!text)
+            return m.reply(
+              `Example : ${
+                prefix + command
+              } https://www.facebook.com/UstazAzharIdrusFansClub/videos/813224618838631`
+            );
+          if (text.includes("https://www.facebook.com")) {
+            var link = args[0];
+          } else m.reply("Error Link");
+          let { data } = await axios.get(
+            `https://api.aldev.my.id/api/dowloader/fbdown?url=${link}&apikey=${global.apikey}`
+          );
+          abot.sendMessage(
+            m.chat,
+            {
+              audio: { url: data.result.audio },
+              mimetype: "audio/mp4",
+            },
+            { quoted: m }
+          );
+        } catch {
+          m.reply(
+            "Maaf Kak Fitur Sedang Error Silahkan Chat Owner Agar Segera Di Perbaiki"
+          );
+        }
+        break;
+
       case "tt3":
       case "ttmp3":
         try {
