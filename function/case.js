@@ -1062,6 +1062,38 @@ module.exports = abot = async (abot, m) => {
         }
         break;
 
+      case "youtubeaudio":
+      case "ytmp3":
+        try {
+          if (!text)
+            return m.reply(
+              `Example : ${prefix + command} https://youtu.be/3hXbjp-FcTc`
+            );
+          if (text.includes("https://youtu.be/")) {
+            var link = args[0];
+          } else if (text.includes("https://youtube.com/")) {
+            var link = args[0];
+          } else if (text.includes("https://www.youtube.com/")) {
+            var link = args[0];
+          } else m.reply("Error Link");
+          let { data } = await axios.get(
+            `https://api.aldev.my.id/api/dowloader/yt?url=${link}&apikey=${global.apikey}`
+          );
+          abot.sendMessage(
+            m.chat,
+            {
+              audio: { url: data.result.mp3.result },
+              mimetype: "audio/mp4",
+            },
+            { quoted: m }
+          );
+        } catch {
+          m.reply(
+            "Maaf Kak Fitur Sedang Error Silahkan Chat Owner Agar Segera Di Perbaiki"
+          );
+        }
+        break;
+
       case "tt3":
       case "ttmp3":
         try {
