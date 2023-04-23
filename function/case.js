@@ -943,7 +943,7 @@ module.exports = abot = async (abot, m) => {
             } https://vt.tiktok.com/ZSwWCk5o/`;
           m.reply(`Waiting...,Tunggu Sebentar Jangan Spam ANJ!!!`);
           let data = await fetchJson(
-            `https://api.lolhuman.xyz/api/tiktok?apikey=lolzass&url=${text}`
+            `https://api.aldev.my.id/api/dowloader/tikok?url=${text}&apikey=${global.apikey}`
           );
           try {
             var buttons = [
@@ -954,8 +954,8 @@ module.exports = abot = async (abot, m) => {
               },
             ];
             var buttonMessage = {
-              video: { url: data.result.link },
-              caption: `> Title: ${data.result.title}\n> Jangan Lupa Donasi Kak`,
+              video: { url: data.result.video_HD },
+              caption: `> Title: ${data.result.description}\n> Jangan Lupa Donasi Kak`,
               footer: `Abot`,
               buttons: buttons,
               headerType: 5,
@@ -976,7 +976,7 @@ module.exports = abot = async (abot, m) => {
             } https://vt.tiktok.com/ZSwWCk5o/`;
           m.reply(`_Waitt... ⏳_`);
           let data = await fetchJson(
-            `https://api.lolhuman.xyz/api/tiktok?apikey=321392f190efaa0a151e2c45&url=${q}`
+            `https://api.aldev.my.id/api/dowloader/tikok?url=${q}&apikey=${global.apikey}`
           );
           try {
             var buttons = [
@@ -987,8 +987,8 @@ module.exports = abot = async (abot, m) => {
               },
             ];
             var buttonMessage = {
-              video: { url: data.result.link },
-              caption: `> Title: ${data.result.title}\n> *Author : abot*`,
+              video: { url: data.result.audio },
+              caption: `> Title: ${data.result.description}\n> *Author : abot*`,
               footer: `TIKTOK`,
               buttons: buttons,
               headerType: 5,
