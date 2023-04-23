@@ -496,6 +496,7 @@ module.exports = abot = async (abot, m) => {
   ⿻ !wallpaper
   ⿻ !facebokdl
   ⿻ !fbmp3
+  ⿻ !facebokkdl
 
   Search Menu
   ⿻ !wikimedia
@@ -999,7 +1000,7 @@ module.exports = abot = async (abot, m) => {
         }
         break;
 
-      case "facebook":
+      case "facebookdl":
       case "fbdl":
         {
           if (!q)
