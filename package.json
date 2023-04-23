@@ -11,12 +11,12 @@
   "author": "abot-md",
   "license": "ISC",
   "dependencies": {
+    "baileys": "github:WhiskeySockets/Baileys",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@colors/colors": "^1.5.0",
     "anime-wallpaper": "^1.0.2",
     "awesome-phonenumber": "^2.70.0",
     "axios": "^0.24.0",
-    "baileys": "^6.0.7",
     "cfonts": "^2.9.1",
     "chalk": "^4.1.2",
     "cheerio": "^1.0.0-rc.12",
