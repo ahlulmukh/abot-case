@@ -50,7 +50,7 @@
 
 </details>
 
- <summary>Cara Pemasangan</summary>
+## Cara Pemasangan
 
 ## FOR TERMUX/UBUNTU/SSH USER
 
@@ -94,9 +94,7 @@ node .
 
 ---
 
-<details>
-
- <summary>Konfigurasi</summary>
+## Konfigurasi
 
 ```bash
 buka setting.js pada folder config/setting.js
@@ -104,10 +102,7 @@ ubah nomor Creater, nomor onwer, dan lainnya yang pengen dirubah
 Tambahakn apikey open ai pada global.keyopenai agar chatgpt berfungsi
 ```
 
- </details>
-
-<details>
- <summary>My Sosmed</summary><br>
+## My Sosmed
 
 [![Instagram Badge](https://img.shields.io/badge/-Instagram-e4405f?style=flat-square&logo=Instagram&logoColor=white)](https://www.instagram.com/ahlulmukh)
 [![Facebook Badge](https://img.shields.io/badge/-Facebook-0088cc?style=flat-square&logo=Facebook&logoColor=white)](https://facebook.com/ahlulmukh)
@@ -116,11 +111,7 @@ Tambahakn apikey open ai pada global.keyopenai agar chatgpt berfungsi
 [![Email Badge](https://img.shields.io/badge/Email-3b5998?style=flat-square&logo=email&logoColor=white)](mailto:ahluldev20@gmail.com)
 <a href="https://github.com/ahlulmukh"><img src="https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github" />
 
-</details>
-
-<details>
-
- <summary>Donate Me</summary>
+## Donate Me
 
 ### Pulsa
 
@@ -130,9 +121,6 @@ Tambahakn apikey open ai pada global.keyopenai agar chatgpt berfungsi
 
 <!-- - [Saweria]()
 - [Trakteer]() -->
-</details>
-<details>
- <summary>Thanks To</summary>
 
 #### Thank's To
 
@@ -142,5 +130,4 @@ Tambahakn apikey open ai pada global.keyopenai agar chatgpt berfungsi
 - All creator bot
 - Dan semua yang selalu mendukung
 
-</details>
 <img src="https://camo.githubusercontent.com/82291b0fe831bfc6781e07fc5090cbd0a8b912bb8b8d4fec0696c881834f81ac/68747470733a2f2f70726f626f742e6d656469612f394575424971676170492e676966" width="800" height="3">
