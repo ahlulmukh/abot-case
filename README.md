@@ -119,6 +119,9 @@ Tambahakn apikey open ai pada global.keyopenai agar chatgpt berfungsi
 
 ### Uang digital
 
+- Dana : 08126915328
+- Gojek : 08126915328
+
 <!-- - [Saweria]()
 - [Trakteer]() -->
 
