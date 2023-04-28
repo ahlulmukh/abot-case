@@ -49,7 +49,7 @@
   Fiture yang baru tersedia yaitu fiture group,dan pembuatan sticker, yang lainnya akan ditambahkan terus.
 
 </details>
-<details>
+
  <summary>Cara Pemasangan</summary>
 
 ## FOR TERMUX/UBUNTU/SSH USER
@@ -94,7 +94,6 @@ node .
 
 ---
 
-</details>
 <details>
 
  <summary>Konfigurasi</summary>
