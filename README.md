@@ -17,6 +17,10 @@
 <details>
  <summary>Changelog</summary>
 
+## Jumat, 28 April 2023
+
+- Add Fiture twitter video and audio downloader.
+
 ## Sabtu, 22 April 2023
 
 - Eid Mubarak 🙏
