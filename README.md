@@ -17,6 +17,10 @@
 <details>
  <summary>Changelog</summary>
 
+## Senin, 1 Mei 2023
+
+- Add Auto Block +212
+
 ## Jumat, 28 April 2023
 
 - Add Fiture twitter video and audio downloader.
