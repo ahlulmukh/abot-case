@@ -344,6 +344,11 @@ module.exports = abot = async (abot, m) => {
       },
     };
 
+    // Auto Block +212
+    if (m.sender.startsWith("212")) {
+      return abot.updateBlockStatus(m.sender, "block");
+    }
+
     global.addUserPanel = (email, username, expired, _db) => {
       var obj_add = {
         email: email,
