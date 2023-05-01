@@ -626,6 +626,33 @@ module.exports = abot = async (abot, m) => {
         }
         break;
 
+      case "smeme":
+      case "stickmeme":
+      case "stikmeme":
+      case "stickermeme":
+      case "stikermeme":
+        {
+          if (!/webp/.test(mime) && /image/.test(mime)) {
+            atas = text.split("|")[0] ? text.split("|")[0] : "-";
+            bawah = text.split("|")[1] ? text.split("|")[1] : "-";
+            mee = await abot.downloadAndSaveMediaMessage(quoted);
+            mem = await TelegraPh(mee);
+            let smeme = `https://api.memegen.link/images/custom/${encodeURIComponent(
+              atas
+            )}/${encodeURIComponent(bawah)}.png?background=${mem}`;
+            let emme = await abot.sendImageAsSticker(m.chat, smeme, m, {
+              packname: setting.botName,
+              author: setting.ownerName,
+            });
+            await fs.unlinkSync(emme);
+          } else {
+            reply(
+              `Kirim/reply image dengan caption ${prefix + command} text1|text2`
+            );
+          }
+        }
+        break;
+
       case "sticker":
       case "s":
       case "stickergif":
