@@ -20,6 +20,7 @@
 ## Senin, 1 Mei 2023
 
 - Add Auto Block +212
+- Add sticker meme maker
 
 ## Jumat, 28 April 2023
 
