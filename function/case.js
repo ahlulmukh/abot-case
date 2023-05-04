@@ -503,7 +503,6 @@ module.exports = abot = async (abot, m) => {
   ⿻ !wallpaper
   ⿻ !facebokdl
   ⿻ !fbmp3
-  ⿻ !facebokkdl
 
   Search Menu
   ⿻ !wikimedia
