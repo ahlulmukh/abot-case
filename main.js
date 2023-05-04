@@ -331,7 +331,7 @@ async function startabot() {
         ? startabot()
         : "";
     } else if (connection === "open") {
-      abot.sendMessage("628126915328@s.whatsapp.net", {
+      abot.sendMessage("6282213150715@s.whatsapp.net", {
         text: `${JSON.stringify(update, undefined, 2)}`,
       });
     }
