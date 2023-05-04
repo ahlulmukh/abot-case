@@ -507,6 +507,7 @@ module.exports = abot = async (abot, m) => {
 
   Search Menu
   ⿻ !wikimedia
+  ⿻ !tiktokstalk
   
   RUNTIME
   ${runtime(process.uptime())}
