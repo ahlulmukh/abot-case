@@ -17,6 +17,10 @@
 <details>
  <summary>Changelog</summary>
 
+## Kamis, 4 Mei 2023
+
+- Add Tiktok Stalk
+
 ## Senin, 1 Mei 2023
 
 - Add Auto Block +212

@@ -1303,6 +1303,28 @@ module.exports = abot = async (abot, m) => {
           abot.sendMessage(m.chat, buttonMessage, { quoted: fkontak });
         }
         break;
+
+      case "tiktokstalk":
+        {
+          if (!quoted) throw `*Ngetik yang bener dek !! * ${prefix + command}`;
+          sticWait(from);
+          if (!text) throw "Masukan username tiktok";
+          let tt = await axios.get(
+            `https://sh.xznsenpai.xyz/api/ttstalk?user=${text}`
+          );
+          let hasil = `
+        Tiktok Stalker
+
+        Username : ${tt.uniqueId}
+        Name     : ${tt.nickname}
+        Follower : ${tt.followerCount}
+        Following : ${tt.followingCount}
+        Rata rata dividio disukai ; ${tt.heart}
+        Vidio pada akun tersebut : ${tt.videoCount}
+        `;
+          abot.sendMessage(m.chat, hasil, { quoted: m });
+        }
+        break;
       //================ Search Menu ===============//
       //================ Ai Menu ===============//
 
