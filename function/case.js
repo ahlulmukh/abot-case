@@ -407,55 +407,17 @@ module.exports = abot = async (abot, m) => {
 
       case "menu":
         {
-          const mark_slebew = "0@s.whatsapp.net";
-          const more = String.fromCharCode(100);
-          const strip_ny = more.repeat(401);
-          let time = require("moment-timezone")
-            .tz("Asia/Jakarta")
-            .format("HH:mm:ss");
-          var footer_nya = `  𝕀ℕ𝔽𝕆
-    
+          const more = String.fromCharCode(8206);
+          var footer_nya = `© AbotMD`;
+          var menu_nya = `Selamat ${ucapanWaktu} ${pushname}
+  Info Bot
   🕓 Waktu : ${time2} WIB
   🗓️ Tanggal : ${tanggal}
   ⏱️ Runtime : ${runtime(process.uptime())}
-  
+
   - Subs Yt : @aldevvv
   
-  Jangan Lupa Donasi Kepada Bot`;
-          let menu = `Hai ${pushname} ${ucapanWaktu} 👋
-  
-  Silahkan Ketik .allmenu
-  Untuk Menggunakan Fitur Bot`;
-          let buttons = [
-            {
-              buttonId: "ytku",
-              buttonText: { displayText: "YOUTUBE" },
-              type: 1,
-            },
-            {
-              buttonId: "allmenu",
-              buttonText: { displayText: "SEMUA MENU" },
-              type: 1,
-            },
-          ];
-          let buttonMessage = {
-            text: `${menu}`,
-            footer: `${footer_nya}`,
-            buttons: buttons,
-            headerType: 1,
-          };
-          abot.sendMessage(m.chat, buttonMessage, { quoted: m });
-        }
-        break;
-
-      case "allmenu":
-        {
-          const more = String.fromCharCode(8206);
-          const readmore = more.repeat(4001);
-          var no = 1;
-          var ad = 1;
-          var footer_nya = `© AbotMD`;
-          var menu_nya = `Selamat ${ucapanWaktu} ${pushname}
+  Jangan Lupa Donasi Kepada Bot
   
   MAIN MENU
   ⿻ !runtime
