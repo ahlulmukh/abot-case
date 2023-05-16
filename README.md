@@ -17,6 +17,10 @@
 <details>
  <summary>Changelog</summary>
 
+## Rabu, 17 Mei 2023
+
+- Fix Menu Because Button Not Working Anymore Im fix to string all
+
 ## Kamis, 4 Mei 2023
 
 - Add Tiktok Stalk
