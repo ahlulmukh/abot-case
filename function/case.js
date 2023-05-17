@@ -408,8 +408,7 @@ module.exports = abot = async (abot, m) => {
       case "menu":
         {
           const more = String.fromCharCode(8206);
-          var footer_nya = `© AbotMD`;
-          var menu_nya = `Selamat ${ucapanWaktu} ${pushname}
+          var menu_nya = `${ucapanWaktu} ${pushname}
   Info Bot
   🕓 Waktu : ${time2} WIB
   🗓️ Tanggal : ${tanggal}
@@ -473,20 +472,7 @@ module.exports = abot = async (abot, m) => {
   RUNTIME
   ${runtime(process.uptime())}
   `;
-          var buttonMessage = {
-            text: menu_nya,
-            footer: footer_nya,
-            mentions: [sender],
-            buttons: [
-              {
-                buttonId: "myown",
-                buttonText: { displayText: "OWNER 👑" },
-                type: 1,
-              },
-            ],
-            headerType: 1,
-          };
-          abot.sendMessage(from, buttonMessage);
+          abot.sendMessage(from, { text: menu_nya }, { quoted: m });
         }
         break;
 
@@ -494,8 +480,6 @@ module.exports = abot = async (abot, m) => {
         {
           const more = String.fromCharCode(8206);
           const readmore = more.repeat(4001);
-          var no = 1;
-          var ad = 1;
           var footer_nya = `© abot`;
           var menu_nya = `Halo ${m.pushName} 
    𝗚𝗥𝗢𝗨𝗣 𝗠𝗘𝗡𝗨 
@@ -527,7 +511,7 @@ module.exports = abot = async (abot, m) => {
             ],
             headerType: 1,
           };
-          abot.sendMessage(from, buttonMessage);
+          abot.sendMessage(from, menu_nya, m);
         }
         break;
 
