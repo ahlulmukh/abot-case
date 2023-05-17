@@ -407,7 +407,6 @@ module.exports = abot = async (abot, m) => {
 
       case "menu":
         {
-          const more = String.fromCharCode(8206);
           var menu_nya = `${ucapanWaktu} ${pushname}
   Info Bot
   🕓 Waktu : ${time2} WIB
@@ -498,20 +497,7 @@ module.exports = abot = async (abot, m) => {
   𝗥𝗨𝗡𝗧𝗜𝗠𝗘
   ${runtime(process.uptime())}
   `;
-          var buttonMessage = {
-            text: menu_nya,
-            footer: footer_nya,
-            mentions: [sender],
-            buttons: [
-              {
-                buttonId: "owner",
-                buttonText: { displayText: "OWNER" },
-                type: 1,
-              },
-            ],
-            headerType: 1,
-          };
-          abot.sendMessage(from, menu_nya, m);
+          abot.sendMessage(from, { text: menu_nya }, { quoted: m });
         }
         break;
 
