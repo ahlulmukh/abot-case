@@ -394,7 +394,7 @@ module.exports = abot = async (abot, m) => {
                     type: 1,
                   },
                 ],
-                `SPEED RESPON abot`,
+                `SPEED RESPON BOT`,
                 stdout,
                 null,
                 abot.user.name,
@@ -460,7 +460,6 @@ module.exports = abot = async (abot, m) => {
   ⿻ !tiktok
   ⿻ !ttmp3
   ⿻ !quotesanime
-  ⿻ !wallpaper
   ⿻ !facebokdl
   ⿻ !fbmp3
 
@@ -907,61 +906,33 @@ module.exports = abot = async (abot, m) => {
             throw `Example : ${
               prefix + command
             } https://vt.tiktok.com/ZSwWCk5o/`;
-          m.reply(`Waiting...,Tunggu Sebentar Jangan Spam ANJ!!!`);
-          let data = await fetchJson(
-            `https://api.aldev.my.id/api/dowloader/tikok?url=${text}&apikey=${global.apikey}`
+          m.reply(`Waiting...`);
+          let json = await fetchJson(
+            `https://api.tiklydown.me/api/download?url=${text}`
           );
           try {
-            var buttons = [
+            let caption = `
+            ⭔ ID : ${json?.id}
+            ⭔ Title : ${json?.title}
+            ⭔ Created At : ${json?.created_at}
+            ⭔ Comment : ${json?.stats?.commentCount}
+            ⭔ Shared : ${json?.stats?.shareCount}
+            ⭔ Watched : ${json?.stats?.playCount}
+            ⭔ Saved : ${json?.stats?.saveCount}
+            ⭔ Duration : ${json?.video?.durationFormatted}
+            ⭔ Quality Video : ${json?.video?.ratio}
+            ⭔ Audio Title : ${json?.music?.title}
+            ⭔ Audio Author : ${json?.music?.author}`;
+            abot.sendMessage(
+              m.chat,
               {
-                buttonId: `ttmp3 ${text}`,
-                buttonText: { displayText: "♫ Back Sound" },
-                type: 1,
+                video: { url: json?.video?.noWatermark },
+                caption: caption,
               },
-            ];
-            var buttonMessage = {
-              video: { url: data.result.video_HD },
-              caption: `> Title: ${data.result.description}\n> Jangan Lupa Donasi Kak`,
-              footer: `Abot`,
-              buttons: buttons,
-              headerType: 5,
-            };
-            abot.sendMessage(m.chat, buttonMessage, { quoted: repPy });
+              { quoted: m }
+            );
           } catch (e) {
-            m.reply(`Eror Bangsat URL Gak Valid Atau Fitur Sedang Eror`);
-          }
-        }
-        break;
-
-      case "tiktok":
-      case "tt":
-        {
-          if (!q)
-            throw `Example : ${
-              prefix + command
-            } https://vt.tiktok.com/ZSwWCk5o/`;
-          m.reply(`_Waitt... ⏳_`);
-          let data = await fetchJson(
-            `https://api.aldev.my.id/api/dowloader/tikok?url=${q}&apikey=${global.apikey}`
-          );
-          try {
-            var buttons = [
-              {
-                buttonId: `ttmp3 ${q}`,
-                buttonText: { displayText: "SOUND 🎶" },
-                type: 1,
-              },
-            ];
-            var buttonMessage = {
-              video: { url: data.result.audio },
-              caption: `> Title: ${data.result.description}\n> *Author : abot*`,
-              footer: `TIKTOK`,
-              buttons: buttons,
-              headerType: 5,
-            };
-            abot.sendMessage(m.chat, buttonMessage, { quoted: m });
-          } catch (e) {
-            m.reply(`Eror Bangsat URL Gak Valid Atau Fitur Sedang Eror`);
+            m.reply(`Url Invalid`);
           }
         }
         break;
@@ -977,22 +948,13 @@ module.exports = abot = async (abot, m) => {
           let data = await fetchJson(
             `https://api.aldev.my.id/api/dowloader/fbdown?url=${q}&apikey=${global.apikey}`
           );
+          let result = data.result.HD;
           try {
-            var buttons = [
-              {
-                buttonId: `fbaudio ${q}`,
-                buttonText: { displayText: "SOUND 🎶" },
-                type: 1,
-              },
-            ];
-            var buttonMessage = {
-              video: { url: data.result.HD },
-              caption: `> Title: ${data.result.title}\n> *Author : abot*`,
-              footer: `Facebook Downloader`,
-              buttons: buttons,
-              headerType: 5,
-            };
-            abot.sendMessage(m.chat, buttonMessage, { quoted: m });
+            abot.sendMessage(
+              m.chat,
+              { video: result, text: "done" },
+              { quoted: m }
+            );
           } catch (e) {
             m.reply(`Eror Bangsat URL Gak Valid Atau Fitur Sedang Eror`);
           }
@@ -1135,13 +1097,13 @@ module.exports = abot = async (abot, m) => {
           } else if (text.includes("https://www.tiktok.com/")) {
             var link = args[0];
           } else m.reply("Error Link");
-          let { data } = await axios.get(
-            `https://saipulanuar.ga/api/download/tiktok?url=${link}`
+          let json = await fetchJson(
+            `https://api.tiklydown.me/api/download?url=${text}`
           );
           abot.sendMessage(
             m.chat,
             {
-              audio: { url: data.result.audio_original },
+              audio: { url: json?.music?.play_url },
               mimetype: "audio/mp4",
             },
             { quoted: m }
@@ -1159,50 +1121,8 @@ module.exports = abot = async (abot, m) => {
           let { quotesAnime } = require("./lib/scraper");
           let anu = await quotesAnime();
           result = anu[Math.floor(Math.random() * anu.length)];
-          let buttons = [
-            {
-              buttonId: `quotesanime`,
-              buttonText: { displayText: "Next" },
-              type: 1,
-            },
-          ];
-          let buttonMessage = {
-            text: `~_${result.quotes}_\n\nBy '${result.karakter}', ${result.anime}\n\n- ${result.up_at}`,
-            footer: "Press The Button Below",
-            buttons: buttons,
-            headerType: 2,
-          };
-          abot.sendMessage(m.chat, buttonMessage, { quoted: fkontak });
-        }
-        break;
-
-      case "wallpaper":
-        {
-          if (!quoted) throw `*Ngetik Yg Bener Dek!!* ${prefix + command}`;
-          sticWait(from);
-          if (!text) throw "Masukkan Query Title";
-          let { wallpaper } = require("./lib/scraper");
-          anu = await wallpaper(text);
-          result = anu[Math.floor(Math.random() * anu.length)];
-          let buttons = [
-            {
-              buttonId: `wallpaper ${text}`,
-              buttonText: { displayText: "Next Image" },
-              type: 1,
-            },
-          ];
-          let buttonMessage = {
-            image: { url: result.image[0] },
-            caption: `⭔ Title : ${result.title}\n⭔ Category : ${
-              result.type
-            }\n⭔ Detail : ${result.source}\n⭔ Media Url : ${
-              result.image[2] || result.image[1] || result.image[0]
-            }`,
-            footer: abot.user.name,
-            buttons: buttons,
-            headerType: 4,
-          };
-          abot.sendMessage(m.chat, buttonMessage, { quoted: fkontak });
+          let caption = `~_${result.quotes}_\n\nBy '${result.karakter}', ${result.anime}\n\n- ${result.up_at}`;
+          abot.sendMessage(m.chat, caption, { quoted: m });
         }
         break;
 
@@ -1218,21 +1138,12 @@ module.exports = abot = async (abot, m) => {
           let { wikimedia } = require("./lib/scraper");
           anu = await wikimedia(text);
           result = anu[Math.floor(Math.random() * anu.length)];
-          let buttons = [
-            {
-              buttonId: `wikimedia ${text}`,
-              buttonText: { displayText: "Next Image" },
-              type: 1,
-            },
-          ];
-          let buttonMessage = {
-            image: { url: result.image },
-            caption: `⭔ Title : ${result.title}\n⭔ Source : ${result.source}\n⭔ Media Url : ${result.image}`,
-            footer: abot.user.name,
-            buttons: buttons,
-            headerType: 4,
-          };
-          abot.sendMessage(m.chat, buttonMessage, { quoted: fkontak });
+          let caption = `⭔ Title : ${result.title}\n⭔ Source : ${result.source}\n⭔ Media Url : ${result.image}`;
+          abot.sendMessage(
+            m.chat,
+            { image: { url: result.image }, caption: caption },
+            { quoted: m }
+          );
         }
         break;
 
