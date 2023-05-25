@@ -17,6 +17,10 @@
 <details>
  <summary>Changelog</summary>
 
+## 25 Mei 2023
+
+- Add scraping ytplay and add fiture ytplay
+
 ## Rabu, 17 Mei 2023
 
 - Fix Menu Because Button Not Working Anymore Im fix to string all
