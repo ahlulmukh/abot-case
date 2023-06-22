@@ -451,61 +451,6 @@ async function startabot() {
     abot.relayMessage(jid, template.message, { messageId: template.key.id });
   };
 
-  abot.sendList = async (
-    jid,
-    title = "",
-    text = "",
-    buttext = "",
-    footer = "",
-    but = [],
-    options = {}
-  ) => {
-    var template = generateWAMessageFromContent(
-      m.chat,
-      proto.Message.fromObject({
-        listMessage: {
-          title: title,
-          description: text,
-          buttonText: buttext,
-          footerText: footer,
-          listType: "SELECT",
-          sections: but,
-          listType: 1,
-        },
-      }),
-      options
-    );
-    abot.relayMessage(jid, template.message, { messageId: template.key.id });
-  };
-
-  abot.sendButtonText = (
-    jid,
-    buttons = [],
-    text,
-    footer,
-    quoted = "",
-    options = {}
-  ) => {
-    let buttonMessage = {
-      text,
-      footer,
-      buttons,
-      headerType: 2,
-      ...options,
-    };
-    abot.sendMessage(jid, buttonMessage, { quoted, ...options });
-  };
-
-  abot.sendButMessage = async (id, text1, desc1, but = [], options) => {
-    let buttonMessage = {
-      text: text1,
-      footer: desc1,
-      buttons: but,
-      headerType: 1,
-    };
-    return abot.sendMessage(id, buttonMessage, { quoted: options });
-  };
-
   abot.parseMention = (text = "") => {
     return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(
       (v) => v[1] + "@s.whatsapp.net"
