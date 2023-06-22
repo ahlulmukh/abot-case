@@ -17,6 +17,10 @@
 <details>
  <summary>Changelog</summary>
 
+## 22 Juni 2023
+
+- Remove Function Sendlist and Button.
+
 ## 25 Mei 2023
 
 - Add scraping ytplay and add fiture ytplay
