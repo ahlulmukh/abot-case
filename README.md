@@ -67,6 +67,12 @@
 
 </details>
 
+## About This Bot
+
+```bash
+Bot ini menggunakan sistem case agar mudah digunakan. Jika ingin mengembangkan silahkan
+```
+
 ## Cara Pemasangan
 
 ## FOR TERMUX/UBUNTU/SSH USER
