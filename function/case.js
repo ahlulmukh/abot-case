@@ -6,6 +6,7 @@ const { exec } = require("child_process");
 const axios = require("axios");
 const moment = require("moment-timezone");
 const Jimp = require("jimp");
+const { ytMP3, ytMP4 } = require("abot-scraper");
 const { Configuration, OpenAIApi } = require("openai");
 const util = require("util");
 const {
@@ -454,6 +455,8 @@ module.exports = abot = async (abot, m) => {
 
   Downloader Menu
   ⿻ !couple
+  ⿻ !ytmp3
+  ⿻ !ytmp4
   ⿻ !twittervideo
   ⿻ !twittermp3
   ⿻ !ttnwm
@@ -1053,6 +1056,39 @@ module.exports = abot = async (abot, m) => {
         }
         break;
 
+      case "youtubevidio":
+      case "ytmp4":
+        try {
+          if (!text)
+            return m.reply(
+              `Example : ${prefix + command} https://youtu.be/3hXbjp-FcTc`
+            );
+          if (text.includes("https://youtu.be/")) {
+            var link = args[0];
+          } else if (text.includes("https://youtube.com/")) {
+            var link = args[0];
+          } else if (text.includes("https://www.youtube.com/")) {
+            var link = args[0];
+          } else m.reply("Error Link");
+          let json = await ytMP4(link);
+          let caption = `
+          ⭔ Judul : ${json.result.title}
+          ⭔ Size : ${json?.result.size}`;
+          abot.sendMessage(
+            m.chat,
+            {
+              video: { url: json.result.link },
+              caption: caption,
+            },
+            { quoted: m }
+          );
+        } catch {
+          m.reply(
+            "Maaf Kak Fitur Sedang Error Silahkan Chat Owner Agar Segera Di Perbaiki"
+          );
+        }
+        break;
+
       case "youtubeaudio":
       case "ytmp3":
         try {
@@ -1067,13 +1103,11 @@ module.exports = abot = async (abot, m) => {
           } else if (text.includes("https://www.youtube.com/")) {
             var link = args[0];
           } else m.reply("Error Link");
-          let { data } = await axios.get(
-            `https://api.aldev.my.id/api/dowloader/yt?url=${link}&apikey=${global.apikey}`
-          );
+          let json = await ytMP3(link);
           abot.sendMessage(
             m.chat,
             {
-              audio: { url: data.result.mp3.result },
+              audio: { url: json.result.link },
               mimetype: "audio/mp4",
             },
             { quoted: m }
@@ -1156,15 +1190,15 @@ module.exports = abot = async (abot, m) => {
           if (!quoted) throw `*Ngetik Yg Bener Dek!!* ${prefix + command}`;
           sticWait(from);
           if (!text) throw "Masukkan Query Title";
-          let { ytPlay } = require("./lib/scraper");
           let result = await ytPlay(text);
-          let caption = `⭔ Title : ${result.title}\n⭔ Source : ${result.souurlrce}`;
-          m.repy(caption);
-          abot.sendMessage(
-            m.chat,
-            { audio: { url: result.link }, mimetype: "audio/mpeg", ptt: true },
-            { quoted: m }
-          );
+          console.log(result);
+          // let caption = `⭔ Title : ${result.title}\n⭔ Source : ${result.souurlrce}`;
+          // m.repy(caption);
+          // abot.sendMessage(
+          //   m.chat,
+          //   { audio: { url: result.link }, mimetype: "audio/mpeg", ptt: true },
+          //   { quoted: m }
+          // );
         }
         break;
 
