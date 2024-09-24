@@ -22,15 +22,12 @@ const {
   PHONENUMBER_MCC,
 } = require("baileys");
 const pino = require("pino");
-const { Boom } = require("@hapi/boom");
 const fs = require("fs");
 const chalk = require("chalk");
-const figlet = require("figlet");
 const FileType = require("file-type");
 const path = require("path");
 const spinnies = new (require("spinnies"))();
 const PhoneNumber = require("awesome-phonenumber");
-const { color, bgcolor, mycolor } = require("./function/lib/color");
 const {
   imageToWebp,
   videoToWebp,
