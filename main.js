@@ -19,6 +19,7 @@ const {
   jidDecode,
   jidNormalizedUser,
   proto,
+  PHONENUMBER_MCC,
 } = require("baileys");
 const pino = require("pino");
 const { Boom } = require("@hapi/boom");
@@ -27,6 +28,7 @@ const chalk = require("chalk");
 const figlet = require("figlet");
 const FileType = require("file-type");
 const path = require("path");
+const spinnies = new (require("spinnies"))();
 const PhoneNumber = require("awesome-phonenumber");
 const { color, bgcolor, mycolor } = require("./function/lib/color");
 const {
@@ -46,6 +48,8 @@ const store = makeInMemoryStore({
   logger: pino().child({ level: "silent", stream: "store" }),
 });
 
+const config = require("./config/config.json");
+
 global.db = JSON.parse(fs.readFileSync("./function/database/database.json"));
 global.db.data = {
   users: {},
@@ -61,17 +65,12 @@ global.db.data = {
 async function startabot() {
   const { state, saveCreds } = await useMultiFileAuthState(global.sessionName);
   let { version, isLatest } = await fetchLatestBaileysVersion();
-  const { say } = require("cfonts");
-  say("ABOT", { font: "shade", align: "left", gradient: ["blue", "magenta"] });
-  await say("Abot", {
-    font: "console",
-    align: "left",
-    gradient: ["magenta", "red"],
-  });
-
   const abot = makeWASocket({
     logger: pino({ level: "silent" }),
-    printQRInTerminal: true,
+    printQRInTerminal:
+      config.pairing && config.pairing.state && config.pairing.number
+        ? false
+        : true,
     patchMessageBeforeSending: (message) => {
       const requiresPatch = !!(
         message.buttonsMessage ||
@@ -93,12 +92,44 @@ async function startabot() {
       }
       return message;
     },
-    browser: ["Bayu", "Chrome", "3.0.0"],
+    browser: ["Mac OS", "Safari", "10.15.7"],
     auth: state,
     version,
   });
 
+  spinnies.add("start", {
+    text: "Connecting . . .",
+  });
+
   store.bind(abot.ev);
+
+  if (
+    config.pairing &&
+    config.pairing.state &&
+    !abot.authState.creds.registered
+  ) {
+    var phoneNumber = config.pairing.number;
+    if (
+      !Object.keys(PHONENUMBER_MCC).some((v) =>
+        String(phoneNumber).startsWith(v)
+      )
+    ) {
+      spinnies.fail("start", {
+        text: `Invalid number, start with country code (Example : 62xxx)`,
+      });
+      process.exit(0);
+    }
+    setTimeout(async () => {
+      try {
+        let code = await abot.requestPairingCode(phoneNumber);
+        code = code.match(/.{1,4}/g)?.join("-") || code;
+        console.log(
+          chalk.black(chalk.bgGreen(` Your Pairing Code `)),
+          " : " + chalk.black(chalk.white(code))
+        );
+      } catch {}
+    }, 3000);
+  }
 
   abot.ev.on("messages.upsert", async (chatUpdate) => {
     try {
@@ -331,11 +362,12 @@ async function startabot() {
         ? startabot()
         : "";
     } else if (connection === "open") {
-      abot.sendMessage("6282213150715@s.whatsapp.net", {
-        text: `${JSON.stringify(update, undefined, 2)}`,
+      spinnies.succeed("start", {
+        text: `Terkoneksi, kamu login dengan ${
+          abot.user.name || abot.user.verifiedName || "WhatsApp Bot"
+        }`,
       });
     }
-    console.log(update);
   });
 
   abot.send5ButGif = async (
