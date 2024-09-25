@@ -597,20 +597,18 @@ module.exports = abot = async (abot, m) => {
             throw `Balas Video/Image Dengan Caption ${prefix + command}`;
           if (/image/.test(mime)) {
             let media = await quoted.download();
-            let encmedia = await abot.sendSticker(m.chat, media, m, {
+            await abot.sendSticker(m.chat, media, m, {
               packname: global.packname,
               author: global.author,
             });
-            await fs.unlinkSync(encmedia);
           } else if (/video/.test(mime)) {
             if ((quoted.msg || quoted).seconds > 11)
               return m.reply("Maksimal 10 detik!");
             let media = await quoted.download();
-            let encmedia = await abot.sendVideoAsSticker(m.chat, media, m, {
+            let encmedia = await abot.sendSticker(m.chat, media, m, {
               packname: global.packname,
               author: global.author,
             });
-            await fs.unlinkSync(encmedia);
           } else {
             throw `Kirim Gambar/Video Dengan Caption ${
               prefix + command
