@@ -372,40 +372,6 @@ module.exports = abot = async (abot, m) => {
         }
         break;
 
-      case "speedtest":
-        {
-          m.reply("Testing Speed...");
-          let cp = require("child_process");
-          let { promisify } = require("util");
-          let exec = promisify(cp.exec).bind(cp);
-          let o;
-          try {
-            o = await exec("python3 speed.py --share --secure");
-          } catch (e) {
-            o = e;
-          } finally {
-            let { stdout, stderr } = o;
-            if (stdout.trim())
-              abot.sendButtonText(
-                m.chat,
-                [
-                  {
-                    buttonId: "ping",
-                    buttonText: { displayText: "PING BOT" },
-                    type: 1,
-                  },
-                ],
-                `SPEED RESPON BOT`,
-                stdout,
-                null,
-                abot.user.name,
-                m
-              );
-            if (stderr.trim()) m.reply(stderr);
-          }
-        }
-        break;
-
       case "menu":
         {
           var menu_nya = `${ucapanWaktu} ${pushname}
@@ -420,7 +386,6 @@ module.exports = abot = async (abot, m) => {
   
   MAIN MENU
   ⿻ !runtime
-  ⿻ !speedtest
   ⿻ !menu 
   ⿻ !allmenu
   ⿻ !groupmenu
