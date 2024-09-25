@@ -28,12 +28,8 @@ const FileType = require("file-type");
 const path = require("path");
 const spinnies = new (require("spinnies"))();
 const PhoneNumber = require("awesome-phonenumber");
-const {
-  imageToWebp,
-  videoToWebp,
-  writeExifImg,
-  writeExifVid,
-} = require("./function/lib/exif");
+const fetch = require("node-fetch");
+const Exif = new (require("./function/lib/exif"))();
 const {
   smsg,
   isUrl,
@@ -562,29 +558,39 @@ async function startabot() {
       { quoted }
     );
 
-  abot.sendImageAsSticker = async (jid, path, quoted, options = {}) => {
-    let buff = Buffer.isBuffer(path)
+  abot.sendSticker = async (jid, path, quoted, options = {}) => {
+    let buffer = /^https?:\/\//.test(path)
+      ? await (await fetch(path)).buffer()
+      : Buffer.isBuffer(path)
       ? path
-      : /^data:.?\/.?;base64,/i.test(path)
+      : /^data:.*?\/.*?;base64,/i.test(path)
       ? Buffer.from(path.split`,`[1], "base64")
-      : /^https?:\/\//.test(path)
-      ? await await getBuffer(path)
-      : fs.existsSync(path)
-      ? fs.readFileSync(path)
       : Buffer.alloc(0);
-    let buffer;
-    if (options && (options.packname || options.author)) {
-      buffer = await writeExifImg(buff, options);
-    } else {
-      buffer = await imageToWebp(buff);
-    }
-
-    await abot.sendMessage(
+    let { mime } = await FileType.fromBuffer(buffer);
+    let convert = /image\/(jpe?g|png|gif)|octet/.test(mime)
+      ? options && (options.packname || options.author)
+        ? await Exif.writeExifImg(buffer, options)
+        : await Exif.imageToWebp(buffer)
+      : /video/.test(mime)
+      ? options && (options.packname || options.author)
+        ? await Exif.writeExifVid(buffer, options)
+        : await Exif.videoToWebp(buffer)
+      : /webp/.test(mime)
+      ? await Exif.writeExifWebp(buffer, options)
+      : Buffer.alloc(0);
+    await abot.sendPresenceUpdate("composing", jid);
+    return abot.sendMessage(
       jid,
-      { sticker: { url: buffer }, ...options },
-      { quoted }
+      {
+        sticker: {
+          url: convert,
+        },
+        ...options,
+      },
+      {
+        quoted,
+      }
     );
-    return buffer;
   };
 
   abot.sendVideoAsSticker = async (jid, path, quoted, options = {}) => {

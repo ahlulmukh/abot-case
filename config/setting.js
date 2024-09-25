@@ -6,8 +6,11 @@ global.ownerNumber = ["yournumber@s.whatsapp.net"];
 global.nomerOwner = "yournumber";
 global.namabotnya = "AbotMD";
 global.namaownernya = "Muq";
+
+// Sticker Creator
 global.packname = "© Created By";
 global.author = "AbotMD";
+
 global.sessionName = "session";
 global.group = "";
 global.youtube = "";
@@ -16,6 +19,10 @@ global.github = "";
 global.keyopenai = "ISI_APIKEY_OPENAI_DISINI";
 global.keyopenai = "2d2703d1";
 global.nomorowner = "https://wa.me/628126915328";
+
+// Scrap Lib
+global.scrap = new (require("../function/lib/lib.scrap.js"))();
+
 global.region = "I`m From Indonesia";
 global.prefa = ["", "!", ".", "#", "-", "•"];
 global.thumb = fs.readFileSync("./function/image/thumb.jpg");

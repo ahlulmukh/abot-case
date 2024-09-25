@@ -216,28 +216,28 @@ module.exports = abot = async (abot, m) => {
     };
 
     //=================================================//
-    var sticWait = (hehe) => {
+    var sticWait = () => {
       ano = fs.readFileSync("./function/image/wait.webp");
       abot.sendImageAsSticker(m.chat, ano, m, {
         packname: global.packname,
         author: global.author,
       });
     };
-    var sticAdmin = (hehe) => {
+    var sticAdmin = () => {
       ano = fs.readFileSync("./function/image/BotAdman.webp");
       abot.sendImageAsSticker(m.chat, ano, m, {
         packname: global.packname,
         author: global.author,
       });
     };
-    var sticOwner = (hehe) => {
+    var sticOwner = () => {
       ano = fs.readFileSync("./function/image/owner.webp");
       abot.sendImageAsSticker(m.chat, ano, m, {
         packname: global.packname,
         author: global.author,
       });
     };
-    var sticSukses = (hehe) => {
+    var sticSukses = () => {
       ano = fs.readFileSync("./function/image/SuksesCok.webp");
       abot.sendImageAsSticker(m.chat, ano, m, {
         packname: global.packname,
@@ -551,7 +551,7 @@ module.exports = abot = async (abot, m) => {
           let media = await abot.downloadAndSaveMediaMessage(quoted);
           let anu = await TelegraPh(media);
           try {
-            let link = await abot.sendMessage(m.chat, {
+            abot.sendMessage(m.chat, {
               text: `${anu}\n\n 🖨️ Nih Link Nya`,
             });
           } catch (e) {
@@ -571,16 +571,15 @@ module.exports = abot = async (abot, m) => {
           if (!/webp/.test(mime) && /image/.test(mime)) {
             atas = text.split("|")[0] ? text.split("|")[0] : "-";
             bawah = text.split("|")[1] ? text.split("|")[1] : "-";
-            mee = await abot.downloadAndSaveMediaMessage(quoted);
-            mem = await TelegraPh(mee);
+            mee = await quoted.download();
+            mem = await scrap.uploadImageV2(mee);
             let smeme = `https://api.memegen.link/images/custom/${encodeURIComponent(
               atas
-            )}/${encodeURIComponent(bawah)}.png?background=${mem}`;
-            let emme = await abot.sendImageAsSticker(m.chat, smeme, m, {
-              packname: setting.botName,
-              author: setting.ownerName,
+            )}/${encodeURIComponent(bawah)}.png?background=${mem.data.url}`;
+            await abot.sendSticker(m.chat, smeme, m, {
+              packname: global.packname,
+              author: global.author,
             });
-            await fs.unlinkSync(emme);
           } else {
             reply(
               `Kirim/reply image dengan caption ${prefix + command} text1|text2`
@@ -598,7 +597,7 @@ module.exports = abot = async (abot, m) => {
             throw `Balas Video/Image Dengan Caption ${prefix + command}`;
           if (/image/.test(mime)) {
             let media = await quoted.download();
-            let encmedia = await abot.sendImageAsSticker(m.chat, media, m, {
+            let encmedia = await abot.sendSticker(m.chat, media, m, {
               packname: global.packname,
               author: global.author,
             });
