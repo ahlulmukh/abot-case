@@ -9,7 +9,7 @@ global.namaownernya = "Muq";
 
 //Web Api
 global.APIs = {
-  skizo: "https://tools.betabotz.eu.org/",
+  betabotz: "https://tools.betabotz.eu.org/",
 };
 
 global.APIKeys = {
