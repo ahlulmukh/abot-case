@@ -43,6 +43,26 @@ const store = makeInMemoryStore({
 
 const config = require("./config/config.json");
 
+global.API = (name, path = "/", query = {}, apikeyqueryname) =>
+  (name in global.APIs ? global.APIs[name] : name) +
+  path +
+  (query || apikeyqueryname
+    ? "?" +
+      new URLSearchParams(
+        Object.entries({
+          ...query,
+          ...(apikeyqueryname
+            ? {
+                [apikeyqueryname]:
+                  global.APIKeys[
+                    name in global.APIs ? global.APIs[name] : name
+                  ],
+              }
+            : {}),
+        })
+      )
+    : "");
+
 global.db = JSON.parse(fs.readFileSync("./function/database/database.json"));
 global.db.data = {
   users: {},
