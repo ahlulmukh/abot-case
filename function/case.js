@@ -7,7 +7,6 @@ const axios = require("axios");
 const moment = require("moment-timezone");
 const Jimp = require("jimp");
 const { ytMP3, ytMP4 } = require("abot-scraper");
-const { Configuration, OpenAIApi } = require("openai");
 const util = require("util");
 const {
   runtime,
