@@ -875,7 +875,7 @@ module.exports = abot = async (abot, m) => {
             } https://vt.tiktok.com/ZSwWCk5o/`;
           m.reply(`Waiting...`);
           let json = await fetchJson(
-            `https://api.tiklydown.me/api/download?url=${text}`
+            `https://api.tiklydown.eu.org/api/download?url=${text}`
           );
           try {
             let caption = `
