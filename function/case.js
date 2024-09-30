@@ -911,14 +911,17 @@ module.exports = abot = async (abot, m) => {
               prefix + command
             } https://www.facebook.com/UstazAzharIdrusFansClub/videos/813224618838631`;
           m.reply(`_Waitt... ⏳_`);
-          let data = await fetchJson(
-            `https://api.aldev.my.id/api/dowloader/fbdown?url=${q}&apikey=${global.apikey}`
+          var response = await fetch(
+            API("betabotz", "tools/facebookdl", { url: q }, "")
           );
-          let result = data.result.HD;
+          var json = await response.json();
           try {
             abot.sendMessage(
               m.chat,
-              { video: result, text: "done" },
+              {
+                video: { url: json.result.HD },
+                caption: "done",
+              },
               { quoted: m }
             );
           } catch (e) {
