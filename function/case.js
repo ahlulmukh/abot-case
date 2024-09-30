@@ -1190,33 +1190,18 @@ module.exports = abot = async (abot, m) => {
 
       case "ai":
         try {
-          if (global.keyopenai === "ISI_APIKEY_OPENAI_DISINI")
-            return m.reply(
-              "Apikey belum diisi\n\nSilahkan isi terlebih dahulu apikeynya di file key.json\n\nApikeynya bisa dibuat di website: https://beta.openai.com/account/api-keys"
-            );
           if (!quoted)
             return m.reply(
               `Chattingan dengan AI.\nTanyakan apa saja kepada ai dengan cara penggunaan \n\nContoh : ${prefix}${command} tolong berikan motivasi cinta`
             );
-          const configuration = new Configuration({
-            apiKey: global.keyopenai,
-          });
-          const openai = new OpenAIApi(configuration);
-
-          const response = await openai.createChatCompletion({
-            model: "gpt-3.5-turbo",
-            messages: [{ role: "user", content: text }],
-          });
-          m.reply(`${response.data.choices[0].message.content}`);
+          var response = await fetch(
+            API("betabotz", "tools/openai", { q: text }, "")
+          );
+          var json = await response.json();
+          if (json.status != 200) return m.reply("Ai tidak dapat merespon");
+          m.reply(`${json.result}`);
         } catch (error) {
-          if (error.response) {
-            console.log(error.response.status);
-            console.log(error.response.data);
-            console.log(`${error.response.status}\n\n${error.response.data}`);
-          } else {
-            console.log(error);
-            m.reply("Maaf, sepertinya ada yang error :" + error.message);
-          }
+          m.reply("Maaf, sepertinya ada yang error :" + error.message);
         }
         break;
       //================ Ai Menu ===============//
