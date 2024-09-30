@@ -7,6 +7,15 @@ global.nomerOwner = "yournumber";
 global.namabotnya = "AbotMD";
 global.namaownernya = "Muq";
 
+//Web Api
+global.APIs = {
+  skizo: "https://tools.betabotz.eu.org/",
+};
+
+global.APIKeys = {
+  "https://tools.betabotz.eu.org/": "", //your apikeyhere,
+};
+
 // Sticker Creator
 global.packname = "© Created By";
 global.author = "AbotMD";
