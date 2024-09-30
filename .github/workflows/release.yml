@@ -1,0 +1,31 @@
+name: Generate Release Changelog
+
+# Action dijalankan saat ada tag baru di-push
+on:
+  push:
+    tags:
+      - "v*" # Akan dijalankan jika tag dimulai dengan "v", contoh: v1.0.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step untuk checkout kode dari repo
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step untuk menghasilkan changelog dari commit log
+      - name: Generate Changelog
+        run: |
+          git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"- %s" > changelog.md
+
+      # Step untuk membuat GitHub release dan attach changelog yang dihasilkan
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref }} # Tag yang di-push
+          release_name: Release ${{ github.ref }} # Nama rilis
+          body_path: changelog.md # Isi rilis diambil dari changelog
+          draft: false
+          prerelease: false
