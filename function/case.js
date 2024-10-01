@@ -428,6 +428,7 @@ module.exports = abot = async (abot, m) => {
   ⿻ !ttmp3
   ⿻ !quotesanime
   ⿻ !facebokdl
+  ⿻ !igdl
   ⿻ !fbmp3
 
   Search Menu
@@ -925,7 +926,34 @@ module.exports = abot = async (abot, m) => {
               { quoted: m }
             );
           } catch (e) {
-            m.reply(`Eror Bangsat URL Gak Valid Atau Fitur Sedang Eror`);
+            m.reply(`Fiture sedang error`);
+          }
+        }
+        break;
+
+      case "igdl":
+      case "ig":
+        {
+          if (!q)
+            throw `Example : ${
+              prefix + command
+            } https://www.instagram.com/p/CK0tLXyAzEI`;
+          m.reply(`_Waitt... ⏳_`);
+          var response = await fetch(
+            API("betabotz", "tools/instagramdl", { url: q }, "")
+          );
+          var json = await response.json();
+          try {
+            abot.sendMessage(
+              m.chat,
+              {
+                video: { url: json.result[0]._url },
+                caption: "done",
+              },
+              { quoted: m }
+            );
+          } catch (e) {
+            m.reply(`Fiture sedang error`);
           }
         }
         break;
