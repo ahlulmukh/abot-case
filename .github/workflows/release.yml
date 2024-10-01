@@ -17,8 +17,8 @@ jobs:
 
       - name: Generate Changelog
         run: |
-          # Ambil tag sebelumnya, jika tidak ada tag sebelumnya gunakan INITIAL_COMMIT
-          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "INITIAL_COMMIT")
+          # Ambil tag sebelumnya, jika tidak ada tag sebelumnya gunakan commit pertama
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)
           NEW_TAG=${{ github.ref_name }}
 
           echo "Previous tag: $PREVIOUS_TAG"
