@@ -11,14 +11,18 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Pastikan semua commit di-fetch
 
       - name: Generate Changelog
         run: |
-          # Ambil tag sebelumnya
-          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^)
+          # Ambil tag sebelumnya, jika tidak ada tag sebelumnya gunakan INITIAL_COMMIT
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "INITIAL_COMMIT")
           NEW_TAG=${{ github.ref_name }}
 
+          echo "Previous tag: $PREVIOUS_TAG"
+          echo "New tag: $NEW_TAG"
           echo "Generating changelog between $PREVIOUS_TAG and $NEW_TAG"
 
           echo '## Changelog' > changelog.md
@@ -33,7 +37,7 @@ jobs:
 
           echo '' >> changelog.md
           echo '### Chores' >> changelog.md
-          git log $PREVIOUS_TAG..$NEW_TAG --grep '^chore' --pretty=format:"- %h %s (%an)" >> changelog.md
+          git log $PREVIOUS_TAG..$NEW_TAG --grep '^chore' --pretty-format:"- %h %s (%an)" >> changelog.md
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
