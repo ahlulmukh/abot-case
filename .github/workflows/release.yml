@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - "v*" # Trigger saat ada tag yang di-push, misalnya v1.1.0
+      - "v*" # Akan berjalan setiap kali ada tag baru yang dipush
 
 jobs:
   release:
@@ -15,11 +15,23 @@ jobs:
 
       - name: Generate Changelog
         run: |
-          git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"- %h %s (%an)" > changelog.md
+          echo '## Changelog' > changelog.md
+          echo '' >> changelog.md
+
+          echo '### New Features' >> changelog.md
+          git log $(git describe --tags --abbrev=0)..HEAD --grep '^feat' --pretty=format:"- %h %s (%an)" >> changelog.md
+
+          echo '' >> changelog.md
+          echo '### Bug Fixes' >> changelog.md
+          git log $(git describe --tags --abbrev=0)..HEAD --grep '^fix' --pretty=format:"- %h %s (%an)" >> changelog.md
+
+          echo '' >> changelog.md
+          echo '### Chores' >> changelog.md
+          git log $(git describe --tags --abbrev=0)..HEAD --grep '^chore' --pretty=format:"- %h %s (%an)" >> changelog.md
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1 # Menggunakan 'action-gh-release' sebagai alternatif yang mendukung 'token'
+        uses: softprops/action-gh-release@v1
         with:
           body_path: changelog.md
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Menyediakan token melalui environment variable
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
