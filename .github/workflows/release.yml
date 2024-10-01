@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - "v*" # Akan berjalan setiap kali ada tag baru yang dipush
+      - "v*" # Akan berjalan setiap kali ada tag baru yang dipush (misal: v1.1.0)
 
 jobs:
   release:
@@ -15,19 +15,25 @@ jobs:
 
       - name: Generate Changelog
         run: |
+          # Ambil tag sebelumnya
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^)
+          NEW_TAG=${{ github.ref_name }}
+
+          echo "Generating changelog between $PREVIOUS_TAG and $NEW_TAG"
+
           echo '## Changelog' > changelog.md
           echo '' >> changelog.md
 
           echo '### New Features' >> changelog.md
-          git log $(git describe --tags --abbrev=0)..HEAD --grep '^feat' --pretty=format:"- %h %s (%an)" >> changelog.md
+          git log $PREVIOUS_TAG..$NEW_TAG --grep '^feat' --pretty=format:"- %h %s (%an)" >> changelog.md
 
           echo '' >> changelog.md
           echo '### Bug Fixes' >> changelog.md
-          git log $(git describe --tags --abbrev=0)..HEAD --grep '^fix' --pretty=format:"- %h %s (%an)" >> changelog.md
+          git log $PREVIOUS_TAG..$NEW_TAG --grep '^fix' --pretty=format:"- %h %s (%an)" >> changelog.md
 
           echo '' >> changelog.md
           echo '### Chores' >> changelog.md
-          git log $(git describe --tags --abbrev=0)..HEAD --grep '^chore' --pretty=format:"- %h %s (%an)" >> changelog.md
+          git log $PREVIOUS_TAG..$NEW_TAG --grep '^chore' --pretty=format:"- %h %s (%an)" >> changelog.md
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
