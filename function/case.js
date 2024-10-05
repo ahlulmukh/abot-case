@@ -976,7 +976,7 @@ module.exports = abot = async (abot, m) => {
           abot.sendMessage(
             m.chat,
             {
-              audio: { url: data.result.audio },
+              video: { url: data.result.audio },
               mimetype: "audio/mp4",
             },
             { quoted: m }
@@ -1000,14 +1000,16 @@ module.exports = abot = async (abot, m) => {
           if (text.includes("https://twitter.com/")) {
             var link = args[0];
           } else m.reply("Error Link");
-          let { data } = await axios.get(
-            `https://api.aldev.my.id/api/dowloader/twitter?url=${link}&apikey=${global.apikey}`
+
+          var response = await fetch(
+            API("betabotz", "tools/twitterdl", { url: link }, "")
           );
+          var json = await response.json();
           abot.sendMessage(
             m.chat,
             {
-              audio: { url: data.result.HD },
-              mimetype: "audio/mp4",
+              video: { url: json.result.mediaURLs[0] },
+              caption: "done",
             },
             { quoted: m }
           );
