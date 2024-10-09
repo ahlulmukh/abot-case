@@ -1227,6 +1227,10 @@ module.exports = abot = async (abot, m) => {
             return m.reply(
               `Chattingan dengan AI.\nTanyakan apa saja kepada ai dengan cara penggunaan \n\nContoh : ${prefix}${command} tolong berikan motivasi cinta`
             );
+          if (!text)
+            return m.reply(
+              `Chattingan dengan AI.\nTanyakan apa saja kepada ai dengan cara penggunaan \n\nContoh : ${prefix}${command} tolong berikan motivasi cinta`
+            );
           var response = await fetch(
             API("betabotz", "tools/openai", { q: text }, "")
           );
@@ -1245,6 +1249,10 @@ module.exports = abot = async (abot, m) => {
               `Chattingan dengan AI Gemini.\nTanyakan apa saja kepada ai dengan cara penggunaan \n\nContoh : ${prefix}${command} tolong berikan motivasi cinta`
             );
           }
+          if (!text)
+            return m.reply(
+              `Chattingan dengan AI.\nTanyakan apa saja kepada ai dengan cara penggunaan \n\nContoh : ${prefix}${command} tolong berikan motivasi cinta`
+            );
           var response = await fetch(
             API("ryzendesu", "api/ai/gemini", { text: text }, ""),
             {
