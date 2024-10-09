@@ -10,10 +10,12 @@ global.namaownernya = "Muq";
 //Web Api
 global.APIs = {
   betabotz: "https://tools.betabotz.eu.org/",
+  ryzendesu: "https://api.ryzendesu.vip/",
 };
 
 global.APIKeys = {
   "https://tools.betabotz.eu.org/": "", //your apikeyhere,
+  "https://api.ryzendesu.vip/": "", //your apikeyhere,
 };
 
 // Sticker Creator
