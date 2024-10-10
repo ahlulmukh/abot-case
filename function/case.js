@@ -1276,6 +1276,45 @@ module.exports = abot = async (abot, m) => {
         }
         break;
 
+      case "blackbox":
+        try {
+          if (!quoted) {
+            return m.reply(
+              `Chattingan dengan AI Blacbox.\nTanyakan apa saja kepada ai dengan cara penggunaan \n\nContoh : ${prefix}${command} tolong berikan motivasi cinta`
+            );
+          }
+          if (!text)
+            return m.reply(
+              `Chattingan dengan AI.\nTanyakan apa saja kepada ai dengan cara penggunaan \n\nContoh : ${prefix}${command} tolong berikan motivasi cinta`
+            );
+          var response = await fetch(
+            API(
+              "ryzendesu",
+              "api/ai/blackbox",
+              { chat: text, options: "gpt-4o" },
+              ""
+            ),
+            {
+              headers: {
+                "User-Agent":
+                  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
+              },
+            }
+          );
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          var contentType = response.headers.get("content-type");
+          if (!contentType || !contentType.includes("application/json")) {
+            throw new Error("Respon bukan JSON");
+          }
+          var json = await response.json();
+          m.reply(`${json.response}`);
+        } catch (error) {
+          m.reply("Maaf, sepertinya ada yang error: " + error.message);
+        }
+        break;
+
       //================ Ai Menu ===============//
 
       default:
