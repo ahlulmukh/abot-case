@@ -1178,25 +1178,6 @@ module.exports = abot = async (abot, m) => {
         }
         break;
 
-      case "play":
-      case "playyt":
-      case "playmp3":
-        {
-          if (!quoted) throw `*Ngetik Yg Bener Dek!!* ${prefix + command}`;
-          sticWait(from);
-          if (!text) throw "Masukkan Query Title";
-          let result = await ytPlay(text);
-          console.log(result);
-          // let caption = `⭔ Title : ${result.title}\n⭔ Source : ${result.souurlrce}`;
-          // m.repy(caption);
-          // abot.sendMessage(
-          //   m.chat,
-          //   { audio: { url: result.link }, mimetype: "audio/mpeg", ptt: true },
-          //   { quoted: m }
-          // );
-        }
-        break;
-
       case "tiktokstalk":
         {
           if (!quoted) throw `*Ngetik yang bener dek !! * ${prefix + command}`;
