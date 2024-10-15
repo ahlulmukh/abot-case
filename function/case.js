@@ -1021,36 +1021,6 @@ module.exports = abot = async (abot, m) => {
         }
         break;
 
-      case "twittermp3":
-      case "twtdlmp3":
-        try {
-          if (!text)
-            return m.reply(
-              `Example : ${
-                prefix + command
-              } https://twitter.com/faqeeyaaz/status/1242789155173617664?s=20&t=DRgdl9U8MwTwpY0o1o-96g`
-            );
-          if (text.includes("https://twitter.com/")) {
-            var link = args[0];
-          } else m.reply("Error Link");
-          let { data } = await axios.get(
-            `https://api.aldev.my.id/api/dowloader/twitter?url=${link}&apikey=${global.apikey}`
-          );
-          abot.sendMessage(
-            m.chat,
-            {
-              audio: { url: data.result.audio },
-              mimetype: "audio/mp4",
-            },
-            { quoted: m }
-          );
-        } catch {
-          m.reply(
-            "Maaf Kak Fitur Sedang Error Silahkan Chat Owner Agar Segera Di Perbaiki"
-          );
-        }
-        break;
-
       case "youtubevidio":
       case "ytmp4":
         try {
