@@ -423,14 +423,12 @@ module.exports = abot = async (abot, m) => {
   ⿻ !ytmp3
   ⿻ !ytmp4
   ⿻ !twittervideo
-  ⿻ !twittermp3
   ⿻ !ttnwm
   ⿻ !tiktok
   ⿻ !ttmp3
   ⿻ !quotesanime
   ⿻ !facebokdl
   ⿻ !igdl
-  ⿻ !fbmp3
 
   Search Menu
   ⿻ !wikimedia
@@ -958,9 +956,6 @@ module.exports = abot = async (abot, m) => {
           }
         }
         break;
-
-      case "fbaudio":
-      case "fbmp3":
         try {
           if (!text)
             return m.reply(
