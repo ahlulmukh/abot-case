@@ -392,6 +392,8 @@ module.exports = abot = async (abot, m) => {
   AI MENU
   ⿻ !ai
   ⿻ !gemini
+  ⿻ !remini
+  ⿻ !blackbox
 
   MAKER MENU
   ⿻ !toimg
@@ -1258,6 +1260,39 @@ module.exports = abot = async (abot, m) => {
           m.reply(`${json.response}`);
         } catch (error) {
           m.reply("Maaf, sepertinya ada yang error: " + error.message);
+        }
+        break;
+
+      case "remini":
+        {
+          if (!/webp/.test(mime) && /image/.test(mime)) {
+            mee = await quoted.download();
+            mem = await scrap.uploadImageV2(mee);
+            var response = await axios.get(
+              API(
+                "ryzendesu",
+                "api/ai/remini",
+                { url: mem.data.url, method: "enhance" },
+                ""
+              ),
+              {
+                responseType: "arraybuffer",
+                headers: {
+                  "User-Agent":
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, seperti Gecko) Chrome/58.0.3029.110 Safari/537.3",
+                },
+              }
+            );
+            if (response.status !== 200) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            var buffer = Buffer.from(response.data, "binary");
+            abot.sendMessage(from, { image: buffer }, { quoted: m });
+          } else {
+            reply(
+              `Kirim/reply image dengan caption ${prefix + command} text1|text2`
+            );
+          }
         }
         break;
 
