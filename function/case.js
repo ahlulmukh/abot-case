@@ -437,6 +437,7 @@ module.exports = abot = async (abot, m) => {
   ⿻ !tiktokstalk
   ⿻ !ytplay
   ⿻ !play
+  ⿻ !randomwaifu
   
   RUNTIME
   ${runtime(process.uptime())}
@@ -1140,6 +1141,33 @@ module.exports = abot = async (abot, m) => {
           abot.sendMessage(
             m.chat,
             { image: { url: result.image }, caption: caption },
+            { quoted: m }
+          );
+        }
+        break;
+
+      case "randomwaifu":
+        {
+          var response = await fetch(
+            API("ryzendesu", "api/weebs/sfw-waifu", ""),
+            {
+              headers: {
+                "User-Agent":
+                  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
+              },
+            }
+          );
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          var contentType = response.headers.get("content-type");
+          if (!contentType || !contentType.includes("application/json")) {
+            throw new Error("Respon bukan JSON");
+          }
+          var json = await response.json();
+          abot.sendMessage(
+            m.chat,
+            { image: { url: json.url }, caption: "ini dia waifunya banh" },
             { quoted: m }
           );
         }
