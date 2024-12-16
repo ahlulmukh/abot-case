@@ -555,6 +555,28 @@ module.exports = abot = async (abot, m) => {
         }
         break;
 
+      case "brat":
+      case "sbrat":
+        {
+          if (!text) return m.reply(`Kata katanya apa abangku?`);
+          var response = await axios.get(
+            API("ryzendesu", "api/sticker/brat", { text: text }, ""),
+            {
+              responseType: "arraybuffer",
+              headers: {
+                "User-Agent":
+                  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, seperti Gecko) Chrome/58.0.3029.110 Safari/537.3",
+              },
+            }
+          );
+          var buffer = Buffer.from(response.data, "binary");
+          await abot.sendSticker(m.chat, buffer, m, {
+            packname: global.packname,
+            author: global.author,
+          });
+        }
+        break;
+
       case "sticker":
       case "s":
       case "stickergif":
