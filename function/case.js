@@ -981,33 +981,6 @@ module.exports = abot = async (abot, m) => {
           }
         }
         break;
-        try {
-          if (!text)
-            return m.reply(
-              `Example : ${
-                prefix + command
-              } https://www.facebook.com/UstazAzharIdrusFansClub/videos/813224618838631`
-            );
-          if (text.includes("https://www.facebook.com")) {
-            var link = args[0];
-          } else m.reply("Error Link");
-          let { data } = await axios.get(
-            `https://api.aldev.my.id/api/dowloader/fbdown?url=${link}&apikey=${global.apikey}`
-          );
-          abot.sendMessage(
-            m.chat,
-            {
-              video: { url: data.result.audio },
-              mimetype: "audio/mp4",
-            },
-            { quoted: m }
-          );
-        } catch {
-          m.reply(
-            "Maaf Kak Fitur Sedang Error Silahkan Chat Owner Agar Segera Di Perbaiki"
-          );
-        }
-        break;
 
       case "twittervideo":
       case "twtdl":
