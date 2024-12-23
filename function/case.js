@@ -1168,6 +1168,40 @@ module.exports = abot = async (abot, m) => {
         }
         break;
 
+      case "pinterest":
+        {
+          if (!text) return m.reply(`Kata katanya apa abangku?`);
+          var response = await fetch(
+            API("ryzendesu", "api/search/pinterest", { query: text }, ""),
+            {
+              headers: {
+                "User-Agent":
+                  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
+              },
+            }
+          );
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          var contentType = response.headers.get("content-type");
+          if (!contentType || !contentType.includes("application/json")) {
+            throw new Error("Respon bukan JSON");
+          }
+          var json = await response.json();
+          if (json.length < 3) {
+            m.reply(`Gambar hanya ditemukan ${json.length} hasil.`);
+          } else {
+            for (let i = 0; i < 3; i++) {
+              abot.sendMessage(
+                m.chat,
+                { image: { url: json[i] }, caption: `Hasil ${i + 1}` },
+                { quoted: m }
+              );
+            }
+          }
+        }
+        break;
+
       case "tiktokstalk":
         {
           if (!quoted) throw `*Ngetik yang bener dek !! * ${prefix + command}`;
